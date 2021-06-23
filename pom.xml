@@ -221,6 +221,21 @@
 		    <version>2.12.3</version>
 		</dependency>
 		
+		<!-- popper js -->
+		<dependency>
+		    <groupId>org.webjars.npm</groupId>
+		    <artifactId>popper.js</artifactId>
+		    <version>1.16.1</version>
+		</dependency>
+		
+		<!-- bootstrap -->
+		<dependency>
+		    <groupId>org.webjars</groupId>
+		    <artifactId>bootstrap</artifactId>
+		    <version>4.6.0-1</version>
+		</dependency>
+		
+		
 		<!-- Test -->
 		<dependency>
 		    <groupId>org.junit.jupiter</groupId>
