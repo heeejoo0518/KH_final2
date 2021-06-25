@@ -1,4 +1,4 @@
-package com.kh.moyung;
+package com.kh.moyoung;
 
 import java.text.DateFormat;
 import java.util.Date;
