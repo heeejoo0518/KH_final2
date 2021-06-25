@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kh.mvc.board.model.mapper.BoardMapper">
+	<sql id="boardListSql">
+		SELECT  B.NO,
+				B.TITLE, 
+				M.ID, 
+				B.READCOUNT, 
+				B.ORIGINAL_FILENAME, 
+				B.RENAMED_FILENAME, 
+				B.CONTENT,
+				B.TYPE,
+				B.CREATE_DATE, 
+				B.MODIFY_DATE
+		FROM BOARD B
+		JOIN MEMBER M ON(B.WRITER_NO = M.NO)
+		WHERE B.STATUS = 'Y'
+	</sql>
+	
+	
+</mapper>

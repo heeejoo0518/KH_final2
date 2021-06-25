@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.kh.moyung">
+	<logger name="com.kh.moyoung">
 		<level value="info" />
 	</logger>
 	
