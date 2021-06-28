@@ -16,6 +16,10 @@
 	<button type="button" class="btn btn-dark">Dark</button>
 	<button type="button" class="btn btn-light">Light</button>
 	<button type="button" class="btn btn-link">Link</button>
+	
+	<p>
+		<a href="/WEB-INF/views/movie/movieDetail.jsp">영화 상세보기</a>
+	</p>
 </section>
 
 <%@ include file="/WEB-INF/views/common/footer.jsp"%>
