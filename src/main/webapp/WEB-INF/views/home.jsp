@@ -16,6 +16,8 @@
 	<button type="button" class="btn btn-dark">Dark</button>
 	<button type="button" class="btn btn-light">Light</button>
 	<button type="button" class="btn btn-link">Link</button>
+	 
+	<a href="${path }/review/write">리뷰 작성 페이지</a>
 </section>
 
 <%@ include file="/WEB-INF/views/common/footer.jsp"%>
