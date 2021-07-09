@@ -29,7 +29,7 @@
 			
 			<div id="check-permission">
 				<label>
-					<input type="checkbox" id="signup_cb1" name="signup_checkbox" value=""/>
+					<input type="checkbox" id="signup_cb1" name="signup_checkbox_all" value="" onclick="checkAllPermission();"/>
 					<span><b>전체 약관에 동의합니다</b></span>
 				</label>
 				<label>
@@ -259,6 +259,22 @@
 
 </script>
 
+<script>
+	function checkAllPermission(){
+		var isChecked = $('#signup_cb1').is(":checked");
+		$("input[name=signup_checkbox]:checkbox").prop("checked", isChecked);
+	}
+	
+	$('input[name=signup_checkbox]').on('click',function(){
+		if($('input[name=signup_checkbox]:checked').length == $('input[name=signup_checkbox]').length){
+			$("input[name=signup_checkbox_all]:checkbox").prop("checked", true);
+		}else{
+			$("input[name=signup_checkbox_all]:checkbox").prop("checked", false);
+		}
+	});
+	
+</script>
+
 <%@ include file="/WEB-INF/views/common/modal.jsp"%>
 <script>
 	function openModal(type){
@@ -275,3 +291,4 @@
 		$('#modal').modal('show');
 	}
 </script>
+
