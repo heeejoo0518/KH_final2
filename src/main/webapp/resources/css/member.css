@@ -1,0 +1,210 @@
+@charset "UTF-8";
+
+.signin-container{
+    width:300px;
+    max-width:100%;
+    margin:50px auto;
+}
+
+/* .signin-container .btn-signin{
+    background-color:#FF5964;
+    color:white;
+} */
+
+.signin-container a{
+    color:black;
+    font-size:0.8em;
+}
+
+#title {
+/* 	font-size:1.3em;
+	position:relative;
+	display:inline-block;
+	padding-bottom:10px; */
+	
+	flex: 1 1 0%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
+    color: black;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+#save-id {
+ 	position:relative;
+	display:inline-block;
+	float:right;
+	margin-right:10px; 
+	
+	color: gray;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: -0.4px;
+    padding: 0px 0px 0px;
+    opacity: 0.5;
+}
+
+.input-with-icon {
+	 position: relative;
+	 box-sizing: border-box;
+}
+
+.input-with-icon .form-control {
+	padding:6px 12px 6px 12px !important;
+}
+
+.input-with-icon .icon {
+	display:none;
+	position: absolute;
+	top:-0.2rem;
+	right: 1rem;
+	width: 15px;
+	height:15px;
+}
+
+.icon button {
+	border:none; 
+	background:none;
+}
+
+.icon img {
+	width:15px; 
+	height:15px;
+	object-fit:cover;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 17px;
+  float:right;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 2px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  top:2px;
+}
+
+input.success:checked + .slider {
+  background-color: #8bc34a;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(13px);
+  -ms-transform: translateX(13px);
+  transform: translateX(13px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 17px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+/*signup.jsp*/
+.signup-container{
+    width:350px;
+    max-width:100%;
+    margin:50px auto;
+}
+
+#check-info {
+	padding-bottom:20px;
+	text-align:center;
+}
+
+#check-info p{
+	color:red;
+	font-size:0.8em;
+	flex: 1 1 0%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
+    letter-spacing: -0.4px;
+    font-weight: 400;
+    opacity: 0.8;
+	margin:0px;
+}
+
+.form-signup input {
+	flex: 1 1 0%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
+    color: black;
+    letter-spacing: -1px;
+}
+
+#signup-info input {
+	content:"";
+	background-image:url("");
+	background-repeat:no-repeat;
+	background-position:98% center;
+	background-size:15px 15px;
+	padding-right:10px;
+	padding-left:10px;
+	box-sizing:border-box;
+	
+}
+
+#check-permission {
+	margin-bottom:20px;
+}
+
+#check-permission label{
+	display:block;
+	padding-left:10px;
+	font-size:0.8em;
+	flex: 1 1 0%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
+    letter-spacing: -0.4px;
+    font-weight: 400;
+    opacity: 0.8;
+	margin:0px;
+}
+
+/* #check-permission label span{
+	font-size:0.9em;
+	flex: 1 1 0%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
+    letter-spacing: -0.4px;
+    font-weight: 400;
+    opacity: 0.8;
+	margin:0px;
+} */
