@@ -19,6 +19,4 @@
 		JOIN MEMBER M ON(B.WRITER_NO = M.NO)
 		WHERE B.STATUS = 'Y'
 	</sql>
-	
-	
 </mapper>
