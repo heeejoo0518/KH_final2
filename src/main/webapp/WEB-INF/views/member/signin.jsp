@@ -4,6 +4,8 @@
 
 <link rel="stylesheet" type="text/css" href="${ path }/resources/css/member.css">
 
+<c:set var="saveId" value="${cookie.saveId.value}"/>
+
 <section>
 	<div class="signin-container" >
 
@@ -11,7 +13,7 @@
 			<div>
 				<strong id="title">로그인</strong>
 				<label class="switch">
-					<input type="checkbox" class="success" checked>
+					<input type="checkbox" class="success" name="saveId" <c:if test='${ saveId != null }'>checked</c:if>>
 					<span class="slider round"></span>
 				</label>
 				<small id="save-id"><b>로그인 상태 저장하기</b></small>
@@ -19,7 +21,7 @@
 		
 			<div id="signin-info" style="padding-bottom:45px;"> 
 				<div class="input-with-icon">
-					<input type="text" id="inputId" class="form-control" name="userId" placeholder="아이디" style="padding:0;"required autofocus>
+					<input type="text" id="inputId" class="form-control" name="userId" placeholder="아이디" style="padding:0;" value="<c:if test='${ saveId != null }'><c:out value='${saveId}'/></c:if>" required autofocus>
 					<div class="btn btn-default icon id-icon">
 						<button><img src="${path}/images/remove-black.png"/></button>
 					</div>
