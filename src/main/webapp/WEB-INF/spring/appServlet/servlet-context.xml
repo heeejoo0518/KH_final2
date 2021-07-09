@@ -20,6 +20,7 @@
 	<resources mapping="/js/**" location="/resources/js/" />
 	<resources mapping="/css/**" location="/resources/css/" />
 	<resources mapping="/images/**" location="/resources/images/" />
+	<resources mapping="/txt/**" location="/resources/txt/" />
 	
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -27,7 +28,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.kh.moyung" />
+	<context:component-scan base-package="com.kh.moyoung" />
 	
 	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>	
 </beans:beans>

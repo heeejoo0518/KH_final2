@@ -20,7 +20,7 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" 
 		p:configuration-ref="mybatisConfig"
 		p:mapperLocations="classpath:mappers/**/*.xml"
-		p:typeAliasesPackage="com.kh.moyung.*.model.vo"
+		p:typeAliasesPackage="com.kh.moyoung.*.model.vo"
 		p:dataSource-ref="dataSource"	
 	/>
 	
@@ -29,7 +29,7 @@
 	/>
 	
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
-		p:basePackage="com.kh.moyung.*.model.mapper"	
+		p:basePackage="com.kh.moyoung.*.model.mapper"	
 	/>
 		
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
