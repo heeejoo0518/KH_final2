@@ -8,40 +8,39 @@
 				<div class="inner">
 					<div class="flex flex-3">
 						<div class="col">
-							<h3>Vestibullum</h3>
+							<h3>모두의영화 메뉴</h3>
 							<ul class="alt">
-								<li><a href="#">Nascetur nunc varius commodo.</a></li>
-								<li><a href="#">Vis id faucibus montes tempor</a></li>
-								<li><a href="#">Massa amet lobortis vel.</a></li>
-								<li><a href="#">Nascetur nunc varius commodo.</a></li>
+								<li><a href="#">기능 연결</a></li>
+								<li><a href="#">기능 연결</a></li>
+								<li><a href="#">기능 연결</a></li>
+								<li><a href="#">기능 연결</a></li>
 							</ul>
 						</div>
 						<div class="col">
-							<h3>Lobortis</h3>
+							<h3>메뉴2</h3>
 							<ul class="alt">
-								<li><a href="#">Nascetur nunc varius commodo.</a></li>
-								<li><a href="#">Vis id faucibus montes tempor</a></li>
-								<li><a href="#">Massa amet lobortis vel.</a></li>
-								<li><a href="#">Nascetur nunc varius commodo.</a></li>
+								<li><a href="#">기능 연결</a></li>
+								<li><a href="#">기능 연결</a></li>
+								<li><a href="#">기능 연결</a></li>
+								<li><a href="#">기능 연결</a></li>
 							</ul>
 						</div>
 						<div class="col">
-							<h3>Accumsan</h3>
+							<h3>메뉴3</h3>
 							<ul class="alt">
-								<li><a href="#">Nascetur nunc varius commodo.</a></li>
-								<li><a href="#">Vis id faucibus montes tempor</a></li>
-								<li><a href="#">Massa amet lobortis vel.</a></li>
-								<li><a href="#">Nascetur nunc varius commodo.</a></li>
+								<li><a href="#">기능 연결</a></li>
+								<li><a href="#">기능 연결</a></li>
+								<li><a href="#">기능 연결</a></li>
 							</ul>
 						</div>
 					</div>
 				</div>
 				<div class="copyright">
 					<ul class="icons">
-						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+						<li><a href="https://twitter.com/?lang=ko" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="https://facebook.com" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="https://instagram.com" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="https://github.com/heeejoo0518/KH_final2" class="icon fa-github"><span class="label">Github</span></a></li>
 					</ul>
 					&copy; Moyoung. Design: <a href="#">Moyoung</a>.
 				</div>
