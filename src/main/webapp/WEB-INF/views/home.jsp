@@ -2,7 +2,13 @@
     pageEncoding="UTF-8"%>
     
 <%@ include file="/WEB-INF/views/common/header.jsp"%>
-
+	
+	
+	
+	<br>
+	<br>
+	<br>
+	<br>
 <section>
 
 	<a href="https://www.w3schools.com/bootstrap4/default.asp">부트스트랩4 튜토리얼</a></br>
