@@ -10,28 +10,28 @@
 		p:driverClassName="${db.driver}"
 		p:url="${db.url}"
 		p:username="${db.username}"
-		p:password="${db.password}"	
+		p:password="${db.password}"
 	/>
-	
+
 	<bean id="mybatisConfig" class="org.apache.ibatis.session.Configuration"
 		p:jdbcTypeForNull="NULL"
 	/>
 
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" 
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
 		p:configuration-ref="mybatisConfig"
 		p:mapperLocations="classpath:mappers/**/*.xml"
 		p:typeAliasesPackage="com.kh.moyoung.*.model.vo"
-		p:dataSource-ref="dataSource"	
+		p:dataSource-ref="dataSource"
 	/>
-	
+
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate"
 		c:sqlSessionFactory-ref="sqlSessionFactory"
 	/>
-	
+
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
-		p:basePackage="com.kh.moyoung.*.model.mapper"	
+		p:basePackage="com.kh.moyoung.*.model.mapper"
 	/>
-		
+
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
 		p:dataSource-ref="dataSource"
 	/>

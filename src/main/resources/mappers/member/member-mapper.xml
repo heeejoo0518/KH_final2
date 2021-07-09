@@ -1,10 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.kh.moyoung.member.model.mapper.MemberMapper">
+ 	<sql id="selectMemberSql">
+ 		SELECT  U_NO,
+ 				U_ID,
+ 				U_PWD,
+ 				NICKNAME,
+ 				EMAIL,
+ 				BIRTH,
+ 				ACCOUNT_LOCKED,
+ 				U_VALIDATE,
+ 				U_ROLE
+ 				SIGNUP_TYPE
+		FROM MEMBER
+ 	</sql>
  
- <mapper namespace="member">
-  	<select id="selectCount" resultType="_int">
+ 	<resultMap type="Member" id="memberResultMap">
+ 		<id property="u_no" column="U_NO"/>
+ 		<result property="u_id" column="U_ID" />
+ 		<result property="u_pwd" column="U_PWD" />
+ 		<result property="nickname" column="NICKNAME"/>
+ 		<result property="email" column="EMAIL"/>
+ 		<result property="birth" column="BIRTH" />
+ 		<result property="account_locked" column="ACCOUNT_LOCKED"/>
+ 		<result property="u_validate" column="U_VALIDATE"/>
+ 		<result property="u_role" column="U_ROLE"/>
+ 		<result property="signup_type" column="SIGNUP_TYPE"/>
+ 	</resultMap>
+ 
+ 	<select id="selectCount" resultType="_int">
  		SELECT COUNT(*) FROM MEMBER
  	</select>
+ 	
+ 	<select id="selectAll" resultMap="memberResultMap">
+ 		<include refid="selectMemberSql" />
+ 	</select>
+ 	
+ 	
+ 	<select id="selectMember" parameterType="string" resultMap="memberResultMap">
+ 		<include refid="selectMemberSql" />
+		WHERE U_ID = #{u_id} AND U_ROLE IN ('0','1','3')
+ 	</select>
+ 	
+ 	<select id="selectMemberByNickname" parameterType="string" resultMap="memberResultMap">
+ 		<include refid="selectMemberSql" />
+		WHERE NICKNAME = #{nickname} AND U_ROLE IN ('0','1','3')
+ 	</select>
+ 	
+ 	<insert id="insertMember" parameterType="Member"
+ 		useGeneratedKeys="true" keyColumn="U_NO" keyProperty="u_no" >
+	 	INSERT INTO MEMBER (
+		    U_NO, 
+		    U_ID, 
+		    U_PWD, 
+		    NICKNAME,
+		    EMAIL, 
+		    BIRTH, 
+		    ACCOUNT_LOCKED, 
+		    U_VALIDATE, 
+		    U_ROLE, 
+		    SIGNUP_TYPE
+		) VALUES(
+		    SEQ_MNO.NEXTVAL, 
+		    #{u_id},
+		    #{u_pwd},
+		    #{nickname},
+		    #{email},
+		    NULL,
+		    NULL,
+		    DEFAULT,
+		    DEFAULT,
+		    DEFAULT
+		) 	
+ 	</insert>
+ 	
+ 	<update id="updateMember" parameterType="Member">
+ 		UPDATE MEMBER 
+ 		SET 
+ 			U_PWD=#{u_pwd}
+ 			NICKNAME = #{nickname},
+ 			EMAIL = #{email},
+		WHERE U_ID = #{u_id}
+ 	</update>
+ 	
+ 	<update id="deleteMember" parameterType="_int">
+ 		UPDATE MEMBER
+ 		SET
+ 			U_ROLE='2'
+ 		WHERE 
+ 			U_NO=#{u_no}
+ 	</update>
  </mapper>
