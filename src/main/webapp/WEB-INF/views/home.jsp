@@ -1,8 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
     
 <%@ include file="/WEB-INF/views/common/header.jsp"%>
 
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 <section>
 
 	<a href="https://www.w3schools.com/bootstrap4/default.asp">부트스트랩4 튜토리얼</a></br>
@@ -17,5 +21,7 @@
 	<button type="button" class="btn btn-light">Light</button>
 	<button type="button" class="btn btn-link">Link</button>
 </section>
+
+<button type="button" onclick="location.href='${ path }/admin/adminPage'">관리자페이지</button>
 
 <%@ include file="/WEB-INF/views/common/footer.jsp"%>

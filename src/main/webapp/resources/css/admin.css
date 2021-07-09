@@ -1,0 +1,121 @@
+@charset "UTF-8";
+/* 메인 DIV */
+#div {
+	height:100%;
+	width:100%;
+	display:table;
+	border:1px solid black;
+	border-collapse:collapse
+}
+
+#div #div-01 {
+	display-table-cell;
+	border: 1.2px solid black;
+	background-color: lightgray;
+	float: left;
+	height: 100vh;
+	width: 20%;
+	}
+#div #div-02 {
+	display-table-cell;
+	border: 1px solid black;
+	background-color: lightgray;
+	float: right;
+	height: 10vh;
+	width: 79.7%;
+	padding-top: 0px;
+}
+
+#div #div-03 {
+	display-table-cell;
+	border: 1px solid black;
+	background-color: #5D5D5D;
+	float: right;
+	height: 90vh;
+	width:79.7%
+}
+
+/* admin 왼쪽메뉴 리스트 */
+#p-1 {
+	font-weight: bolder;
+	font-size: 30px;
+	text-align: center;
+}
+
+#p-2 {
+	
+	font-size: 20px;
+	text-align: center;
+}
+
+#p-3 {
+	font-weight: bolder;
+	color: black;
+	font-size: 30px;
+	margin: 20px
+}
+
+#p-4 {
+	font-size: 20px;
+	color: white;
+	margin-left: 30px;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+/* 상단바 아래 DIV */
+#sec-1 {
+	
+	margin-left: 20px;
+}
+
+#table-M {
+	height: 80%;
+	width: 80%;
+	border: 2px solid #444444;
+	margin-left: 100px;
+	margin-right: 100px;
+	margin-top: 20px;
+	border-collapse: collapse;
+	color: white;
+	font-size: 30px
+}
+
+#table-R {
+	height: 10%;
+	width: 80%;
+	margin-left: 100px;
+	margin-right: 100px;
+	border-collapse: collapse;
+	color: white;
+	margin-bottom: 20px;
+}
+
+th, td {
+	border: 2px solid #444444;
+	color: white;
+	text-align: center;
+}
+
+#p-list {
+	font-size: 30px;
+	margin-left: 100px;
+}
+
+#movie-T tr td a img {
+	width: 200px;
+	height: 300px;
+} 
+
+#movie-T {
+	border-spacing: 40px 0;
+}
+
+#pageBar {
+	width: 100%;
+	display: block;
+	text-align: center;
+}

@@ -1,6 +1,7 @@
 package com.kh.moyoung;
 
 import java.text.DateFormat;
+
 import java.util.Date;
 import java.util.Locale;
 
@@ -34,6 +35,12 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		
 		return "home";
+	}
+	
+	@RequestMapping(value = "/admin/adminPage", method = {RequestMethod.GET})
+	public String adminPage() {
+		
+		return "admin/adminPage";
 	}
 	
 }
