@@ -18,7 +18,7 @@ textarea{resize:none;}
 
 /* 작성 폼 영역 스타일 */
 #sub-button{text-align: center;}
-#Party-form {display: none; background:#071829; border-radius:10px; margin-top:10px; padding: 15px;}
+#party-form {display: none; background:#071829; border-radius:10px; margin-top:10px; padding: 15px;}
 	
 /* 모집 게시글 카드 스타일 */
 #pt-card{background:#071829; margin:0 auto; margin-bottom: 30px; padding:15px;}
@@ -43,9 +43,9 @@ p#pt-writer {color: #abb7c4;	font-size:10pt; margin-top:5px;	margin-bottom:5px;}
 		  $('#selectBox').change(function() {
 		    var result = $('#selectBox option:selected').val();
 		    if (result == 'none-select') {
-		      $('#Party-form').slideUp();
+		      $('#party-form').slideUp();
 		    } else {
-		      $('#Party-form').slideDown();
+		      $('#party-form').slideDown();
 		    }
 		  }); 
 		}); 
@@ -88,7 +88,7 @@ p#pt-writer {color: #abb7c4;	font-size:10pt; margin-top:5px;	margin-bottom:5px;}
 				</div>
 				
 <div class="row">				
-	<form id="Party-form" class="form-horizontal">
+	<form id="party-form" class="form-horizontal" action="${ path }/party/party" method="POST" >
 	
 	<div class="form-group">
 		<div class="col-sm-10">
@@ -104,13 +104,13 @@ p#pt-writer {color: #abb7c4;	font-size:10pt; margin-top:5px;	margin-bottom:5px;}
 	
 	<div class="form-group">		    
 		<div class="col-sm-10">
-      			<input class="form-control" id="readOnlyInput" type="text" placeholder="WriterID" readonly>
+      			<input class="form-control"  id="readOnlyInput"  type="text" placeholder="WriterID" readonly>
     	</div>
     </div>
     
     <div class="form-group">
 		    <div class="col-sm-10">
-		      <input type="text" class="form-control" id="inputLink" placeholder="오픈채팅방 주소 입력">
+		      <input type="url" class="form-control" id="inputLink"  placeholder="오픈채팅방 주소 입력">
 		    </div>
 	</div>
 		    
@@ -140,7 +140,8 @@ p#pt-writer {color: #abb7c4;	font-size:10pt; margin-top:5px;	margin-bottom:5px;}
 		
 
 <div id="party-list" class="row">
-			<div id="pt-card" class="col-sm-3">
+		
+			<div id="pt-card" class="col-sm-5">
 				  <div><img id="pt-logo" alt="로고" src="${path}/resources/images/netflix_logo.png"/>
 				  			<span id="pt-title" class="card-title">같이 넷플릭스 보실 분</span>
 				  			<p id="pt-writer">WriterId</p>
@@ -152,7 +153,7 @@ p#pt-writer {color: #abb7c4;	font-size:10pt; margin-top:5px;	margin-bottom:5px;}
 				 </div>
 			</div>
 			
-			<div id="pt-card" class="col-sm-3" >
+			<div id="pt-card" class="col-sm-5" >
 				  <div><img id="pt-logo" alt="로고" src="${path}/resources/images/wavve_logo.png"/>
 						  <span id="pt-title" class="card-title">제목입니다.</span>
 						  <p id="pt-writer">WriterId</p>
@@ -164,25 +165,7 @@ p#pt-writer {color: #abb7c4;	font-size:10pt; margin-top:5px;	margin-bottom:5px;}
 				 </div>
 			</div>
 			
-			<div id="pt-card" class="col-sm-3" >
-				  <div><img id="pt-logo" alt="로고" src="${path}/resources/images/tving_logo.png" />
-				  			<span id="pt-title" class="card-title">제목입니다.</span>
-				  			<p id="pt-writer">WriterId</p>
-				  </div>
-				<div>
-				   	<p >#해시태그 #해시태그</p>
-		  		 	 <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-		 			<button  class="btn btn-outline-warning">오픈채팅방 참가하기</button>
-				 </div>
-			</div>
-	
-</div>	
-			
-
-
-
-
-
+</div>
 
 
 

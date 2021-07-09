@@ -1,7 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+
     
 <%@ include file="/WEB-INF/views/common/header.jsp"%>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 
 <section>
 
@@ -16,6 +21,8 @@
 	<button type="button" class="btn btn-dark">Dark</button>
 	<button type="button" class="btn btn-light">Light</button>
 	<button type="button" class="btn btn-link">Link</button>
+	
+	<P> <a href="${path }/party/party">파티원 모집으로 가기</a> </P>
 </section>
 
 <%@ include file="/WEB-INF/views/common/footer.jsp"%>
