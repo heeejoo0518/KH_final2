@@ -27,14 +27,12 @@ public class MypageController {
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 	
-	@GetMapping("/mypage/update")
-	public String updateMemberView(@SessionAttribute(name = "signinMember", required = false) Member signinMember,
-			@SessionAttribute(value="checkPw", required=false)String checkPw) {
+	@GetMapping(value={"/mypage/update","/mypage"})
+	public String updateMemberView(@SessionAttribute(value="checkPw", required=false)String checkPw) {
 		
 		log.info("{}", checkPw);
 		
-		if(signinMember == null) return "redirect:/signin";
-		else if(checkPw==null || !checkPw.equals("true")) return "redirect:/mypage/checkpw";
+		if(checkPw==null || !checkPw.equals("true")) return "redirect:/mypage/checkpw";
 		return "/mypage/update";
 	}
 	
@@ -72,8 +70,7 @@ public class MypageController {
 	}
 	
 	@GetMapping("/mypage/checkpw")
-	public String checkPwView(@SessionAttribute(name = "signinMember", required = false) Member signinMember) {
-		if(signinMember == null) return "redirect:/signin";
+	public String checkPwView() {
 		return "/mypage/checkpw";
 	}
 	
