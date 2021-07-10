@@ -12,11 +12,40 @@
 			</div>
 			
 			<div id="signup-info" style="padding-bottom:15px">
-				<input type="text" id="signup_id" class="form-control" name="u_id" placeholder="아이디(영어,숫자 5자 이상)" onchange="" required autofocus>
-				<input type="password" id="signup_pw" class="form-control" name="u_pwd" placeholder="비밀번호(영어,숫자,특문 2조합 8자 이상)" required>
-				<input type="password" id="signup_pw_check" class="form-control" placeholder="비밀번호 확인" required>
-				<input type="text" id="signup_nickname" class="form-control" name="nickname" placeholder="닉네임(2자 이상)" required>
-				<input type="email" id="signup_email" class="form-control" name="email" placeholder="이메일" required>
+				<div class="input-with-icon">
+					<input type="text" id="signup_id" class="form-control" name="u_id" placeholder="아이디(영어,숫자 5자 이상)" required autofocus>
+					<div class="btn btn-default icon id-icon">
+						<button disabled><img src="#" id="img_id"/></button>
+					</div>
+				</div>
+				
+				<div class="input-with-icon">
+					<input type="password" id="signup_pw" class="form-control" name="u_pwd" placeholder="비밀번호(영어,숫자,특문 2조합 8자 이상)" required>
+					<div class="btn btn-default icon pw-icon">
+						<button disabled><img src="#" id="img_pw"/></button>
+					</div>
+				</div>
+				
+				<div class="input-with-icon">
+					<input type="password" id="signup_pw_check" class="form-control" placeholder="비밀번호 확인" required>
+					<div class="btn btn-default icon pw-check-icon">
+						<button disabled><img src="#" id="img_pw_check"/></button>
+					</div>
+				</div>
+				
+				<div class="input-with-icon">
+					<input type="text" id="signup_nickname" class="form-control" name="nickname" placeholder="닉네임(2자 이상)" required>
+					<div class="btn btn-default icon nickname-icon">
+						<button disabled><img src="#" id="img_nickname"/></button>
+					</div>
+				</div>
+				
+				<div class="input-with-icon">
+					<input type="email" id="signup_email" class="form-control" name="email" placeholder="이메일" required>
+					<div class="btn btn-default icon email-icon">
+						<button disabled><img src="#" id="img_email"/></button>
+					</div>
+				</div>
 			</div>
 			
 			<div id="check-info">
@@ -62,47 +91,39 @@
 	
 	$('#signup_id').on('propertychange change keyup paste input',function(){
 		status_id = checkId($(this).val());
-		if(status_id){
-			document.querySelector("#signup_id").style.backgroundImage = "url(${ path }/images/check.png)";
-		}else{
-			document.querySelector("#signup_id").style.backgroundImage = "url(${ path }/images/remove.png)";
-		}
+		var src = status_id? "${ path }/images/check.png" : "${ path }/images/remove.png";
+		
+		document.getElementById('img_id').src = src;
+		
+		$('.id-icon').show();
 	});
 	
 	$('#signup_pw').on('propertychange change keyup paste input',function(){
 		status_pw = checkPw($(this).val());
-		if(status_pw){
-			document.querySelector("#signup_pw").style.backgroundImage = "url(${ path }/images/check.png)";
-		}else{
-			document.querySelector("#signup_pw").style.backgroundImage = "url(${ path }/images/remove.png)";
-		}
+		var src = status_pw? "${ path }/images/check.png" : "${ path }/images/remove.png";
+		document.getElementById('img_pw').src = src;
+		$('.pw-icon').show();
 	});
 	
 	$('#signup_pw_check').on('propertychange change keyup paste input',function(){
 		status_pw_check = checkPwEquals($(this).val());
-		if(status_pw_check){
-			document.querySelector("#signup_pw_check").style.backgroundImage = "url(${ path }/images/check.png)";
-		}else{
-			document.querySelector("#signup_pw_check").style.backgroundImage = "url(${ path }/images/remove.png)";
-		}
+		var src = status_pw_check? "${ path }/images/check.png" : "${ path }/images/remove.png";
+		document.getElementById('img_pw_check').src = src;
+		$('.pw-check-icon').show();
 	});
 	
 	$('#signup_nickname').on('propertychange change keyup paste input',function(){
 		status_nickname = checkNickname($(this).val());
-		if(status_nickname){
-			document.querySelector("#signup_nickname").style.backgroundImage = "url(${ path }/images/check.png)";
-		}else{
-			document.querySelector("#signup_nickname").style.backgroundImage = "url(${ path }/images/remove.png)";
-		}
+		var src = status_nickname? "${ path }/images/check.png" : "${ path }/images/remove.png";
+		document.getElementById('img_nickname').src = src;
+		$('.nickname-icon').show();
 	});
 	
 	$('#signup_email').on('propertychange change keyup paste input',function(){
 		status_email = checkEmail($(this).val());
-		if(status_email){
-			document.querySelector("#signup_email").style.backgroundImage = "url(${ path }/images/check.png)";
-		}else{
-			document.querySelector("#signup_email").style.backgroundImage = "url(${ path }/images/remove.png)";
-		}
+		var src = status_email? "${ path }/images/check.png" : "${ path }/images/remove.png";
+		document.getElementById('img_email').src = src;
+		$('.email-icon').show();
 	});
 	
 	function checkId(id){
@@ -257,6 +278,12 @@
 	}
 	
 
+</script>
+
+<script>
+	$(document).ready(function(){
+		
+	});
 </script>
 
 <script>

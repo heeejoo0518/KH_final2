@@ -8,7 +8,6 @@
 
 <section>
 	<div class="signin-container" >
-
 		<form class="form-signin" action="${ path }/signin" method="POST">
 			<div>
 				<strong id="title">로그인</strong>
@@ -21,13 +20,13 @@
 		
 			<div id="signin-info" style="padding-bottom:45px;"> 
 				<div class="input-with-icon">
-					<input type="text" id="inputId" class="form-control" name="userId" placeholder="아이디" style="padding:0;" value="<c:if test='${ saveId != null }'><c:out value='${saveId}'/></c:if>" required autofocus>
+					<input type="text" id="inputId" class="form-control" name="userId" placeholder="아이디" style="padding:0;" value="<c:if test='${ saveId != null }'><c:out value='${saveId}'/></c:if>" autocomplete="off" required autofocus>
 					<div class="btn btn-default icon id-icon">
 						<button><img src="${path}/images/remove-black.png"/></button>
 					</div>
 				</div>
 				<div class="input-with-icon">
-					<input type="password" id="inputPassword" class="form-control" name="userPwd" placeholder="비밀번호" required>
+					<input type="password" id="inputPassword" class="form-control" name="userPwd" placeholder="비밀번호" autocomplete="off" required>
 					<div class="btn btn-default icon pw-icon">
 						<button><img src="${path}/images/remove-black.png"/></button>
 					</div>
@@ -53,13 +52,27 @@
 		<a href="#" class="row" style="font-size:0.8em; padding-left:15px">다른 방법으로 로그인하기</a>
 		
     </div>
-
-    
 </section>
 
 <%@ include file="/WEB-INF/views/common/footer.jsp"%>
 
 <script>
+	$(document).ready(function(){
+		//엔터 금지
+		$(window).keydown(function(event){
+		    if(event.keyCode == 13) {
+		      event.preventDefault();
+		      return false;
+		    }
+		 });
+		
+		if($('#inputId').val().length>0) $('.id-icon').show();
+		else $('.id-icon').hide();
+		
+		if($('#inputPassword').val().length>0) $('.pw-icon').show();
+		else $('.pw-icon').hide();
+	});
+	
 	$('#inputId').on('propertychange change keyup paste input',function(){
 		if($(this).val().length>0) $('.id-icon').show();
 		else $('.id-icon').hide();
@@ -73,4 +86,7 @@
 	$('.icon').on('click',function(){
 		$(this).prev().val('');
 	});
+</script>
+
+
 </script>

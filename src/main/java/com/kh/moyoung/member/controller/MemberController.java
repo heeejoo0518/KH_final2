@@ -37,8 +37,9 @@ public class MemberController {
 	private MemberService service;
 	
 	@GetMapping("/signin")
-	public String signInView() {
-		return "/member/signin";
+	public String signInView(@SessionAttribute(name = "signinMember", required = false) Member signinMember) {
+		if(signinMember != null) return "redirect:/";
+		else return "/member/signin";
 	}
 	
 	@RequestMapping(value = "/signin", method = {RequestMethod.POST})
@@ -74,20 +75,13 @@ public class MemberController {
 	
 	@RequestMapping("/signout")
 	public String logout(SessionStatus status) {
-		
-		log.info("status.isComplete() : " + status.isComplete());
-
 		status.setComplete();
-		
-		log.info("status.isComplete() : " + status.isComplete());		
-		
 		return "redirect:/";
 	}
 	
 	@GetMapping("/signup")
-	public String signUpView() {
-		log.info("회원가입 페이지 요청");
-		
+	public String signUpView(@SessionAttribute(name = "signinMember", required = false) Member signinMember) {
+		if(signinMember != null) return "redirect:/";
 		return "/member/signup";
 	}	
 	

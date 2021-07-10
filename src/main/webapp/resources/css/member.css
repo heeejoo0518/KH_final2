@@ -203,15 +203,3 @@ input:checked + .slider:before {
 	color:white;
 	opacity: 0.7;
 }
-
-/* #check-permission label span{
-	font-size:0.9em;
-	flex: 1 1 0%;
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: 0%;
-    letter-spacing: -0.4px;
-    font-weight: 400;
-    opacity: 0.8;
-	margin:0px;
-} */
