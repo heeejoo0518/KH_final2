@@ -3,6 +3,7 @@ package com.kh.moyoung.member.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,17 +37,29 @@ public class MemberController {
 	private MemberService service;
 	
 	@GetMapping("/signin")
-	public String signInView() {
-		return "/member/signin";
+	public String signInView(@SessionAttribute(name = "signinMember", required = false) Member signinMember) {
+		if(signinMember != null) return "redirect:/";
+		else return "/member/signin";
 	}
 	
 	@RequestMapping(value = "/signin", method = {RequestMethod.POST})
-	public ModelAndView signIn(ModelAndView model,
-			@RequestParam("userId")String userId, @RequestParam("userPwd")String userPwd) {
+	public ModelAndView signIn(ModelAndView model, HttpServletResponse response,
+			@RequestParam("userId") String userId, @RequestParam("userPwd") String userPwd, @RequestParam(value="saveId", required=false) String saveId) {
 		
 		log.info("{}, {}", userId, userPwd);
+		log.info("{}",saveId);
 		
 		Member signinMember =  service.login(userId, userPwd);
+		
+		if(saveId!=null) {
+			Cookie cookie = new Cookie("saveId",userId);
+			cookie.setMaxAge(259200);//3일
+			response.addCookie(cookie);
+		}else {
+			Cookie cookie = new Cookie("saveId","");
+			cookie.setMaxAge(0);
+			response.addCookie(cookie);
+		}
 		
 		if(signinMember != null) {
 			model.addObject("signinMember", signinMember);
@@ -62,20 +75,13 @@ public class MemberController {
 	
 	@RequestMapping("/signout")
 	public String logout(SessionStatus status) {
-		
-		log.info("status.isComplete() : " + status.isComplete());
-
 		status.setComplete();
-		
-		log.info("status.isComplete() : " + status.isComplete());		
-		
 		return "redirect:/";
 	}
 	
 	@GetMapping("/signup")
-	public String signUpView() {
-		log.info("회원가입 페이지 요청");
-		
+	public String signUpView(@SessionAttribute(name = "signinMember", required = false) Member signinMember) {
+		if(signinMember != null) return "redirect:/";
 		return "/member/signup";
 	}	
 	
