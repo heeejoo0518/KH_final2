@@ -38,7 +38,7 @@
 </div>
 <!--end of preloading-->
 <!-- top search form -->
-<header class="ht-header">
+<header class="ht-header" style="background-color: #020d18;">
 	<div class="container">
 		<div class="top-search">
 			<select>
@@ -51,7 +51,7 @@
 </header>
 <!-- END | Header -->
 
-<div class="hero common-hero">
+<div class="hero common-hero" style="background-color: #020d18;">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
@@ -61,7 +61,7 @@
 	</div>
 </div>
 
-<div class="page-single movie-single movie_single">
+<div class="page-single movie-single movie_single" style="background-color: #020d18;">
 	<div class="container">
 		<div class="row ipad-width2">
 			<div class="col-md-4 col-sm-12 col-xs-12">
@@ -176,7 +176,12 @@
 											<!-- movie user review -->
 											<div class="mv-user-review-item">
 
-												<!--  신고하기 / 좋아요 버튼 이정도에 들어오면 될거같은데.. -->
+												<div class="user-review-likeAndReport" style="color:white; float:right;">
+													<i class="ion-heart"></i>
+													<i class="ion-flag"></i>					
+												</div>
+												
+												
 												<div class="no-star">
 													<i class="ion-android-star"></i> <i
 														class="ion-android-star"></i> <i class="ion-android-star"></i>
@@ -329,13 +334,11 @@
 												<div>
 													<h3>Just about as good as the first one!</h3>
 													<div class="no-star">
-														<i class="ion-android-star"></i> <i
-															class="ion-android-star"></i> <i class="ion-android-star"></i>
-														<i class="ion-android-star"></i> <i
-															class="ion-android-star"></i> <i class="ion-android-star"></i>
-														<i class="ion-android-star"></i> <i
-															class="ion-android-star"></i> <i class="ion-android-star"></i>
 														<i class="ion-android-star"></i>
+														<i class="ion-android-star"></i>
+														<i class="ion-android-star"></i>
+														<i class="ion-android-star last"></i>
+														<i class="ion-android-star last"></i>
 													</div>
 													<p class="time">
 														17 December 2016 by <a href="#"> hawaiipierson</a>
@@ -379,16 +382,10 @@
 													<h3>One of the most boring exepirences from watching a
 														movie</h3>
 													<div class="no-star">
-														<i class="ion-android-star"></i> <i
-															class="ion-android-star last"></i> <i
-															class="ion-android-star last"></i> <i
-															class="ion-android-star last"></i> <i
-															class="ion-android-star last"></i> <i
-															class="ion-android-star last"></i> <i
-															class="ion-android-star last"></i> <i
-															class="ion-android-star last"></i> <i
-															class="ion-android-star last"></i> <i
-															class="ion-android-star last"></i>
+														<i class="ion-android-star"></i> 
+														<i class="ion-android-star last"></i>
+														<i class="ion-android-star last"></i> 
+														<i class="ion-android-star last"></i>
 													</div>
 													<p class="time">
 														26 March 2017 by<a href="#"> christopherfreeman</a>
@@ -414,15 +411,12 @@
 												<img src="${ path }/images/uploads/userava4.jpg" alt="">
 												<div>
 													<h3>That spirit of fun</h3>
-													<div class="no-star">
-														<i class="ion-android-star"></i> <i
-															class="ion-android-star"></i> <i class="ion-android-star"></i>
-														<i class="ion-android-star"></i> <i
-															class="ion-android-star"></i> <i class="ion-android-star"></i>
-														<i class="ion-android-star last"></i> <i
-															class="ion-android-star last"></i> <i
-															class="ion-android-star last"></i> <i
-															class="ion-android-star last"></i>
+													<div class="no-star">														
+														<i class="ion-android-star"></i>
+														<i class="ion-android-star"></i>
+														<i class="ion-android-star"></i>
+														<i class="ion-android-star last"></i>
+														<i class="ion-android-star last"></i>
 													</div>
 													<p class="time">
 														26 March 2017 by <a href="#"> juliawest</a>
@@ -466,14 +460,16 @@
 												<div>
 													<h3>Impressive Special Effects and Cast</h3>
 													<div class="no-star">
-														<i class="ion-android-star"></i> <i
-															class="ion-android-star"></i> <i class="ion-android-star"></i>
-														<i class="ion-android-star"></i> <i
-															class="ion-android-star"></i> <i class="ion-android-star"></i>
-														<i class="ion-android-star"></i> <i
-															class="ion-android-star"></i> <i
-															class="ion-android-star last"></i> <i
-															class="ion-android-star last"></i>
+														<i class="ion-android-star"></i>
+														<i class="ion-android-star"></i> 
+														<i class="ion-android-star"></i>
+														<i class="ion-android-star"></i> 
+														<i class="ion-android-star"></i> 
+														<i class="ion-android-star"></i>
+														<i class="ion-android-star"></i>
+														<i class="ion-android-star"></i>
+														<i class="ion-android-star last"></i>
+														<i class="ion-android-star last"></i>
 													</div>
 													<p class="time">
 														26 March 2017 by <a href="#"> johnnylee</a>

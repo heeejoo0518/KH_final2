@@ -35,7 +35,7 @@
 <!--end of preloading-->
 
 <!-- BEGIN | Header -->
-<header class="ht-header">
+<header class="ht-header" style="background-color: #020d18;">
 	<div class="container">
 	
 	    <!-- top search form -->
@@ -51,7 +51,7 @@
 </header>
 <!-- END | Header -->
 
-<div class="hero common-hero">
+<div class="hero common-hero" style="background-color: #020d18;">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
@@ -62,7 +62,7 @@
 		</div>
 	</div>
 </div>
-<div class="page-single movie_list">
+<div class="page-single movie_list" style="background-color: #020d18;">
 	<div class="container">
 		<div class="row ipad-width2">
 			<div class="col-md-8 col-sm-12 col-xs-12">

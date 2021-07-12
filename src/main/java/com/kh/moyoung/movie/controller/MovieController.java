@@ -1,4 +1,4 @@
-package com.kh.moyoung.movie;
+package com.kh.moyoung.movie.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ResourceLoader;
@@ -11,11 +11,11 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-@RequestMapping("/movie") // @GetMapping("/board/list") 치던거 줄여줌. /board/write로 get요청이 오면. 아래에서 선언되는 클래스들의
+@RequestMapping("/movie") 
 public class MovieController {
-//	@Autowired // boardcontroler boardservice 관계설정. 주입을 해줘야 한다.
+//	@Autowired 
 //	private MovieService service;
-	
+//	
 	@Autowired
 	private ResourceLoader resourceLoader;
 
@@ -31,11 +31,11 @@ public class MovieController {
 		return mv2;
 	}
 	
-	@RequestMapping("/index")
-	public ModelAndView index(ModelAndView mv3) {
-		mv3.setViewName("movie/index");
-		return mv3;
-	}
+//	@RequestMapping("/index")
+//	public ModelAndView index(ModelAndView mv3) {
+//		mv3.setViewName("movie/index");
+//		return mv3;
+//	}
 //	
 //	@GetMapping("/list")
 //	public ModelAndView list(ModelAndView model,
