@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+
 <%@ include file="/WEB-INF/views/common/header.jsp"%>
 
 <section>
@@ -17,6 +17,7 @@
 	<button type="button" class="btn btn-light">Light</button>
 	<button type="button" class="btn btn-link">Link</button>
 
+	<a href="${path }/review/write">리뷰 작성 페이지</a>
 </section>
 
 <%@ include file="/WEB-INF/views/common/footer.jsp"%>
