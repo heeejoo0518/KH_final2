@@ -55,8 +55,8 @@
 					<div class="inner">
 						<header>
 							<h1>모두의 영화</h1>
-							<p>Morbi eu purus eget urna interdum dignissim sed consectetur augue<br />
-							vivamus vitae libero in nulla iaculis eleifend non sit amet nulla.</p>
+							<p>여러 OTT를 한 곳에서 찾아보는 모두의 영화<br />
+								지금 모두의 영화를 시작하세요.</p>
 						</header>
 						<a href="#main" class="button big alt scrolly">시작하기</a>
 					</div>
@@ -70,7 +70,7 @@
 				<section class="wrapper style1">
 					<div class="inner">
 						<header class="align-center">
-							<h2>Nam eu nisi non ante sodale</h2>
+							<h2>관심있는 영화를 확인하세요!</h2>
 							<p>Cras sagittis turpis sit amet est tempus, sit amet consectetur purus tincidunt.</p>
 						</header>
 						<!-- 2개의 비디오섹션 -->
@@ -107,15 +107,15 @@
 				<section class="wrapper style2">
 					<div class="inner">
 						<header>
-							<h2>Etiam veroeros lorem</h2>
+							<h2>여러 사이트의 영화들</h2>
 							<p>Fusce fringilla enim sit amet lectus sollicitudin, eu tincidunt odio semper.</p>
 						</header>
 						<!-- 비디오섹션 여러개 -->
 							<div class="flex flex-tabs">
 								<ul class="tab-list">
-									<li><a href="#" data-tab="tab-1" class="active">Duis vestibulum tellus</a></li>
-									<li><a href="#" data-tab="tab-2">Quam tempus sodales ipsum</a></li>
-									<li><a href="#" data-tab="tab-3">Donec faucibus risus cursus</a></li>
+									<li><a href="#" data-tab="tab-1" class="active">Netfilx</a></li>
+									<li><a href="#" data-tab="tab-2">Watcha</a></li>
+									<li><a href="#" data-tab="tab-3">Wavve</a></li>
 								</ul>
 								<div class="tabs">
 
@@ -320,8 +320,8 @@
 				<section class="wrapper ">
 					<div class="inner">
 						<header class="align-center">
-							<h2>Aliquam ipsum purus dolor</h2>
-							<p>Cras sagittis turpis sit amet est tempus, sit amet consectetur purus tincidunt.</p>
+							<h2>파티를 모집중입니다.</h2>
+							<p>원하는 사이트의 파티원을 구하는 파티들을 찾아보세요</p>
 						</header>
 
 						<!-- 3 Column Video Section -->

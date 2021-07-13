@@ -20,11 +20,11 @@
 			<script src="${ path }/resources/js/jquery.min.js"></script>
 			<!-- 
 			<script src="${ path }/resources/js/jquery-3.6.0.min.js"></script>
+			<script src="${ path }/resources/js/main.js"></script>
 			 -->
 			<script src="${ path }/resources/js/jquery.scrolly.min.js"></script>
 			<script src="${ path }/resources/js/skel.min.js"></script>
 			<script src="${ path }/resources/js/util.js"></script>
-			<script src="${ path }/resources/js/main.js"></script>
 		
 			<!-- <script src="${path}/resources/bootstrap-4.6.0-dist/js/popper.min.js"></script> -->
 			<!-- <script src="${path}/resources/bootstrap-4.6.0-dist/js/bootstrap.min.js" ></script>-->
@@ -41,7 +41,7 @@
 
 		<!-- 헤더 -->
 			<header id="header">
-				<h1><a href="#">Moyoung</a></h1>
+				<h1><a href="${ path }/loginHome">Moyoung</a></h1>
 				<a href="#menu">Menu</a>
 			</header>
 
@@ -50,20 +50,20 @@
 				<ul class="links">
 					<li><a href="${ path }">홈</a></li>
                     <li>
-                        <c:if test="${ loginMember == null }">
-                            <a href="#">로그인</a>
+                        <c:if test="${ signinMember == null }">
+                            <a href="${ path }/signin">로그인</a>
                         </c:if>
 
-                        <c:if test="${ loginMember != null }">
-                            <a href="${ path }/member/view">
-                                ${ loginMember.name }
-                            </a>님, 안녕하세요.
-                            <button onclick="location.replace('${path}/logout')">로그아웃</button>
+                        <c:if test="${ signinMember != null }">
+                            <a href="${ path }/signout">로그아웃</a>
                         </c:if>
 
                     </li>
-					<li><a href="generic.html">로그인</a></li>
-					<li><a href="elements.html">Elements</a></li>
+					<li>
+						<c:if test="${ signinMember != null }">
+                            <a href="${ path }/mypage">마이페이지</a>
+                        </c:if>
+					</li>
 				</ul>
 			</nav>
 			<script>
@@ -88,15 +88,9 @@
 					// Fix
 						$('form').placeholder();
 
-					//  important 요소 중앙배치
-						skel.on('+medium -medium', function() {
-							$.prioritize(
-								'.important\\28 medium\\29',
-								skel.breakpoint('medium').active
-							);
-						});
+				
 
-					// Menu.
+					// 메뉴
 						$('#menu')
 							.append('<a href="#menu" class="close"></a>')
 							.appendTo($body)
@@ -109,12 +103,12 @@
 								side: 'right'
 							});
 
-					// Banner.
+					// 배너
 						var $banner = $('#banner');
 
 						if ($banner.length > 0) {
 
-							// Video check.
+							// 비디오확인
 								var video = $banner.data('video');
 
 								if (video)
@@ -131,7 +125,7 @@
 
 									});
 
-							// More button.
+							// More 
 								$banner.find('.more')
 									.addClass('scrolly');
 
