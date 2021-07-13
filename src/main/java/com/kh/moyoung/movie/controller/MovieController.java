@@ -3,6 +3,7 @@ package com.kh.moyoung.movie.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,15 +19,20 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Controller
 @RequestMapping("/movie") 
+
 public class MovieController {
+	
 	@Autowired 
 	private MovieService service;
 
-	@GetMapping("/movieList")
-	public ModelAndView movieList(ModelAndView mv) {
-		mv.setViewName("movie/movieSearchResult");
-		return mv;
-	}
+	@Autowired
+	private ResourceLoader resourceLoader;
+	
+//	@GetMapping("/movieList")
+//	public ModelAndView movieList(ModelAndView mv) {
+//		mv.setViewName("movie/movieSearchResult");
+//		return mv;
+//	}
 	
 	@GetMapping("/movieDetail")
 	public ModelAndView movieDetail(ModelAndView mv2) {
@@ -35,22 +41,21 @@ public class MovieController {
 	}
 	
 
-	@GetMapping("/list")
-	public ModelAndView list(ModelAndView model,
+	@GetMapping("/movieList")
+	public ModelAndView movieList(ModelAndView model,
 			@RequestParam(value = "page", required = false, defaultValue = "1") int page) {
 
 		List<Movie> list = null;
-		// int listCount=service.getBoardCount(); 이렇게 썼었는데 아래처럼 써서 줄여줬음
 		PageInfo pageInfo = new PageInfo(page, 10, service.getMovieCount(), 10);
 
 		list = service.getMovieList(pageInfo);
 
 		model.addObject("list", list);
 		model.addObject("pageInfo", pageInfo);
-		model.setViewName("board/list");
-
+		model.setViewName("movie/movieSearchResult");
 		return model;
 	}
+	
 //	
 //	@GetMapping("/view")
 //	public ModelAndView view(ModelAndView model,

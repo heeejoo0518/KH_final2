@@ -2,8 +2,6 @@ package com.kh.moyoung.movie.model.service;
 
 import java.util.List;
 
-import org.springframework.web.multipart.MultipartFile;
-
 import com.kh.moyoung.movie.model.vo.Movie;
 import com.kh.moyoung.common.util.PageInfo;
 
