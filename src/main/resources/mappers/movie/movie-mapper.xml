@@ -6,127 +6,64 @@
 <mapper namespace="com.kh.moyoung.board.model.mapper.MovieMapper">
 	<sql id="movieListSql">
 		SELECT   
-				M.TITLE, 
-				B.ORIGINAL_FILENAME, 
-				B.RENAMED_FILENAME, 
-				B.CONTENT,
-				B.TYPE,
-				B.CREATE_DATE, 
-				B.MODIFY_DATE
-		FROM MOVIE M
+			MOVIE_ID,
+			LAST_UPDATE,
+			TITLE,
+			TITLE_KOR,
+			PRODUCT_YEAR,
+			OPEN_DATE,
+			COUNTRY,
+			GENRE,
+			DIRECTOR,
+			VOTE,
+			ADULT,
+			RUN_TIME,
+			M_POSTER,
+			NETFLIX,
+			WATCHA,
+			TVING,
+			WAVVE,
+			STORY,
+			ACTOR
+		FROM MOVIE
 	</sql>
 	
-	<resultMap type="Board" id="boardListResultMap">
-		<id property="no" column="NO"/>
+	<resultMap type="Movie" id="movieListResultMap">
+		<id property="movie_id" column="MOVIE_ID"/>
+		<result property="last_update" column="LAST_UPDATE"/>
 		<result property="title" column="TITLE"/>
-		<result property="writerId" column="ID"/>
-		<result property="writerNo" column="WRITER_NO"/>
-		<result property="readCount" column="READCOUNT"/>
-		<result property="originalFileName" column="ORIGINAL_FILENAME"/>
-		<result property="renamedFileName" column="RENAMED_FILENAME"/>
-		<result property="content" column="CONTENT"/>
-		<result property="type" column="TYPE"/>
-		<result property="createDate" column="CREATE_DATE"/>
-		<result property="modifyDate" column="MODIFY_DATE"/>
+		<result property="title_kor" column="TITLE_KOR"/>
+		<result property="product_year" column="PRODUCT_YEAR"/>
+		<result property="open_file" column="OPEN_DATE"/>
+		<result property="country" column="COUNTRY"/>
+		<result property="genre" column="GENRE"/>
+		<result property="director" column="DIRECTOR"/>
+		<result property="vote" column="VOTE"/>
+		<result property="adult" column="ADULT"/>
+		<result property="run_time" column="RUN_TIME"/>
+		<result property="m_poster" column="M_POSTER"/>
+		<result property="netflix" column="NETFLIX"/>
+		<result property="watcha" column="WATCHA"/>
+		<result property="tving" column="TVING"/>
+		<result property="wavve" column="WAVVE"/>
+		<result property="story" column="STORY"/>
+		<result property="actor" column="ACTOR"/>
 	</resultMap>
 
-	<resultMap type="Board" extends="boardListResultMap" id="boardDetailResultMap">
-		<collection property="replies" javaType="arraylist" columnPrefix="R_" resultMap="boardReplyResultMap"/>
-	</resultMap>
-	
-	<resultMap type="Reply" id="boardReplyResultMap">
-		<id property="no" column="NO"/>
-		<result property="boardNo" column="BOARD_NO"/>
-		<result property="writerNo" column="WRITER_NO"/>
-		<result property="writerId" column="ID"/>
-		<result property="content" column="CONTENT"/>
-		<result property="createDate" column="CREATE_DATE"/>
-		<result property="modifyDate" column="MODIFY_DATE"/>
-	</resultMap>
-	 
-
-	<select id="selectBoardList" resultMap="boardListResultMap">
-		<include refid="boardListSql"/>
-		
-		ORDER BY B.NO DESC
+	<select id="selectMovieList" resultMap="movieListResultMap">
+		<include refid="movieListSql"/>
+		ORDER BY MOVIE_ID DESC
 	</select>
 	
-	<select id="selectBoardCount" resultType="_int">
+	<select id="selectMovieCount" resultType="_int">
 		SELECT COUNT(*)
-		FROM BOARD
-		WHERE STATUS='Y'
+		FROM MOVIE
 	</select>
 	
-	<select id="selectBoardByNo" parameterType="_int" resultMap="boardDetailResultMap">
- 		SELECT B.NO,
-		       B.TITLE,
-		       B.WRITER_NO, 
-		       M.ID, 
-		       B.READCOUNT, 
-		       B.ORIGINAL_FILENAME, 
-		       B.RENAMED_FILENAME, 
-		       B.CONTENT,
-		       B.TYPE,
-		       B.CREATE_DATE, 
-		       B.MODIFY_DATE,
-		       R.NO AS R_NO, 
-		       R.BOARD_NO AS R_BOARD_NO, 
-		       R.CONTENT AS R_CONTENT, 
-		       M2.ID AS R_ID, 
-		       R.CREATE_DATE AS R_CREATE_DATE, 
-		       R.MODIFY_DATE AS R_MODIFY_DATE
-		FROM BOARD B
-		JOIN MEMBER M ON(B.WRITER_NO = M.NO)
-		LEFT OUTER JOIN REPLY R ON(B.NO = R.BOARD_NO)
-		LEFT OUTER JOIN MEMBER M2 ON(R.WRITER_NO = M2.NO)
-		WHERE B.STATUS='Y' AND B.NO=#{boardNo}
-	</select>
-	
-	<insert id="insertBoard" parameterType="map"
-			useGeneratedKeys="true" keyProperty="no" keyColumn="NO">
-		INSERT INTO BOARD (
-			NO,
-			WRITER_NO,
-			TITLE,
-			CONTENT,
-			ORIGINAL_FILENAME,
-			RENAMED_FILENAME,
-			READCOUNT,
-			STATUS,
-			CREATE_DATE,
-			MODIFY_DATE,
-			TYPE		
-		) VALUES (
-			SEQ_BOARD_NO.NEXTVAL,
-			#{writerNo},
-			#{title},
-			#{content},
-			#{originalFileName},
-			#{renamedFileName},
-			DEFAULT,
-			DEFAULT,
-			DEFAULT,
-			DEFAULT,
-			DEFAULT
-		)
-	</insert>
-	
-	<update id="updateBoard" parameterType="map">
-		UPDATE BOARD
-		SET
-			TITLE=#{title},
-			CONTENT=#{content},
-			<if test="originalFileName != null">
-				ORIGINAL_FILENAME=#{originalFileName},
-			</if>
-			<if test="renamedFileName != null">
-				RENAMED_FILENAME=#{renamedFileName},
-			</if>
-			MODIFY_DATE=SYSDATE
-		WHERE
-			NO=#{no}
-	</update>
-	
-	
+	<select id="selectMember" parameterType="string" resultMap="memberResultMap">
+ 		<include refid="selectMemberSql" />
+		WHERE MOVIE_ID = #{movie_id} 
+ 	</select>
+ 	
 	
 </mapper>

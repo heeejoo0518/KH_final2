@@ -11,27 +11,39 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Movie {
-	private int no;
+	private int movie_id;
 	
-	private int writerNo;
-	
-	private String writerId;
+	private Date last_update;
 	
 	private String title;
 	
+	private String title_kor;
+	
 	private String content;
 	
-	private String originalFileName;
+	private int product_year;
 	
-	private String renamedFileName;
+	private Date open_date;
 	
-	private int readCount;
+	private String country;
 	
-	private String status;
+	private String genre;
 	
-	private String type;
-		
-	private Date createDate;
+	private String director;
 	
-	private Date modifyDate;
-}
+	private int vote;
+	
+	private int run_time;
+	
+	private String m_poster;
+	
+	private String netflix;
+	
+	private String watcha;
+	
+	private String tving;
+	
+	private String wavve;
+	
+	
+	}

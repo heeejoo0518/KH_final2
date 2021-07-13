@@ -11,10 +11,10 @@
 <head>
 <title>영화 검색 결과입니다</title>
 	<meta charset="UTF-8">
-	<meta name="description" content="">
-	<meta name="keywords" content="">
-	<meta name="author" content="">
-	<link rel="profile" href="#">
+<!-- 	<META NAME="DESCRIPTION" CONTENT=""> -->
+<!-- 	<META NAME="KEYWORDS" CONTENT=""> -->
+<!-- 	<META NAME="AUTHOR" CONTENT=""> -->
+<!-- 	<LINK REL="PROFILE" HREF="#"> -->
     <!--Google Font-->
     <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
 	<!-- Mobile specific meta -->
@@ -24,6 +24,7 @@
 	<link rel="stylesheet" href="${ path }/css/plugins.css">
 	<link rel="stylesheet" href="${ path }/css/style.css">
 </head>
+
 <body>
 <div id="preloader">
     <img class="logo" src="${ path }/images/logo1.png" alt="" width="119" height="58">
@@ -37,7 +38,6 @@
 <!-- BEGIN | Header -->
 <header class="ht-header" style="background-color: #020d18;">
 	<div class="container">
-	
 	    <!-- top search form -->
 	    <div class="top-search">
 	    	<select>
@@ -76,9 +76,10 @@
 					</select>
 				</div>
 				<div class="movie-item-style-2">
+					
 					<img src="${ path }/images/uploads/mv1.jpg" alt="">
 					<div class="mv-item-infor">
-						<h6><a href="movieDetail">영화명 <span>(개봉년도)</span></a></h6>
+						<h6><a href="movieDetail"><c:out value="${ movie.title }"/><span>(개봉년도)</span></a></h6>
 						<p class="rate"><i class="ion-android-star"></i>모영별점: <span>8.0</span> /10</p>
 						<p class="review"><i class="ion-edit"></i><span class="rv"> 56개의 리뷰</span>
 						<br><br>
@@ -91,42 +92,42 @@
 						</div>
 				</div>
 				<div class="movie-item-style-2">
-					<img src="${ path }/images/uploads/mv2.jpg" alt="">
+					<c:forEach var="movie" items="${ list }">
+					<img src="${ path }/images/uploads/mv1.jpg" alt="">
 					<div class="mv-item-infor">
-						<h6><a href="moviesingle.html">into the wild <span>(2014)</span></a></h6>
-						<p class="rate"><i class="ion-android-star"></i><span>7.8</span> /10</p>
-						<p class="describe">As Steve Rogers struggles to embrace his role in the modern world, he teams up with a fellow Avenger and S.H.I.E.L.D agent, Black Widow, to battle a new threat...</p>
-						<p class="run-time"> Run Time: 2h21’    .     <span>MMPA: PG-13 </span>    .     <span>Release: 1 May 2015</span></p>
-						<p>Director: <a href="#">Anthony Russo,</a><a href="#">Joe Russo</a></p>
-						<p>Stars: <a href="#">Chris Evans,</a> <a href="#">Samuel L. Jackson,</a> <a href="#">  Scarlett Johansson</a></p>
-					</div>
+						<h6><a href="movieDetail"><c:out value="${ movie.title }"/><span><c:out value="${ movie.open_date }"/></span></a></h6>
+						<p class="rate"><i class="ion-android-star"></i>모영별점: <span><c:out value="${ movie.vote }"/></span> /10</p>
+						<p class="review"><i class="ion-edit"></i><span class="rv"> 56개의 리뷰</span>
+						<br><br>
+						<a href="https://www.netflix.com/"><img src="${ path }/images/netflix.jpg" alt="neflogo" style="width:50px; height:50px"></a>
+						<img src="${ path }/images/watcha.jpg" alt="watlogo" style="width:50px; height:50px">
+						<img src="${ path }/images/tving.jpg" alt="tvlogo" style="width:50px; height:50px">
+						<img src="${ path }/images/wavve.jpg" alt="wavlogo" style="width:50px; height:50px">	
+						<br><br>
+						<p class="describe">Earth's mightiest heroes must come together and learn to fight as a team if they are to stop the mischievous Loki and his alien army from enslaving humanity...</p>
+						</div>
+						</c:forEach>
 				</div>
-					<div class="movie-item-style-2">
-					<img src="${ path }/images/uploads/mv2.jpg" alt="">
+				<div class="movie-item-style-2">
+					
+					<img src="${ path }/images/uploads/mv1.jpg" alt="">
 					<div class="mv-item-infor">
-						<h6><a href="moviesingle.html">into the wild <span>(2014)</span></a></h6>
-						<p class="rate"><i class="ion-android-star"></i><span>7.8</span> /10</p>
-						<p class="describe">As Steve Rogers struggles to embrace his role in the modern world, he teams up with a fellow Avenger and S.H.I.E.L.D agent, Black Widow, to battle a new threat...</p>
-						<p class="run-time"> Run Time: 2h21’    .     <span>MMPA: PG-13 </span>    .     <span>Release: 1 May 2015</span></p>
-						<p>Director: <a href="#">Anthony Russo,</a><a href="#">Joe Russo</a></p>
-						<p>Stars: <a href="#">Chris Evans,</a> <a href="#">Samuel L. Jackson,</a> <a href="#">  Scarlett Johansson</a></p>
-					</div>
-				</div>	<div class="movie-item-style-2">
-					<img src="${ path }/images/uploads/mv2.jpg" alt="">
-					<div class="mv-item-infor">
-						<h6><a href="moviesingle.html">into the wild <span>(2014)</span></a></h6>
-						<p class="rate"><i class="ion-android-star"></i><span>7.8</span> /10</p>
-						<p class="describe">As Steve Rogers struggles to embrace his role in the modern world, he teams up with a fellow Avenger and S.H.I.E.L.D agent, Black Widow, to battle a new threat...</p>
-						<p class="run-time"> Run Time: 2h21’    .     <span>MMPA: PG-13 </span>    .     <span>Release: 1 May 2015</span></p>
-						<p>Director: <a href="#">Anthony Russo,</a><a href="#">Joe Russo</a></p>
-						<p>Stars: <a href="#">Chris Evans,</a> <a href="#">Samuel L. Jackson,</a> <a href="#">  Scarlett Johansson</a></p>
-					</div>
+						<h6><a href="movieDetail"><c:out value="${ movie.title }"/><span>(개봉년도)</span></a></h6>
+						<p class="rate"><i class="ion-android-star"></i>모영별점: <span>8.0</span> /10</p>
+						<p class="review"><i class="ion-edit"></i><span class="rv"> 56개의 리뷰</span>
+						<br><br>
+						<a href="https://www.netflix.com/"><img src="${ path }/images/netflix.jpg" alt="neflogo" style="width:50px; height:50px"></a>
+						<img src="${ path }/images/watcha.jpg" alt="watlogo" style="width:50px; height:50px">
+						<img src="${ path }/images/tving.jpg" alt="tvlogo" style="width:50px; height:50px">
+						<img src="${ path }/images/wavve.jpg" alt="wavlogo" style="width:50px; height:50px">	
+						<br><br>
+						<p class="describe">Earth's mightiest heroes must come together and learn to fight as a team if they are to stop the mischievous Loki and his alien army from enslaving humanity...</p>
+						</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-
 <script src="${ path }/js/jquery-3.6.0.min.js"></script>
 <script src="${ path }/js/plugins.js"></script>
 <script src="${ path }/js/plugins2.js"></script>

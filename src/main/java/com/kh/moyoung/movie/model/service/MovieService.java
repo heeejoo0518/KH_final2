@@ -11,14 +11,10 @@ public interface MovieService {
 
 	int save(Movie movie);
 
-	String saveFile(MultipartFile upfile, String savePath);
+	int getMovieCount();
 
-	int getBoardCount();
+	List<Movie> getMovieList(PageInfo pageInfo);
 
-	List<Movie> getBoardList(PageInfo pageInfo);
-
-	Movie findByNo(int boardNo);
-
-	void deleteFile(String filePath);
+	Movie findByNo(int movieNo);
 	
 }

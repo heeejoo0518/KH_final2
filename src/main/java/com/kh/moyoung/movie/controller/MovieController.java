@@ -1,11 +1,17 @@
 package com.kh.moyoung.movie.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.kh.moyoung.common.util.PageInfo;
+import com.kh.moyoung.movie.model.service.MovieService;
+import com.kh.moyoung.movie.model.vo.Movie;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -13,11 +19,8 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 @RequestMapping("/movie") 
 public class MovieController {
-//	@Autowired 
-//	private MovieService service;
-//	
-	@Autowired
-	private ResourceLoader resourceLoader;
+	@Autowired 
+	private MovieService service;
 
 	@GetMapping("/movieList")
 	public ModelAndView movieList(ModelAndView mv) {
@@ -31,28 +34,23 @@ public class MovieController {
 		return mv2;
 	}
 	
-//	@RequestMapping("/index")
-//	public ModelAndView index(ModelAndView mv3) {
-//		mv3.setViewName("movie/index");
-//		return mv3;
-//	}
-//	
-//	@GetMapping("/list")
-//	public ModelAndView list(ModelAndView model,
-//			@RequestParam(value = "page", required = false, defaultValue = "1") int page) {
-//
-//		List<Movie> list = null;
-//		// int listCount=service.getBoardCount(); 이렇게 썼었는데 아래처럼 써서 줄여줬음
-//		PageInfo pageInfo = new PageInfo(page, 10, service.getBoardCount(), 10);
-//
-//		list = service.getBoardList(pageInfo);
-//
-//		model.addObject("list", list);
-//		model.addObject("pageInfo", pageInfo);
-//		model.setViewName("board/list");
-//
-//		return model;
-//	}
+
+	@GetMapping("/list")
+	public ModelAndView list(ModelAndView model,
+			@RequestParam(value = "page", required = false, defaultValue = "1") int page) {
+
+		List<Movie> list = null;
+		// int listCount=service.getBoardCount(); 이렇게 썼었는데 아래처럼 써서 줄여줬음
+		PageInfo pageInfo = new PageInfo(page, 10, service.getMovieCount(), 10);
+
+		list = service.getMovieList(pageInfo);
+
+		model.addObject("list", list);
+		model.addObject("pageInfo", pageInfo);
+		model.setViewName("board/list");
+
+		return model;
+	}
 //	
 //	@GetMapping("/view")
 //	public ModelAndView view(ModelAndView model,
