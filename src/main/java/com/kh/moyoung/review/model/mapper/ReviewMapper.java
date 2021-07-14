@@ -10,8 +10,10 @@ import com.kh.moyoung.review.model.vo.Review;
 @Mapper
 public interface ReviewMapper {
 
-	public int selectReviewCount();
+	int selectReviewCount();
 
-	public List<Review> selectReviewList(RowBounds rowBounds);
+	List<Review> selectReviewList(RowBounds rowBounds);
+
+	int insertReview(Review review);
 
 }

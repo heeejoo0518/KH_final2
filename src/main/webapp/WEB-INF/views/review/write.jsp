@@ -13,7 +13,7 @@
 <title>모두의 영화</title>
 <style>
 	body{
-		background-color: #404040;
+		background-color: #020d18;
 	}
 	#reviewContainer{
 		position:absolute;
@@ -72,38 +72,39 @@
 <body>
 <h2>header</h2>
 	<div id="reviewContainer"> <!-- 중앙  -->
-		<form action="">
+		<form action="${ path }/review/write" method="POST">
+			<input type="hidden" name="nickname" value="${ signinMember.nickname }">
 			<div id="formContainer">
 				<div id="div-Content"> <!-- 리뷰작성 공간 -->
-					<textarea id="text-area" rows="30" cols="100" placeholder="리뷰를 작성해주세요."></textarea>		
+					<textarea id="text-area" name="content" rows="30" cols="100" placeholder="리뷰를 작성해주세요." required="required"></textarea>		
 				
 				</div>
 				<div id="div-spoiler"> <!-- 스포일러checkBox -->
-					리뷰에 스포일러가 포함됩니다.<input type="checkbox">
+					리뷰에 스포일러가 포함됩니다.<input type="checkbox" name="spoiler" value="1">
 				</div>
 				<br>
 				<div id="div-rate"> <!-- 평점 -->
 					<span class="star-input">
 						<span class="input">
-					    	<input type="radio" name="star-input" value="1" id="p1">
+					    	<input type="checkbox" name="star-input" value="1" id="p1">
 					    	<label for="p1">1</label>
-					    	<input type="radio" name="star-input" value="2" id="p2">
+					    	<input type="checkbox" name="star-input" value="2" id="p2">
 					    	<label for="p2">2</label>
-					    	<input type="radio" name="star-input" value="3" id="p3">
+					    	<input type="checkbox" name="star-input" value="3" id="p3">
 					    	<label for="p3">3</label>
-					    	<input type="radio" name="star-input" value="4" id="p4">
+					    	<input type="checkbox" name="star-input" value="4" id="p4">
 					    	<label for="p4">4</label>
-					    	<input type="radio" name="star-input" value="5" id="p5">
+					    	<input type="checkbox" name="star-input" value="5" id="p5">
 					    	<label for="p5">5</label>
 				  		</span>
-				  		<output for="star-input"><b>0</b>점</output>						
+				  		<output for="star-input"><b>0</b>점</output>
 					</span>
 					<script src="${ path }/js/jquery-1.11.3.min.js"></script>
 					<script src="${ path }/js/star.js"></script>
 				</div>
 			</div>
 		<div id="div-submit">
-			<input id="btn-submit" type="button" value="등록">
+			<input id="btn-submit" type="submit" value="등록">
 		</div>
 		</form>
 	</div>
