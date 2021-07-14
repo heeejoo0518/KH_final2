@@ -19,8 +19,8 @@
 <!-- Scripts -->
 			<script src="${ path }/resources/js/jquery.min.js"></script>
 			<!-- 
-			<script src="${ path }/resources/js/jquery-3.6.0.min.js"></script>
 			<script src="${ path }/resources/js/main.js"></script>
+			<script src="${ path }/resources/js/jquery-3.6.0.min.js"></script>
 			 -->
 			<script src="${ path }/resources/js/jquery.scrolly.min.js"></script>
 			<script src="${ path }/resources/js/skel.min.js"></script>
