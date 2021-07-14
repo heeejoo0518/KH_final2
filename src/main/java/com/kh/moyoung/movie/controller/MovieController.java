@@ -40,21 +40,26 @@ public class MovieController {
 		return mv2;
 	}
 	
-
 	@GetMapping("/movieList")
-	public ModelAndView movieList(ModelAndView model,
-			@RequestParam(value = "page", required = false, defaultValue = "1") int page) {
-
-		List<Movie> list = null;
-		PageInfo pageInfo = new PageInfo(page, 10, service.getMovieCount(), 10);
-
-		list = service.getMovieList(pageInfo);
-
-		model.addObject("list", list);
-		model.addObject("pageInfo", pageInfo);
-		model.setViewName("movie/movieSearchResult");
-		return model;
+	public ModelAndView movieList(ModelAndView mv) {
+		mv.setViewName("movie/movieSearchResult");
+		return mv;
 	}
+	
+//	@GetMapping("/movieList")
+//	public ModelAndView movieList(ModelAndView model,
+//			@RequestParam(value = "page", required = false, defaultValue = "1") int page) {
+//
+//		List<Movie> list = null;
+//		PageInfo pageInfo = new PageInfo(page, 10, service.getMovieCount(), 10);
+//
+//		list = service.getMovieList(pageInfo);
+//
+//		model.addObject("list", list);
+//		model.addObject("pageInfo", pageInfo);
+//		model.setViewName("movie/movieSearchResult");
+//		return model;
+//	}
 	
 //	
 //	@GetMapping("/view")
@@ -114,7 +119,6 @@ public class MovieController {
 //		}
 //	}
 //	
-//
 //	@GetMapping("/update")
 //	public ModelAndView updateView(ModelAndView model,
 //			@SessionAttribute(name = "loginMember", required = false) Member loginMember,
@@ -179,21 +183,21 @@ public class MovieController {
 //	}
 //	
 //	
-//	// 컨트롤러 메소드의 리턴 타입이 void일 경우 Mapping URL을 유추해서 View 찾는다.
-////	@GetMapping("board/write")
-////	public String wirteView() {
-////		log.info("게시글 작성 페이지 요청");
-////		return "board/write";
-//
+//	 컨트롤러 메소드의 리턴 타입이 void일 경우 Mapping URL을 유추해서 View 찾는다.
+//	@GetMapping("board/write")
+//	public String wirteView() {
+//		log.info("게시글 작성 페이지 요청");
+//		return "board/write";
+
 //	@GetMapping("/write")
 //	public void wirteView() {
 //		log.info("게시글 작성 페이지 요청");
 //	}
-//
+
 //	@PostMapping("/write")
 //	public ModelAndView write(ModelAndView model, HttpServletRequest request,
 //			@SessionAttribute(name = "loginMember", required = false) Member loginMember,
-////			@ModelAttribute Board board, @RequestParam("upfile") MultipartFile[] upfile) {	
+//			@ModelAttribute Board board, @RequestParam("upfile") MultipartFile[] upfile) {	
 //			@ModelAttribute Board board, @RequestParam("upfile") MultipartFile upfile) {
 //		int result = 0;
 //
@@ -223,7 +227,7 @@ public class MovieController {
 //			}
 //
 //			System.out.println(board);
-//
+
 //			// 2. 데이터 베이스에 저장
 //			result = service.save(board);
 //
@@ -243,5 +247,5 @@ public class MovieController {
 //
 //		return model;
 //	}
-
+  
 }
