@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.kh.moyoung.common.util.PageInfo;
 import com.kh.moyoung.review.model.mapper.ReviewMapper;
@@ -31,6 +32,19 @@ public class ReviewServiceImpl implements ReviewService {
 		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
 		
 		return mapper.selectReviewList(rowBounds);	
+	}
+
+	@Override
+	@Transactional
+	public int save(Review review) {
+		int result= 0;
+		
+		result = mapper.insertReview(review);
+		/*if(review.getReviewNo() == 0) {
+		 
+		}*/
+		
+		return result;
 	}
 
 }

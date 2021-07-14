@@ -7,8 +7,10 @@ import com.kh.moyoung.review.model.vo.Review;
 
 public interface ReviewService {
 
-	int getReviewCount();
+	int getReviewCount(); /* 리뷰 개수 카운팅 */ 
 
 	List<Review> getReviewList(PageInfo pageInfo);
+
+	int save(Review review); /* 리뷰 작성하기 */
 
 }

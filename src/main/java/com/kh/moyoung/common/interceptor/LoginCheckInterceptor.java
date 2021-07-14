@@ -9,17 +9,15 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import com.kh.moyoung.member.model.vo.Member;
 
 
+/*
+인터셉터(Interceptor)
+  - 컨트롤러에 들어오는 요청(HttpRequest)과 응답(HttpResponse)을 가로채는 역활을 한다.
+  - 인터셉터를 구현하기 위해서는 HandlerInterceptorAdapter 클래스를 상속하는 방법으로 구현해야한다.
 
-/* 인터셉터()
- * 	- 컨트롤러에 들어오는 요청(HttpRequest)과 응답(HttpResponse)를 가로채는 역할을 한다.
- * 	- 인터셉터를 구현하기 위해서는 HandlerInterceptorAdapter 클래스를 상속하는 클래스로 구현한다.
- *
- * 필터와의 차이점
- * 	- 필터는 Servlet 수행 전에 실행된다. (web.xml에 설정)
- * 	- 인터셉터는 DispatcherServlet 수행 후 컨트롤러에 요청을 넘기기전에 실행된다. (servlet-context.xml에 설정)
- *
- *
- */
+필터와의 차이점
+  - 필터는 Servlet 수행 전에 실행된다.(web.xml에 설정)
+  - 인터셉터는 DispatcherServlet 수행 후 컨트롤러에 요청을 넘기기전에 실행된다. (servlet-context.xml에 설정)
+*/
 
 public class LoginCheckInterceptor extends HandlerInterceptorAdapter {
 
