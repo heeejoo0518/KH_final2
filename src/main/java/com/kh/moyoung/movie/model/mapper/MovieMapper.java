@@ -10,14 +10,13 @@ import com.kh.moyoung.movie.model.vo.Movie;
 
 @Mapper
 public interface MovieMapper {
-	int selectMovieCount();	
-
-	Movie selectMovieByNo(@Param("movie_id") int movie_id);
+	int selectMovieCount();
+	
+	Movie selectMovieByNo(@Param("movieNo") int movieNo);
 	
 	List<Movie> selectMovieList(RowBounds rowBounds);
-//update랑 insert는 없는데 
-	int updateMovie(Movie movie);
 
 	int insertMovie(Movie movie);
-	
+
+
 }

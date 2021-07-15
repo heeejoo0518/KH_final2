@@ -2,12 +2,16 @@ package com.kh.moyoung.movie.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.moyoung.common.util.PageInfo;
@@ -18,61 +22,50 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-@RequestMapping("/movie") 
-
+@RequestMapping("/movie")
 public class MovieController {
-	
-	@Autowired 
+	@Autowired
 	private MovieService service;
 
-	@Autowired
-	private ResourceLoader resourceLoader;
-	
-//	@GetMapping("/movieList")
-//	public ModelAndView movieList(ModelAndView mv) {
-//		mv.setViewName("movie/movieSearchResult");
-//		return mv;
+//	@GetMapping("/movieDetail")
+//	public ModelAndView movieDetail(ModelAndView mv2) {
+//		mv2.setViewName("movie/movieDetail");
+//		return mv2;
 //	}
+
+	@GetMapping("/list")
+	public ModelAndView list(ModelAndView model,
+			@RequestParam(value = "page", required = false, defaultValue = "1") int page) {
+		log.info("영화 목록 페이지 요청");
+
+		List<Movie> list = null;
+		
+		PageInfo pageInfo = new PageInfo(page, 10, service.getMovieCount(), 10);
+				
+		list = service.getMovieList(pageInfo);
+
+		model.addObject("list", list);
+		model.addObject("pageInfo", pageInfo);
+		model.setViewName("movie/movieList");
+
+		return model;
+	}
+
 	
-	@GetMapping("/movieDetail")
-	public ModelAndView movieDetail(ModelAndView mv2) {
-		mv2.setViewName("movie/movieDetail");
-		return mv2;
+	@GetMapping("/view")
+	public ModelAndView view(ModelAndView model, @RequestParam(value = "movieNo", required = false, defaultValue = "1") int movieNo) {
+		log.info("영화 상세보기 페이지 요청");
+		Movie movie = service.findByNo(movieNo);
+		log.info("findByNo 메소드 호출");
+
+		model.addObject("movie",movie);
+		log.info("movie 오브젝트 추가");
+
+		model.setViewName("movie/movieView");
+		
+		return model;
 	}
 	
-	@GetMapping("/movieList")
-	public ModelAndView movieList(ModelAndView mv) {
-		mv.setViewName("movie/movieSearchResult");
-		return mv;
-	}
-	
-//	@GetMapping("/movieList")
-//	public ModelAndView movieList(ModelAndView model,
-//			@RequestParam(value = "page", required = false, defaultValue = "1") int page) {
-//
-//		List<Movie> list = null;
-//		PageInfo pageInfo = new PageInfo(page, 10, service.getMovieCount(), 10);
-//
-//		list = service.getMovieList(pageInfo);
-//
-//		model.addObject("list", list);
-//		model.addObject("pageInfo", pageInfo);
-//		model.setViewName("movie/movieSearchResult");
-//		return model;
-//	}
-	
-//	
-//	@GetMapping("/view")
-//	public ModelAndView view(ModelAndView model,
-//			@RequestParam("no") int boardNo) {
-//		
-//		Board board = service.findByNo(boardNo);
-//		
-//		model.addObject("board",board);
-//		model.setViewName("board/view");
-//		
-//		return model;
-//	}
 //	
 //	/*
 //	 * HttpEntity
@@ -247,5 +240,5 @@ public class MovieController {
 //
 //		return model;
 //	}
-  
+
 }

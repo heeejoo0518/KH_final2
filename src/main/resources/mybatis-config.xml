@@ -11,9 +11,8 @@
 		<setting name="jdbcTypeForNull" value="NULL"/>
 	</settings>
 	
-
 	<mappers>
 		<mapper resource="mappers/member/member-mapper.xml" />
-		<mapper resource="mappers/movie/movie-mapper.xml"/>
+		<mapper resource="mappers/movie/movie-mapper.xml" />	
 	</mappers>
 </configuration>

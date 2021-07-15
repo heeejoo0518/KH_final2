@@ -7,11 +7,11 @@ import com.kh.moyoung.common.util.PageInfo;
 
 public interface MovieService {
 
-	int save(Movie movie);
-
 	int getMovieCount();
 
 	List<Movie> getMovieList(PageInfo pageInfo);
+
+	int save(Movie movie);
 
 	Movie findByNo(int movieNo);
 	

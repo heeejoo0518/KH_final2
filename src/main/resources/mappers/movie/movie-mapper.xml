@@ -3,35 +3,8 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.kh.moyoung.board.model.mapper.MovieMapper">
-	<!-- resultMap 설정 -->
-	<resultMap id="movieListResultMap" type="Movie" >
-		<id property="movie_id" column="MOVIE_ID"/>
-		<result property="last_update" column="LAST_UPDATE"/>
-		<result property="title" column="TITLE"/>
-		<result property="title_kor" column="TITLE_KOR"/>
-		<result property="product_year" column="PRODUCT_YEAR"/>
-		<result property="open_file" column="OPEN_DATE"/>
-		<result property="country" column="COUNTRY"/>
-		<result property="genre" column="GENRE"/>
-		<result property="director" column="DIRECTOR"/>
-		<result property="vote" column="VOTE"/>
-		<result property="adult" column="ADULT"/>
-		<result property="run_time" column="RUN_TIME"/>
-		<result property="m_poster" column="M_POSTER"/>
-		<result property="netflix" column="NETFLIX"/>
-		<result property="watcha" column="WATCHA"/>
-		<result property="tving" column="TVING"/>
-		<result property="wavve" column="WAVVE"/>
-		<result property="story" column="STORY"/>
-		<result property="actor" column="ACTOR"/>
-	</resultMap>
-	
-<!-- 	<resultMap type="Movie" extends="movieListResultMap" id="movieDetailResultMap"> -->
-<!-- 		<collection property="replies" javaType="arraylist" columnPrefix="R_" resultMap="boardReplyResultMap"/> -->
-<!-- 	</resultMap> -->
-	
-	<sql id="movieListSql">
+<mapper namespace="com.kh.moyoung.movie.model.mapper.MovieMapper">
+	<sql id="selectMovieSql">
 		SELECT   
 			MOVIE_ID,
 			LAST_UPDATE,
@@ -51,14 +24,39 @@
 			TVING,
 			WAVVE,
 			STORY,
-			ACTOR
+			ACTOR,
+			VIEWING_AGE,
+			TRAILER
 		FROM MOVIE
 	</sql>
-	
+		
+	<resultMap type="Movie" id="movieListResultMap" >
+		<id property="movieNo" column="MOVIE_ID"/>
+		<result property="last_update" column="LAST_UPDATE"/>
+		<result property="title" column="TITLE"/>
+		<result property="title_kor" column="TITLE_KOR"/>
+		<result property="product_year" column="PRODUCT_YEAR"/>
+		<result property="open_date" column="OPEN_DATE"/>
+		<result property="country" column="COUNTRY"/>
+		<result property="genre" column="GENRE"/>
+		<result property="director" column="DIRECTOR"/>
+		<result property="vote" column="VOTE"/>
+		<result property="adult" column="ADULT"/>
+		<result property="run_time" column="RUN_TIME"/>
+		<result property="m_poster" column="M_POSTER"/>
+		<result property="netflix" column="NETFLIX"/>
+		<result property="watcha" column="WATCHA"/>
+		<result property="tving" column="TVING"/>
+		<result property="wavve" column="WAVVE"/>
+		<result property="story" column="STORY"/>
+		<result property="actor" column="ACTOR"/>
+		<result property="viewing_age" column="VIEWING_AGE"/>
+		<result property="trailer" column="TRAILER"/>
+	</resultMap>
+
 	<!-- movie 리스트 목록 -->
 	<select id="selectMovieList" resultMap="movieListResultMap">
-		<include refid="movieListSql"/>
-		
+		<include refid="selectMovieSql"/>
 		ORDER BY MOVIE_ID DESC
 	</select>
 	
@@ -67,88 +65,35 @@
 		FROM MOVIE
 	</select>
 	
-	<select id="selectMovie" parameterType="string" resultMap="movieResultMap">
- 		<include refid="movieListSql" />
-		WHERE MOVIE_ID = #{movie_id} 
- 	</select>
+<!-- 	<select id="selectMovieByNo" parameterType="_int" resultMap="movieDetailResultMap"> -->
+<!-- 		<include refid="selectMovieSql"/> -->
+<!-- 		WHERE MOVIE_ID = #{movieNo}  -->
+<!--  	</select> -->
  	
-	<select id="selectMovieByNo" parameterType="_int" resultMap="movieDetailResultMap">
- 		SELECT   
-			MOVIE_ID,
-			LAST_UPDATE,
-			TITLE,
-			TITLE_KOR,
-			PRODUCT_YEAR,
-			OPEN_DATE,
-			COUNTRY,
-			GENRE,
-			DIRECTOR,
-			VOTE,
-			ADULT,
-			RUN_TIME,
-			M_POSTER,
-			NETFLIX,
-			WATCHA,
-			TVING,
-			WAVVE,
-			STORY,
-			ACTOR
-		FROM MOVIE
-		WHERE MOVIE_ID=#{movie_id}
-	</select>
+<!-- 	<select id="selectMovieByNo" parameterType="_int" resultMap="movieDetailResultMap"> -->
+<!--  		SELECT    -->
+<!-- 			MOVIE_ID, -->
+<!-- 			LAST_UPDATE, -->
+<!-- 			TITLE, -->
+<!-- 			TITLE_KOR, -->
+<!-- 			PRODUCT_YEAR, -->
+<!-- 			OPEN_DATE, -->
+<!-- 			COUNTRY, -->
+<!-- 			GENRE, -->
+<!-- 			DIRECTOR, -->
+<!-- 			VOTE, -->
+<!-- 			ADULT, -->
+<!-- 			RUN_TIME, -->
+<!-- 			M_POSTER, -->
+<!-- 			NETFLIX, -->
+<!-- 			WATCHA, -->
+<!-- 			TVING, -->
+<!-- 			WAVVE, -->
+<!-- 			STORY, -->
+<!-- 			ACTOR, -->
+<!-- 			VIEWING_AGE, -->
+<!-- 			TRAILER -->
+<!-- 		FROM MOVIE WHERE  MOVIE_ID = #{movieNo} -->
+<!-- 	</select> -->
 	
-	insert랑 update 쓰지는 않을 것 같은데 일단 만들어놨어요(작동하는지는 모릅니다)
-	<insert id="insertMovie" parameterType="map"
-			useGeneratedKeys="true" keyProperty="movie_id" keyColumn="MOVIE_ID">
-		INSERT INTO MOVIE (
-			MOVIE_ID,
-			LAST_UPDATE,
-			TITLE,
-			TITLE_KOR,
-			PRODUCT_YEAR,
-			OPEN_DATE,
-			COUNTRY,
-			GENRE,
-			DIRECTOR,
-			VOTE,
-			ADULT,
-			RUN_TIME,
-			M_POSTER,
-			NETFLIX,
-			WATCHA,
-			TVING,
-			WAVVE,
-			STORY,
-			ACTOR
-		) VALUES (
-			SEQ_MOVIE_ID.NEXTVAL,
-			#{last_update},
-			#{title},
-			#{title_kor},
-			#{product_year},
-			#{open_date},
-			#{country},
-			#{genre},
-			#{director},
-			#{vote},
-			#{adult},
-			#{run_time},
-			#{m_poster},
-			#{netflix},
-			#{watcha},
-			#{tving},
-			#{wavve},
-			#{story},
-			#{actor}
-		)
-	</insert>
-	
-	<update id="updateMovie" parameterType="map">
-		UPDATE MOVIE
-		SET
-			TITLE=#{title},
-			LAST_UPDATE=SYSDATE
-		WHERE
-			MOVIE_ID=#{movie_id}
-	</update>
 </mapper>

@@ -9,13 +9,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- Basic need -->
 <title>모두의영화 상세보기</title>
 <meta charset="UTF-8">
-<meta name="description" content="">
-<meta name="keywords" content="">
-<meta name="author" content="">
-<link rel="profile" href="#">
 
 <!--Google Font-->
 <link rel="stylesheet"
@@ -67,17 +62,18 @@
 		<div class="row ipad-width2">
 			<div class="col-md-4 col-sm-12 col-xs-12">
 				<div class="movie-img sticky-sb">
-					<img src="${ path }/images/uploads/movie-single.jpg" alt="">
+					<img src="${ movie.m_poster }" alt="">
 					<div class="movie-btn">
 						<div class="btn-transform transform-vertical red">
 							<div>
-								<a href="#" class="item item-1 redbtn"> <i class="ion-play"></i>
-									Watch Trailer
+								<a href="#" class="item item-1 redbtn"> 
+								<i class="ion-play"></i>
+									예고편 보기
 								</a>
 
 							</div>
 							<div>
-								<a href="https://www.youtube.com/embed/o-0hcF97wy0"
+								<a href="${movie.trailer}"
 									class="item item-2 redbtn fancybox-media hvr-grow"><i
 									class="ion-play"></i></a>
 							</div>
@@ -97,10 +93,10 @@
 					style="padding-top: 280px;">
 
 					<h1 class="bd-hd">
-						007 스카이폴 <span>2015</span>
+						<c:out value="${ movie.title_kor }" /><span><c:out value="${ movie.product_year }" /></span>
 					</h1>
 					<h3 class="bd-hd">
-						<span>Skyfall: Quantum of Spectre</span>
+						<span><c:out value="${ movie.title }" /></span>
 					</h3>
 
 					<div class="movie-rate">
@@ -110,7 +106,7 @@
 						<div class="rate">
 							<i class="ion-android-star"></i>
 							<p>
-								<span>8.0</span> /10 <br> <span class="rv">56개의 리뷰</span>
+								<span><c:out value="${ movie.vote }" /></span> /5 <br> <span class="rv">56개의 리뷰</span>
 							</p>
 						</div>
 						<br>
@@ -118,11 +114,31 @@
 
 					<div class="movie-rate" style="height: 100px">
 						<div class="rate-star">
-							<a href="https://www.netflix.com/"><img class="slogo"
-								src="${ path }/images/netflix.jpg"></a> <img class="slogo"
-								src="${ path }/images/watcha.jpg" alt=""> <img
-								class="slogo" src="${ path }/images/tving.jpg" alt=""> <img
-								class="slogo" src="${ path }/images/wavve.jpg" alt="">
+						<c:if test="${ not empty movie.netflix }">
+											<a href="${ movie.netflix }">
+												<img src="${ path }/images/netflix.jpg" alt="netflixlogo" style="width: 50px; height: 50px">
+											</a> 
+										</c:if>
+										<c:if test="${ not empty movie.watcha }">
+											<a href="${ movie.watcha }">
+												<img src="${ path }/images/watcha.jpg" alt="watchalogo" style="width: 50px; height: 50px">
+											</a> 
+										</c:if>
+										<c:if test="${ not empty movie.tving }">
+											<a href="${ movie.tving }">
+												<img src="${ path }/images/tving.jpg" alt="tvinglogo" style="width: 50px; height: 50px">
+											</a> 
+										</c:if>
+										<c:if test="${ not empty movie.wavve }">
+											<a href="${ movie.wavve }">
+												<img src="${ path }/images/wavve.jpg" alt="neflogo" style="width: 50px; height: 50px">
+											</a> 
+										</c:if>
+<!-- 							<a href="https://www.netflix.com/"><img class="slogo" -->
+<%-- 								src="${ path }/images/netflix.jpg"></a> <img class="slogo" --%>
+<%-- 								src="${ path }/images/watcha.jpg" alt=""> <img --%>
+<%-- 								class="slogo" src="${ path }/images/tving.jpg" alt=""> <img --%>
+<%-- 								class="slogo" src="${ path }/images/wavve.jpg" alt=""> --%>
 						</div>
 					</div>
 					<div class="movie-tabs">
@@ -135,12 +151,7 @@
 								<div id="overview" class="tab active">
 									<div class="row">
 										<div class="col-md-8 col-sm-12 col-xs-12">
-											<p>Tony Stark creates the Ultron Program to protect the
-												world, but when the peacekeeping program becomes hostile,
-												The Avengers go into action to try and defeat a virtually
-												impossible enemy together. Earth's mightiest heroes must
-												come together once again to protect the world from global
-												extinction.</p>
+											<p><c:out value="${ movie.story }"/></p>
 
 											<div class="title-hd-sm">
 												<h4>출연진</h4>
