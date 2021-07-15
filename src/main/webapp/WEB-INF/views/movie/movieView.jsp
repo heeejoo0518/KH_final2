@@ -109,33 +109,28 @@
 						<br>
 					</div>
 
-					<div class="movie-rate" style="height: 100px">
+					<div class="movie-rate" style="height: 100px; ">
 						<div class="rate-star">
 						<c:if test="${ not empty movie.netflix }">
-											<a href="${ movie.netflix }">
-												<img src="${ path }/images/netflix.jpg" alt="netflixlogo" style="width: 50px; height: 50px">
-											</a> 
-										</c:if>
-										<c:if test="${ not empty movie.watcha }">
-											<a href="${ movie.watcha }">
-												<img src="${ path }/images/watcha.jpg" alt="watchalogo" style="width: 50px; height: 50px">
-											</a> 
-										</c:if>
-										<c:if test="${ not empty movie.tving }">
-											<a href="${ movie.tving }">
-												<img src="${ path }/images/tving.jpg" alt="tvinglogo" style="width: 50px; height: 50px">
-											</a> 
-										</c:if>
-										<c:if test="${ not empty movie.wavve }">
-											<a href="${ movie.wavve }">
-												<img src="${ path }/images/wavve.jpg" alt="neflogo" style="width: 50px; height: 50px">
-											</a> 
-										</c:if>
-<!-- 							<a href="https://www.netflix.com/"><img class="slogo" -->
-<%-- 								src="${ path }/images/netflix.jpg"></a> <img class="slogo" --%>
-<%-- 								src="${ path }/images/watcha.jpg" alt=""> <img --%>
-<%-- 								class="slogo" src="${ path }/images/tving.jpg" alt=""> <img --%>
-<%-- 								class="slogo" src="${ path }/images/wavve.jpg" alt=""> --%>
+							<a href="${ movie.netflix }">
+								<img src="${ path }/images/netflix.jpg" alt="netflixlogo" style="width: 50px; height: 50px">																
+							</a> 
+						</c:if>
+						<c:if test="${ not empty movie.watcha }">
+							<a href="${ movie.watcha }">
+								<img src="${ path }/images/watcha.jpg" alt="watchalogo" style="width: 50px; height: 50px">
+							</a> 
+						</c:if>
+						<c:if test="${ not empty movie.tving }">
+							<a href="${ movie.tving }">
+								<img src="${ path }/images/tving.jpg" alt="tvinglogo" style="width: 50px; height: 50px">
+							</a> 
+						</c:if>
+						<c:if test="${ not empty movie.wavve }">
+							<a href="${ movie.wavve }">
+								<img src="${ path }/images/wavve.jpg" alt="neflogo" style="width: 50px; height: 50px">
+							</a> 
+						</c:if>
 						</div>
 					</div>
 					<div class="movie-tabs">
@@ -158,24 +153,11 @@
 												<div class="cast-it">
 													<div class="cast-left">
 														<img src="${ path }/images/uploads/cast1.jpg" alt="">
-														<a href="#">Robert Downey Jr.</a>
+														<a href="#"><c:out value="${ movie.actor }" /></a>
 													</div>
-													<p>... Robert Downey Jr.</p>
+<%-- 													<c:out value="${ movie.actor }" /> --%>
 												</div>
-												<div class="cast-it">
-													<div class="cast-left">
-														<img src="${ path }/images/uploads/cast2.jpg" alt="">
-														<a href="#">Chris Hemsworth</a>
-													</div>
-													<p>... Thor</p>
-												</div>
-												<div class="cast-it">
-													<div class="cast-left">
-														<img src="${ path }/images/uploads/cast3.jpg" alt="">
-														<a href="#">Mark Ruffalo</a>
-													</div>
-													<p>... Bruce Banner/ Hulk</p>
-												</div>
+												
 											</div>
 											<div class="title-hd-sm">
 												<h4>모영 리뷰</h4>
@@ -223,55 +205,46 @@
 													</p>
 													<p>This is by far one of my favorite movies from the
 														MCU. The introduction of new Characters both good and bad
-														also makes the movie more exciting. giving the characters
-														more of a back story can also help audiences relate more
-														to different characters better, and it connects a bond
-														between the audience and actors or characters. Having seen
+														also makes the moviectors or characters. Having seen
 														the movie three times does not bother me here as it is as
-														thrilling and exciting every time I am watching it. In
-														other words, the movie is by far better than previous
-														movies (and I do love everything Marvel), the plotting is
-														splendid (they really do out do themselves in each film,
-														there are no problems watching it more than once.</p>
+														thrilling and exciting ever.</p>
 												</div>
 											</div>
-										
 										
 
 										</div>
 										<div class="col-md-4 col-xs-12 col-sm-12">
 											<div class="sb-it">
-												<h6>Director:</h6>
+												<h6>감독:</h6>
 												<p>
-													<a href="#">Joss Whedon</a>
+													<a href="#"><c:out value="${ movie.director }" /></a>
 												</p>
 											</div>											
 											<div class="sb-it">
 												<h6>Stars:</h6>
 												<p>
-													<a href="#">Robert Downey Jr,</a> <a href="#">Chris
-														Evans,</a> <a href="#">Mark Ruffalo,</a><a href="#">
-														Scarlett Johansson</a>
+													<a href="#"><c:out value="${ movie.actor }" /></a>													
 												</p>
 											</div>
 											<div class="sb-it">
-												<h6>Genres:</h6>
+												<h6>장르:</h6>
 												<p>
-													<a href="#">Action, </a> <a href="#"> Sci-Fi,</a> <a
-														href="#">Adventure</a>
+													<a href="#"><c:out value="${ movie.genre }" /></a>
+											</div>
+											<div class="sb-it">
+												<h6>개봉일</h6>
+												<p>
+													<fmt:formatDate value="${ movie.open_date }" pattern="yyyy-MM-dd" />
 												</p>
+<%-- 												<p><c:out value="${ movie.open_date }" /></p> --%>
 											</div>
 											<div class="sb-it">
-												<h6>Release Date:</h6>
-												<p>May 1, 2015 (U.S.A)</p>
+												<h6>런타임:</h6>
+												<p>${ movie.run_time } 분</p>
 											</div>
 											<div class="sb-it">
-												<h6>Run Time:</h6>
-												<p>141 min</p>
-											</div>
-											<div class="sb-it">
-												<h6>MMPA Rating:</h6>
-												<p>PG-13</p>
+												<h6>권장 시청연령:</h6>
+												<p>${ movie.viewing_age }</p>
 											</div>
 											<div class="ads">
 												<img src="${ path }/images/uploads/ads1.png" alt="">
@@ -279,7 +252,6 @@
 										</div>
 									</div>
 								</div>
-								
 								
 								
 								<!-- 리뷰 탭 -->
@@ -329,18 +301,20 @@
 										</div>
 										
 										
-										<div class="topbar-filter">
-											<label>Reviews per page:</label> <select>
-												<option value="range">5 Reviews</option>
-												<option value="saab">10 Reviews</option>
-											</select>
-											<div class="pagination2">
-												<span>Page 1 of 6:</span> <a class="active" href="#">1</a> <a
-													href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a
-													href="#">5</a> <a href="#">6</a> <a href="#"><i
-													class="ion-arrow-right-b"></i></a>
-											</div>
-										</div>
+<!-- 										<div class="topbar-filter"> -->
+<!-- 											<label>Reviews per page:</label> <select> -->
+<!-- 												<option value="range">5 Reviews</option> -->
+<!-- 												<option value="saab">10 Reviews</option> -->
+<!-- 											</select> -->
+<!-- 											<div class="pagination2"> -->
+<!-- 												<span>Page 1 of 6:</span> <a class="active" href="#">1</a> <a -->
+<!-- 													href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a -->
+<!-- 													href="#">5</a> <a href="#">6</a> <a href="#"><i -->
+<!-- 													class="ion-arrow-right-b"></i></a> -->
+<!-- 											</div> -->
+<!-- 										</div> -->
+										
+										
 									</div>
 								</div>
 							</div>

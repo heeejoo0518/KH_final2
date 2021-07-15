@@ -6025,7 +6025,7 @@ ul {
 }
 .movie-single .movie-single-ct .movie-rate .rate p span {
   color: #ffffff;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 400;
 }
 .movie-single .movie-single-ct .movie-rate .rate p span.rv {
@@ -6252,7 +6252,7 @@ ul {
   margin-bottom: 30px;
 }
 .movie-single .movie-single-ct .mvcast-item .cast-it .cast-left {
-  width: 60%;
+  width: 100%;
   display: -webkit-flex;
   display: -moz-box;
   display: -ms-flexbox;
@@ -8296,3 +8296,7 @@ footer.full-width-ft .ft-copyright {
 	-khtml-border-radius: 7px;
 	-webkit-border-radius: 7px;
 }
+.movie-rate img{
+	width: 50px;height: 50px;margin-right: 25px;
+}
+

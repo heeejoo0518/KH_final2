@@ -65,8 +65,12 @@
 		FROM MOVIE
 	</select>
 	
+	<resultMap type="Movie" extends="movieListResultMap" id="movieDetailResultMap">
+<!-- 		<collection property="replies" javaType="arraylist" columnPrefix="R_" resultMap="boardReplyResultMap"/> -->
+	</resultMap>
+	
 	<select id="selectMovieByNo" parameterType="_int" resultMap="movieDetailResultMap">
- 		SELECT   
+ 		SELECT
 			MOVIE_ID,
 			LAST_UPDATE,
 			TITLE,
@@ -89,7 +93,7 @@
 			VIEWING_AGE,
 			TRAILER
 		FROM MOVIE
-		WHERE MOVIE_ID=#{no}
+		WHERE MOVIE_ID=#{movieNo}
 	</select>
 	
 </mapper>

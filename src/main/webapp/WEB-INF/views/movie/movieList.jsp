@@ -85,7 +85,7 @@
 								<h6>
 									<a href="${ path }/movie/view?no=${ movie.movieNo }">
 										<c:out value="${ movie.title_kor }" />
-										<span><c:out value="${ movie.title }" /></span>
+										<span><c:out value="${ movie.product_year }" /></span>
 									</a>
 								</h6>
 								<p class="rate">
