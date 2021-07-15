@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Movie {
+	
 	private int movieNo;
 	
 	private Date last_update;

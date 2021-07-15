@@ -27,12 +27,6 @@ public class MovieController {
 	@Autowired
 	private MovieService service;
 
-//	@GetMapping("/movieDetail")
-//	public ModelAndView movieDetail(ModelAndView mv2) {
-//		mv2.setViewName("movie/movieDetail");
-//		return mv2;
-//	}
-
 	@GetMapping("/list")
 	public ModelAndView list(ModelAndView model,
 			@RequestParam(value = "page", required = false, defaultValue = "1") int page) {
@@ -51,22 +45,18 @@ public class MovieController {
 		return model;
 	}
 
-	
 	@GetMapping("/view")
-	public ModelAndView view(ModelAndView model, @RequestParam(value = "movieNo", required = false, defaultValue = "1") int movieNo) {
-		log.info("영화 상세보기 페이지 요청");
+	public ModelAndView view(ModelAndView model,
+			@RequestParam("no") int movieNo) {
 		Movie movie = service.findByNo(movieNo);
-		log.info("findByNo 메소드 호출");
-
+		
 		model.addObject("movie",movie);
-		log.info("movie 오브젝트 추가");
-
+		
 		model.setViewName("movie/movieView");
 		
 		return model;
 	}
 	
-//	
 //	/*
 //	 * HttpEntity
 //	 * - SpringFrameword에서 제공하는 클래스로 HTTP 요청 또는 응답에 해당하는 HTTP  Header와 HTTP Body를 포함하는 클래스이다.

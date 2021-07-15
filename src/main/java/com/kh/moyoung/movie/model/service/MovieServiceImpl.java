@@ -45,10 +45,16 @@ public class MovieServiceImpl implements MovieService {
 		
 		return result;
 	}
-	
+
 	@Override
 	public Movie findByNo(int movieNo) {
+		
 		return mapper.selectMovieByNo(movieNo);
-
 	}
+	
+//	@Override
+//	public Movie findByNo(int movieNo) {
+//		return mapper.selectMovieByNo(movieNo);
+//
+//	}
 }

@@ -65,35 +65,31 @@
 		FROM MOVIE
 	</select>
 	
-<!-- 	<select id="selectMovieByNo" parameterType="_int" resultMap="movieDetailResultMap"> -->
-<!-- 		<include refid="selectMovieSql"/> -->
-<!-- 		WHERE MOVIE_ID = #{movieNo}  -->
-<!--  	</select> -->
- 	
-<!-- 	<select id="selectMovieByNo" parameterType="_int" resultMap="movieDetailResultMap"> -->
-<!--  		SELECT    -->
-<!-- 			MOVIE_ID, -->
-<!-- 			LAST_UPDATE, -->
-<!-- 			TITLE, -->
-<!-- 			TITLE_KOR, -->
-<!-- 			PRODUCT_YEAR, -->
-<!-- 			OPEN_DATE, -->
-<!-- 			COUNTRY, -->
-<!-- 			GENRE, -->
-<!-- 			DIRECTOR, -->
-<!-- 			VOTE, -->
-<!-- 			ADULT, -->
-<!-- 			RUN_TIME, -->
-<!-- 			M_POSTER, -->
-<!-- 			NETFLIX, -->
-<!-- 			WATCHA, -->
-<!-- 			TVING, -->
-<!-- 			WAVVE, -->
-<!-- 			STORY, -->
-<!-- 			ACTOR, -->
-<!-- 			VIEWING_AGE, -->
-<!-- 			TRAILER -->
-<!-- 		FROM MOVIE WHERE  MOVIE_ID = #{movieNo} -->
-<!-- 	</select> -->
+	<select id="selectMovieByNo" parameterType="_int" resultMap="movieDetailResultMap">
+ 		SELECT   
+			MOVIE_ID,
+			LAST_UPDATE,
+			TITLE,
+			TITLE_KOR,
+			PRODUCT_YEAR,
+			OPEN_DATE,
+			COUNTRY,
+			GENRE,
+			DIRECTOR,
+			VOTE,
+			ADULT,
+			RUN_TIME,
+			M_POSTER,
+			NETFLIX,
+			WATCHA,
+			TVING,
+			WAVVE,
+			STORY,
+			ACTOR,
+			VIEWING_AGE,
+			TRAILER
+		FROM MOVIE
+		WHERE MOVIE_ID=#{no}
+	</select>
 	
 </mapper>

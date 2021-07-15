@@ -84,8 +84,8 @@
 							<div class="mv-item-infor">
 								<h6>
 									<a href="${ path }/movie/view?no=${ movie.movieNo }">
-										<c:out value="${ movie.title_kor }" /><span>
-										<c:out value="${ movie.title }" /></span>
+										<c:out value="${ movie.title_kor }" />
+										<span><c:out value="${ movie.title }" /></span>
 									</a>
 								</h6>
 								<p class="rate">
