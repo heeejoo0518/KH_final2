@@ -77,9 +77,8 @@
 							</div>
 						</div>
 						<div class="social-btn" style="margin-bottom: 10px">
-							<a href="#" class="parent-btn">봤어요<i class="ion-checkmark"></i></a>
-							<a href="#" class="parent-btn">찜하기<i class="ion-heart"></i></a> <a
-								href="#" class="parent-btn">리뷰쓰기<i class="ion-edit"></i></a>
+							<a href="#" class="parent-btn" style="padding-left:10px">찜하기<i class="ion-heart"></i></a> 
+							<a href="#" class="parent-btn">리뷰쓰기<i class="ion-edit"></i></a>
 						</div>
 					</div>
 				</div>
@@ -108,7 +107,7 @@
 						</div>
 						<br>
 					</div>
-
+					window.open('address')
 					<div class="movie-rate" style="height: 100px; ">
 						<div class="rate-star">
 						<c:if test="${ not empty movie.netflix }">
@@ -221,7 +220,7 @@
 												</p>
 											</div>											
 											<div class="sb-it">
-												<h6>Stars:</h6>
+												<h6>출연진:</h6>
 												<p>
 													<a href="#"><c:out value="${ movie.actor }" /></a>													
 												</p>
@@ -236,7 +235,6 @@
 												<p>
 													<fmt:formatDate value="${ movie.open_date }" pattern="yyyy-MM-dd" />
 												</p>
-<%-- 												<p><c:out value="${ movie.open_date }" /></p> --%>
 											</div>
 											<div class="sb-it">
 												<h6>런타임:</h6>

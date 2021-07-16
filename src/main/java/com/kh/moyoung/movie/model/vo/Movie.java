@@ -12,27 +12,27 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Movie {
 	
-	private int movieNo;
+	private int movieNo; /*영화번호(1부터 들어갔어요)*/
 	
-	private Date last_update;
+	private Date last_update; /*마지막업뎃일 왜있는지모르곘지만 일단들어있어요...*/
 	
-	private String title;
+	private String title; /*영화 제목*/
 	
-	private String title_kor;
+	private String title_kor; /*영화 한글 제목*/
 		
-	private int product_year;
+	private int product_year; /*영화 제작년도*/
 	
-	private Date open_date;
+	private Date open_date; /*영화 개봉일*/
 	
-	private String country;
+	private String country; /*영화 제작 국가*/
 	
-	private String genre;
+	private String genre; /*영화 장르 */
 	
-	private String director;
+	private String director; /* 감독 */
 	
-	private int vote;
+	private int vote; /* 평점 */
 	
-	private int adult;
+	private int adult; /* 성인여부 성인물아니면0 성인물인경우1*/
 	
 	private int run_time;
 	

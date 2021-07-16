@@ -71,6 +71,7 @@
 							총 <span>100</span> 개의 검색 결과
 						</p>
 						<label>정렬기준:</label> <select>
+							<option value="">-----</option>
 							<option value="date">최신순</option>
 							<option value="popularity">인기순</option>
 							<option value="rating">리뷰많은순</option>

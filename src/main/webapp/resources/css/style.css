@@ -5869,8 +5869,12 @@ ul {
   font-size: 14px;
   color: #dd003f;
   font-weight: bold;
-  text-transform: uppercase;
-  margin-right: 5px;
+  text-align:center;
+  left: 0;
+  right: 0;
+  margin:20px;
+  padding-right: 30px;
+	
 }
 @media (max-width: 767px) {
   .social-btn a.parent-btn {

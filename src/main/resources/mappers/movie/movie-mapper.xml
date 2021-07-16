@@ -96,4 +96,9 @@
 		WHERE MOVIE_ID=#{movieNo}
 	</select>
 	
+<!-- 	<select id="selectMovieByDate" resultMap="movieListResultMap"> -->
+<!-- 		<include refid="selectMovieSql"/> -->
+<!-- 		ORDER BY PRODUCT_YEAR DESC -->
+<!-- 	</select> -->
+	
 </mapper>
