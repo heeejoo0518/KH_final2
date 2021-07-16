@@ -19,7 +19,7 @@
 
 <title>모두의 영화</title>
 </head>
-<body>
+<body style="background-color: #020d18;">
 <div class="container" id="basicContainer">
 	<header>
 		hi

@@ -1,5 +1,77 @@
 @charset "UTF-8";
 
+/* mypage_header.jsp */
+#wrapper {
+  overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -15rem;
+  transition: margin 0.25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.5rem;
+    flex: 1 1 0%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
+	color: white;
+    font-weight: 700;
+    letter-spacing: -1px;
+    padding-bottom:10px;
+}
+
+#sidebar-wrapper .list-group {
+  width: 15rem;
+}
+
+#page-content-wrapper {
+  min-width: 100vw;
+}
+
+#wrapper #sidebar-wrapper {
+  margin-left: 0;
+} 
+
+.sb-sidenav-toggled #wrapper #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+
+@media (min-width: 768px) {
+.sb-sidenav-toggled #wrapper #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+  
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 350px;
+    width: 100%;
+  }
+
+}
+.list-group-item{
+	background-color:transparent;
+	font-size: 1.2rem;
+    flex: 1 1 0%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
+	color: white;
+    letter-spacing: -1px;
+}
+
+img#img_sidebar {
+	width:30px; 
+	height:30px;
+}
+
+/* checkpw.jsp */
 .checkPw-container {
 	width:300px;
     max-width:100%;
@@ -21,4 +93,58 @@
 	color:white;
 	opacity:0.9;
 	font-size:0.8em;
+}
+
+/* update.jsp */
+.mypage-update-container{
+    width:300px;
+    min-width:300px;
+    max-width:100%;
+    margin:50px auto;
+}
+
+.mypage-update-container a{
+    color:white;
+    font-size:0.8em;
+    opacity: 0.6;
+}
+
+#title {
+	flex: 1 1 0%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.input-with-icon {
+	 position: relative;
+	 box-sizing: border-box;
+}
+
+.input-with-icon .form-control {
+	padding:6px 12px 6px 12px !important;
+}
+
+.input-with-icon .icon {
+	display:none;
+	position: absolute;
+	top:-0.2rem;
+	right: 1rem;
+	width: 15px;
+	height:15px;
+}
+
+.icon button {
+	border:none; 
+	background:none;
+}
+
+.icon img {
+	width:15px; 
+	height:15px;
+	object-fit:cover;
 }

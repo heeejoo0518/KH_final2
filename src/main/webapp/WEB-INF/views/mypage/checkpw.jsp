@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/common/header.jsp"%>
-
-<link rel="stylesheet" type="text/css" href="${ path }/resources/css/mypage.css">
+<%@ include file="/WEB-INF/views/mypage/mypage_header.jsp"%>
 
 <section>
 	<div class="checkPw-container">
@@ -19,4 +17,9 @@
 </section>
 
 
-<%@ include file="/WEB-INF/views/common/footer.jsp"%>
+<%@ include file="/WEB-INF/views/mypage/mypage_footer.jsp"%>
+<script>
+/* 	$(document).ready(function(){
+		$('#update-list-item')
+	}); */
+</script>

@@ -13,21 +13,21 @@
 			
 			<div id="signup-info" style="padding-bottom:15px">
 				<div class="input-with-icon">
-					<input type="text" id="signup_id" class="form-control" name="u_id" placeholder="아이디(영어,숫자 5자 이상)" required autofocus>
+					<input type="text" id="signup_id" class="form-control" name="u_id" placeholder="아이디(영어,숫자 5자 이상)" autocomplete="new-id" required autofocus>
 					<div class="btn btn-default icon id-icon">
 						<button disabled><img src="#" id="img_id"/></button>
 					</div>
 				</div>
 				
 				<div class="input-with-icon">
-					<input type="password" id="signup_pw" class="form-control" name="u_pwd" placeholder="비밀번호(영어,숫자,특문 2조합 8자 이상)" required>
+					<input type="password" id="signup_pw" class="form-control" name="u_pwd" placeholder="비밀번호(영어,숫자,특문 2조합 8자 이상)" autocomplete="new-password" required>
 					<div class="btn btn-default icon pw-icon">
 						<button disabled><img src="#" id="img_pw"/></button>
 					</div>
 				</div>
 				
 				<div class="input-with-icon">
-					<input type="password" id="signup_pw_check" class="form-control" placeholder="비밀번호 확인" required>
+					<input type="password" id="signup_pw_check" class="form-control" placeholder="비밀번호 확인" autocomplete="new-password" required>
 					<div class="btn btn-default icon pw-check-icon">
 						<button disabled><img src="#" id="img_pw_check"/></button>
 					</div>
@@ -278,12 +278,6 @@
 	}
 	
 
-</script>
-
-<script>
-	$(document).ready(function(){
-		
-	});
 </script>
 
 <script>
