@@ -107,7 +107,6 @@
 						</div>
 						<br>
 					</div>
-					window.open('address')
 					<div class="movie-rate" style="height: 100px; ">
 						<div class="rate-star">
 						<c:if test="${ not empty movie.netflix }">
@@ -299,18 +298,18 @@
 										</div>
 										
 										
-<!-- 										<div class="topbar-filter"> -->
-<!-- 											<label>Reviews per page:</label> <select> -->
-<!-- 												<option value="range">5 Reviews</option> -->
-<!-- 												<option value="saab">10 Reviews</option> -->
-<!-- 											</select> -->
-<!-- 											<div class="pagination2"> -->
-<!-- 												<span>Page 1 of 6:</span> <a class="active" href="#">1</a> <a -->
-<!-- 													href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a -->
-<!-- 													href="#">5</a> <a href="#">6</a> <a href="#"><i -->
-<!-- 													class="ion-arrow-right-b"></i></a> -->
-<!-- 											</div> -->
-<!-- 										</div> -->
+										<div class="topbar-filter">
+											<label>Reviews per page:</label> <select>
+												<option value="range">5 Reviews</option>
+												<option value="saab">10 Reviews</option>
+											</select>
+											<div class="pagination2">
+												<span>Page 1 of 6:</span> <a class="active" href="#">1</a> <a
+													href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a
+													href="#">5</a> <a href="#">6</a> <a href="#"><i
+													class="ion-arrow-right-b"></i></a>
+											</div>
+										</div>
 										
 										
 									</div>

@@ -70,14 +70,31 @@
 						<p>
 							총 <span>100</span> 개의 검색 결과
 						</p>
-						<label>정렬기준:</label> <select>
+						<label>정렬기준:</label> 
+						<select id="howAsc">
 							<option value="">-----</option>
-							<option value="date">최신순</option>
-							<option value="popularity">인기순</option>
-							<option value="rating">리뷰많은순</option>
+							<option value="recently">최신순</option>
+							<option value="likes">인기순</option>
+							<option value="Reviews">리뷰많은순</option>
 						</select>
+						<div id="movieSort">
+						</div>
 					</div>
-					
+			
+<!--  			<script>  -->
+<!-- //  				$(function callmovieSort(movieAsc) { -->
+<!-- //  			 $("#movieSort").empty();  -->
+<!-- //  			 var open_year = getParameterByName('open_year'); -->
+			 
+<!-- //  			 	$.ajax({ -->
+<!-- //  				   type : "get", -->
+<!-- //  				   url : "movieList", -->
+<!-- //  				   data : {"open_year" : open_year, -->
+<!-- //  					       "howAsc" : howAsc}, -->
+<!-- //  				   dataType : "json" -->
+<!-- //  			   }} -->
+<!--  		   </script>  -->
+
 				<c:forEach var="movie" items="${ list }">
 					<div class="movie-item-style-2">
 						
