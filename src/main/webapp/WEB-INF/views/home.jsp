@@ -29,7 +29,16 @@
 	<button type="button" class="btn btn-light">Light</button>
 	<button type="button" class="btn btn-link">Link</button>
 
-	<a href="${path }/review/write">리뷰 작성 페이지</a>
+	<br>
+	<c:if test="${ signinMember == null }"><button type="button" class="btn btn-primary" onclick="location.href='${ path }/signin'">로그인</button></c:if>
+
+	<c:if test="${ signinMember != null }">
+		<span style="color:white;">${ signinMember.nickname }님, 안녕하세요.</span>
+		<button type="button" class="btn btn-primary" onclick="location.replace('${path}/signout')">로그아웃</button>
+		<button type="button" class="btn btn-primary" onclick="location.replace('${path}/mypage/checkpw')">마이페이지-정보수정</button>
+
+	</c:if>
+
 </section>
 
 <%@ include file="/WEB-INF/views/common/footer.jsp"%>

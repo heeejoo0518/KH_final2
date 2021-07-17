@@ -4,9 +4,11 @@ import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
+@EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
 public class Member {
@@ -42,4 +44,5 @@ public class Member {
 		this.u_role = member.getU_role();
 		this.signup_type = member.getSignup_type();
 	}
+	
 }
