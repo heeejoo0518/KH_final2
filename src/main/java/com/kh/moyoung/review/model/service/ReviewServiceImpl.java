@@ -33,6 +33,22 @@ public class ReviewServiceImpl implements ReviewService {
 		
 		return mapper.selectReviewList(rowBounds);	
 	}
+	
+	@Override
+	public List<Review> selectReviewHighRateList(PageInfo pageInfo) {
+		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
+		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
+		
+		return mapper.selectReviewHighRateList(rowBounds);
+	}
+	
+	@Override
+	public List<Review> selectReviewLowRateList(PageInfo pageInfo) {
+		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
+		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
+		
+		return mapper.selectReviewLowRateList(rowBounds);
+	}
 
 	@Override
 	@Transactional
@@ -46,5 +62,8 @@ public class ReviewServiceImpl implements ReviewService {
 		
 		return result;
 	}
+
+
+
 
 }
