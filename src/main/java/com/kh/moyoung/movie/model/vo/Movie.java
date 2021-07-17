@@ -54,4 +54,7 @@ public class Movie {
 	
 	private String trailer;
 	
+	private String sort; /* 정렬 */
+
+	
 	}

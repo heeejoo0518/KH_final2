@@ -3,6 +3,7 @@ package com.kh.moyoung.movie.model.service;
 import java.util.List;
 
 import com.kh.moyoung.movie.model.vo.Movie;
+import com.kh.moyoung.review.model.vo.Review;
 import com.kh.moyoung.common.util.PageInfo;
 
 public interface MovieService {
@@ -14,5 +15,9 @@ public interface MovieService {
 	List<Movie> getMovieList(PageInfo pageInfo);
 
 	Movie findByNo(int movieNo);
+
+	List<Movie> selectMovieRecent(PageInfo pageInfo);
+
+	List<Review> selectMovieVote(PageInfo pageInfo);
 	
 }
