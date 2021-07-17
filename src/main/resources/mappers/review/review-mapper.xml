@@ -33,13 +33,25 @@
 	
 	<select id="selectReviewList" resultMap="reviewListResultMap">
 		<include refid="selectReviewSql"/>
-		ORDER BY R.U_NO DESC
+				ORDER BY R.writeDate DESC  
 	</select>
+	
+	<select id="selectReviewHighRateList" resultMap="reviewListResultMap">
+		<include refid="selectReviewSql"/>
+				ORDER BY R.Rate DESC
+	</select>
+	
+	<select id="selectReviewLowRateList" resultMap="reviewListResultMap">
+		<include refid="selectReviewSql"/>
+				ORDER BY R.Rate ASC
+	</select>
+	
 	
 	<select id="selectReviewCount" resultType="_int"> 
 		SELECT COUNT(*)
 		FROM MOVIE_REVIEW
-		<!--  WHERE MOVIE_ID = #{movieNo}
+		<!--  
+		WHERE MOVIE_ID = #{movieNo}
 		-->
 	</select>
 	
@@ -66,12 +78,6 @@
 			
 		)
 	</insert>
-	
-	
-	
-	
-	
-	
 	
 	
 </mapper>

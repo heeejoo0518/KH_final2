@@ -32,7 +32,7 @@
 	#div-spoiler{
 		position: absolute;
 		margin-top: -100px;
-		margin-left: 10px;
+		margin-left: 20px;
 	}
 	#div-rate{
 		position: absolute;
