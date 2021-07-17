@@ -81,9 +81,20 @@
  	<update id="updateMember" parameterType="Member">
  		UPDATE MEMBER 
  		SET 
- 			U_PWD=#{u_pwd}
- 			NICKNAME = #{nickname},
- 			EMAIL = #{email},
+ 			<trim suffix=",">
+	 			<if test="u_pwd != null">
+	 				U_PWD = #{u_pwd}
+	 			</if>
+	 			<if test="nickname != null">
+	 				NICKNAME = #{nickname}
+	 			</if>
+	 			<if test="email != null">
+	 				EMAIL = #{email}
+	 			</if>
+	 			<if test="birth != null">
+	 				BIRTH = #{birth}
+	 			</if>
+ 			</trim>
 		WHERE U_ID = #{u_id}
  	</update>
  	
