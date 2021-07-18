@@ -70,30 +70,17 @@
 						<p>
 							총 <span>100</span> 개의 검색 결과
 						</p>
+						
 						<label>정렬기준:</label> 
-						<select id="howAsc">
+						 	<form action="${ path }/movie/list" method="GET">
+       				 	<select id="sort-select" name="sort" onchange="this.form.submit();">
 							<option value="">-----</option>
-							<option value="recently">최신순</option>
-							<option value="likes">인기순</option>
-							<option value="Reviews">리뷰많은순</option>
+							<option value="b" id=2>최신순</option>
+							<option value="c" id=3>평점높은순</option>
+							<option value="a" id=1>등록순</option>
 						</select>
-						<div id="movieSort">
-						</div>
-					</div>
-			
-<!--  			<script>  -->
-<!-- //  				$(function callmovieSort(movieAsc) { -->
-<!-- //  			 $("#movieSort").empty();  -->
-<!-- //  			 var open_year = getParameterByName('open_year'); -->
-			 
-<!-- //  			 	$.ajax({ -->
-<!-- //  				   type : "get", -->
-<!-- //  				   url : "movieList", -->
-<!-- //  				   data : {"open_year" : open_year, -->
-<!-- //  					       "howAsc" : howAsc}, -->
-<!-- //  				   dataType : "json" -->
-<!-- //  			   }} -->
-<!--  		   </script>  -->
+							</form>
+					</div>			
 
 				<c:forEach var="movie" items="${ list }">
 					<div class="movie-item-style-2">
@@ -139,31 +126,26 @@
 				</c:forEach>
 				</div>
 			</div>
-<!-- 				<div id="pageBar"> -->
-<!-- 				맨 처음으로 -->
-<%-- 				<button onclick="location.href='${ path }/board/list?page=1'">&lt;&lt;</button> --%>
+				<div id="pageBar">
+				<button onclick="location.href='${ path }/movie/list?page=1'">&lt;&lt;</button>
 				
-<!-- 				이전 페이지로 -->
-<%-- 				<button onclick="location.href='${ path }/board/list?page=${ pageInfo.prvePage }'">&lt;</button> --%>
+				<button onclick="location.href='${ path }/movie/list?page=${ pageInfo.prvePage }'">&lt;</button>
 	
-<!-- 				 10개 페이지 목록 -->
-<%-- 				<c:forEach begin="${ pageInfo.startPage }" end="${ pageInfo.endPage }" step="1" varStatus="status"> --%>
-<%-- 					<c:if test="${ pageInfo.currentPage == status.current}"> --%>
-<%-- 						<button disabled><c:out value="${ status.current }"/></button> --%>
-<%-- 					</c:if> --%>
-<%-- 					<c:if test="${ pageInfo.currentPage != status.current}"> --%>
-<%-- 						<button onclick="location.href='${ path }/board/list?page=${ status.current }'"> --%>
-<%-- 							<c:out value="${ status.current }"/> --%>
-<!-- 						</button> -->
-<%-- 					</c:if> --%>
-<%-- 				</c:forEach> --%>
+				<c:forEach begin="${ pageInfo.startPage }" end="${ pageInfo.endPage }" step="1" varStatus="status">
+					<c:if test="${ pageInfo.currentPage == status.current}">
+						<button disabled><c:out value="${ status.current }"/></button>
+					</c:if>
+					<c:if test="${ pageInfo.currentPage != status.current}">
+						<button onclick="location.href='${ path }/movie/list?page=${ status.current }'">
+							<c:out value="${ status.current }"/>
+						</button>
+					</c:if>
+				</c:forEach>
 				
-<!-- 				다음 페이지로 -->
-<%-- 				<button onclick="location.href='${ path }/board/list?page=${ pageInfo.nextPage }'">&gt;</button> --%>
+				<button onclick="location.href='${ path }/movie/list?page=${ pageInfo.nextPage }'">&gt;</button>
 				
-<!-- 				맨 끝으로 -->
-<%-- 				<button onclick="location.href='${ path }/board/list?page=${ pageInfo.maxPage }'">&gt;&gt;</button> --%>
-<!-- 			</div> -->
+				<button onclick="location.href='${ path }/movie/list?page=${ pageInfo.maxPage }'">&gt;&gt;</button>
+			</div>
 		</div>
 		
 	</div>

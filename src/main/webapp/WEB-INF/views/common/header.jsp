@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 
-    
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,23 +18,23 @@
 	<link rel="stylesheet" href="${ path }/resources/css/main.css" />
 <!-- Scripts -->
 			<script src="${ path }/resources/js/jquery.min.js"></script>
-			<!-- 
+			<!--
 			<script src="${ path }/resources/js/jquery-3.6.0.min.js"></script>
 			<script src="${ path }/resources/js/main.js"></script>
 			 -->
 			<script src="${ path }/resources/js/jquery.scrolly.min.js"></script>
 			<script src="${ path }/resources/js/skel.min.js"></script>
 			<script src="${ path }/resources/js/util.js"></script>
-		
+
 			<!-- <script src="${path}/resources/bootstrap-4.6.0-dist/js/popper.min.js"></script> -->
 			<!-- <script src="${path}/resources/bootstrap-4.6.0-dist/js/bootstrap.min.js" ></script>-->
-			<!-- 
+			<!--
 			<script src="${path}/webjars/popper.js/1.16.1/dist/popper.min.js"></script>
 			<script src="${path}/webjars/bootstrap/4.6.0-1/js/bootstrap.min.js"></script>
 			 -->
-			
-			
-			
+
+
+
 
 	</head>
 	<body>
@@ -69,7 +69,7 @@
 			<script>
 			(function($) {
 
-				
+
 
 				$(function() {
 
@@ -88,7 +88,7 @@
 					// Fix
 						$('form').placeholder();
 
-				
+
 
 					// 메뉴
 						$('#menu')
@@ -125,7 +125,7 @@
 
 									});
 
-							// More 
+							// More
 								$banner.find('.more')
 									.addClass('scrolly');
 
@@ -148,7 +148,7 @@
 									tab.removeClass('active');
 									x.addClass('active');
 
-								// show/hide 
+								// show/hide
 									tabs.removeClass('active');
 									t.find('.' + y).addClass('active');
 

@@ -31,6 +31,7 @@ public class MemberServiceImpl implements MemberService {
 		int result = 0;
 		
 		if(member.getU_no() != 0) {
+			if(member.getU_pwd()!=null) member.setU_pwd(passwordEncoder.encode(member.getU_pwd()));
 			result = mapper.updateMember(member);
 		} else {
 			member.setU_pwd(passwordEncoder.encode(member.getU_pwd()));

@@ -28,35 +28,21 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 
-
 	<!-- Interceptor 객체 설정-->
-		<beans:bean id="authenticationInterceptor" class="com.kh.moyoung.common.interceptor.AuthenticationInterceptor">
-	    </beans:bean>
-	    <!-- Interceptor 설정 -->
-	    <interceptors>
-	        <interceptor>
-	            <mapping path="/mypage/**"/>
-	            <mapping path="/mypage"/>
-	            <beans:ref bean="authenticationInterceptor"/>
-	        </interceptor>
-	    </interceptors>
+	<beans:bean id="authenticationInterceptor" class="com.kh.moyoung.common.interceptor.AuthenticationInterceptor">
+    </beans:bean>
+    <!-- Interceptor 설정 -->
+    <interceptors>
+        <interceptor>
+            <mapping path="/mypage/**"/>
+            <mapping path="/review/**"/>
+            <mapping path="/party/party"/>
+            <exclude-mapping path="/review/list"/>
+            <beans:ref bean="authenticationInterceptor"/>
+        </interceptor>
+    </interceptors>
 
 	<context:component-scan base-package="com.kh.moyoung" />
-	
+
 	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
-
-	<interceptors>
-		<interceptor>
-
-
-			<mapping path="/review/**"/>
-			<!-- 인터셉터를 제외시킬 요청(컨트롤러) 선택 -->
-			<exclude-mapping path="/review/list"/>
-			<exclude-mapping path="/review/write"/>
-
-
-			<!-- 인터셉터 등록 -->
-			<beans:bean id="loginCheckInterceptor" class="com.kh.moyoung.common.interceptor.LoginCheckInterceptor"/>
-		</interceptor>
-	 </interceptors>
 </beans:beans>

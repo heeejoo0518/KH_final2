@@ -11,6 +11,7 @@ import com.kh.moyoung.common.util.PageInfo;
 import com.kh.moyoung.movie.model.mapper.MovieMapper;
 import com.kh.moyoung.movie.model.service.MovieServiceImpl;
 import com.kh.moyoung.movie.model.vo.Movie;
+import com.kh.moyoung.review.model.vo.Review;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -50,6 +51,22 @@ public class MovieServiceImpl implements MovieService {
 	public Movie findByNo(int movieNo) {
 		
 		return mapper.selectMovieByNo(movieNo);
+	}
+
+	@Override
+	public List<Movie> selectMovieRecent(PageInfo pageInfo) {
+		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
+		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
+		
+		return mapper.selectMovieRecent(rowBounds);
+	}
+
+	@Override
+	public List<Review> selectMovieVote(PageInfo pageInfo) {
+		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
+		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
+		
+		return mapper.selectMovieVote(rowBounds);
 	}
 	
 //	@Override

@@ -60,6 +60,17 @@
 		ORDER BY MOVIE_ID DESC
 	</select>
 	
+		<select id="selectMovieRecent" resultMap="movieListResultMap">
+		<include refid="selectMovieSql"/>
+				ORDER BY product_year DESC
+	</select>
+	
+	<select id="selectMovieVote" resultMap="movieListResultMap">
+		<include refid="selectMovieSql"/>
+				ORDER BY VOTE DESC
+	</select>
+	
+	
 	<select id="selectMovieCount" resultType="_int">
 		SELECT COUNT(*)
 		FROM MOVIE
