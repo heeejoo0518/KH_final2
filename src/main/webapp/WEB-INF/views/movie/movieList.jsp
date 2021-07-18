@@ -80,21 +80,7 @@
 							<option value="a" id=1>등록순</option>
 						</select>
 							</form>
-					</div>
-			
-<!--  			<script>  -->
-<!-- //  				$(function callmovieSort(movieAsc) { -->
-<!-- //  			 $("#movieSort").empty();  -->
-<!-- //  			 var open_year = getParameterByName('open_year'); -->
-			 
-<!-- //  			 	$.ajax({ -->
-<!-- //  				   type : "get", -->
-<!-- //  				   url : "movieList", -->
-<!-- //  				   data : {"open_year" : open_year, -->
-<!-- //  					       "howAsc" : howAsc}, -->
-<!-- //  				   dataType : "json" -->
-<!-- //  			   }} -->
-<!--  		   </script>  -->
+					</div>			
 
 				<c:forEach var="movie" items="${ list }">
 					<div class="movie-item-style-2">

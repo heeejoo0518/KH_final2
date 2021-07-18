@@ -62,7 +62,7 @@
 	
 		<select id="selectMovieRecent" resultMap="movieListResultMap">
 		<include refid="selectMovieSql"/>
-				ORDER BY PRODUCT_YEAR DESC
+				ORDER BY product_year DESC
 	</select>
 	
 	<select id="selectMovieVote" resultMap="movieListResultMap">

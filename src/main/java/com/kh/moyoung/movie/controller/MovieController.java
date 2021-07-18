@@ -52,6 +52,7 @@ public class MovieController {
 			model.addObject("list",list);
 			model.addObject("pageInfo", pageInfo);
 			model.setViewName("movie/movieList");
+			
 		} else if(sort.equals("b")) {
 			System.out.println("b if문");
 			
@@ -66,6 +67,7 @@ public class MovieController {
 			model.addObject("list",list);
 			model.addObject("pageInfo", pageInfo);
 			model.setViewName("movie/movieList");
+			
 		} else if(sort.equals("c")){
 			System.out.println("c if문");
 			
