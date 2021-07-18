@@ -78,7 +78,7 @@
 						</div>
 						<div class="social-btn" style="margin-bottom: 10px">
 							<a href="#" class="parent-btn" style="padding-left:10px">찜하기<i class="ion-heart"></i></a> 
-							<a href="#" class="parent-btn">리뷰쓰기<i class="ion-edit"></i></a>
+							<a href="${ path }/review/write" class="parent-btn">리뷰쓰기<i class="ion-edit"></i></a>
 						</div>
 					</div>
 				</div>

@@ -16,15 +16,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.moyoung.common.util.PageInfo;
 import com.kh.moyoung.member.model.vo.Member;
+import com.kh.moyoung.movie.model.vo.Movie;
 import com.kh.moyoung.review.model.service.ReviewService;
 import com.kh.moyoung.review.model.vo.Review;
 
 import lombok.extern.slf4j.Slf4j;
+import oracle.jdbc.proxy.annotation.Post;
 
 @Slf4j
 @Controller
@@ -42,65 +45,59 @@ public class ReviewController {
 			@RequestParam(value="sort", required = false, defaultValue = "a")String sort,
 			@ModelAttribute Review review,
 			HttpServletRequest request){
+		
 		log.info("리뷰 게시판 페이지 요청");
 		review.setSort(sort);
 		System.out.println("if 전 sort: "+review.getSort());
 		
+		List<Review> list = null;
+		PageInfo pageInfo = new PageInfo(page, 10, service.getReviewCount(), 5);
+		
 		if(sort.equals("a")) {
 			System.out.println("a if문");
-			
-			List<Review> list = null;
-			PageInfo pageInfo = new PageInfo(page, 10, service.getReviewCount(), 5);
 			
 			list=service.getReviewList(pageInfo);
 			
 			System.out.println(list);
 			System.out.println("sort: "+sort);
 			
-			model.addObject("list",list);
-			model.addObject("pageInfo", pageInfo);
-			model.setViewName("review/list");
 		} else if(sort.equals("b")) {
 			System.out.println("b if문");
-			
-			List<Review> list = null;
-			PageInfo pageInfo = new PageInfo(page, 10, service.getReviewCount(), 5);
 			
 			list=service.selectReviewHighRateList(pageInfo);
 			
 			System.out.println(list);
 			System.out.println("sort: "+sort);
 			
-			model.addObject("list",list);
-			model.addObject("pageInfo", pageInfo);
-			model.setViewName("review/list");
 		} else if(sort.equals("c")){
 			System.out.println("c if문");
-			
-			List<Review> list = null;
-			PageInfo pageInfo = new PageInfo(page, 10, service.getReviewCount(), 5);
 			
 			list=service.selectReviewLowRateList(pageInfo);
 			
 			System.out.println(list);
 			System.out.println("sort: "+sort);
 			
+		}
 			model.addObject("list",list);
 			model.addObject("pageInfo", pageInfo);
 			model.setViewName("review/list");
-		}
 			
 			return model;
 		}
-		
-		
-	
 	
 	@GetMapping("/write")
-	public void writeView() {
-		log.info("리뷰 작성 페이지 요청");
+	public ModelAndView writeView(ModelAndView model,
+			@RequestParam("no") int movieNo,
+			@ModelAttribute Movie movie) {
 		
-		//return "review/write";
+		movie.setMovieNo(movieNo);
+		
+		System.out.println("movieNo: "+movieNo);
+		
+		log.info("게시글 작성 페이지 요청");
+		
+		
+		return model;
 	}
 	
 	@PostMapping("/write")
