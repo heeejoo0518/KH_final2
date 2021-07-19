@@ -42,6 +42,7 @@
 		<!-- 헤더 -->
 			<header id="header">
 				<h1><a href="${ path }/loginHome">Moyoung</a></h1>
+				<h1><a href="${ path }/board/list" style="padding-left:130px; font-size:15px;">공지사항</a></h1>
 				<a href="#menu">Menu</a>
 			</header>
 

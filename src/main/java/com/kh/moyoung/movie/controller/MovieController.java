@@ -87,18 +87,6 @@ public class MovieController {
 			return model;
 		}
 		
-//		List<Movie> list = null;
-//		
-//		PageInfo pageInfo = new PageInfo(page, 10, service.getMovieCount(), 10);
-//				
-//		list = service.getMovieList(pageInfo);
-//
-//		model.addObject("list", list);
-//		model.addObject("pageInfo", pageInfo);
-//		model.setViewName("movie/movieList");
-//
-//		return model;
-//	}
 
 	@GetMapping("/view")
 	public ModelAndView view(ModelAndView model,

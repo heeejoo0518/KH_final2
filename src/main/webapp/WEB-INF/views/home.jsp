@@ -17,7 +17,7 @@
 
 	</section>
 
-	<a href="https://www.w3schools.com/bootstrap4/default.asp">부트스트랩4 튜토리얼</a></br>
+	<a href="https://www.w3schools.com/bootstrap4/default.asp">부트스트랩4 튜토리얼</a>
 	<button type="button" class="btn">Basic</button>
 	<button type="button" class="btn btn-primary">Primary</button>
 	<button type="button" class="btn btn-secondary">Secondary</button>
