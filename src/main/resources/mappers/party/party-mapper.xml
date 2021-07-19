@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.kh.moyoung.party.model.mapper.PartyMapper">
+	<sql id="partyListSql">
+				SELECT  PARTY_NO,
+			      	    	 NAME, 
+							 M.U_ID,  
+			            	 CREATE_DATE,
+							 CONTENT,
+							 OTT_TYPE,
+							 LINK
+			    FROM PARTY_LIST
+			    JOIN MEMBER M ON(PARTY_LIST.U_ID = M.U_ID)
+			    WHERE STATUS = 'Y'
+	</sql>
+	
+	<resultMap type="Party" id="partyListResultMap">
+		<id property="party_no" column="PARTY_NO"/>
+		<result property="name" column="NAME"/>
+		<result property="writer_id" column="U_ID"/>
+		<result property="content" column="CONTENT"/>
+		<result property="ott_type" column="OTT_TYPE"/>
+		<result property="create_date" column="CREATE_DATE"/>
+		<result property="link" column="LINK"/>
+	</resultMap>
+	
+	    
+	<select id="selectPartyList" resultMap="partyListResultMap">
+		<include refid="partyListSql"/>
+		ORDER BY PARTY_LIST.CREATE_DATE DESC
+	</select>
+	
+	
+	
+	<!-- 검색 -->
+	<select id="searchPartyList" resultMap="partyListResultMap">
+		SELECT * FROM PARTY_LIST 
+		WHERE STATUS='Y' 
+		AND OTT_TYPE = #{ott_type}
+		ORDER BY PARTY_LIST.CREATE_DATE DESC 
+	</select>
+    
+	<select id="selectPartyCount" resultType="_int">
+		SELECT COUNT(*)
+		FROM PARTY_LIST
+		WHERE STATUS='Y'
+	</select>
+
+
+<!-- 글쓰기 -->
+
+	<insert id="insertParty" parameterType="map"
+			useGeneratedKeys="true" keyProperty="party_no" keyColumn="PARTY_NO">
+		INSERT INTO PARTY_LIST (
+			PARTY_NO,
+			 NAME,
+			 U_ID,  
+	       	 CREATE_DATE,
+			 CONTENT,
+			 OTT_TYPE,
+			 LINK,
+			STATUS
+		) VALUES (
+			SEQ_PARTY_NO.NEXTVAL,
+			#{name},
+			#{writer_id},
+			DEFAULT,
+			#{content},
+			#{ott_type},
+			#{link},
+			DEFAULT
+		)
+	</insert>
+	
+	<update id="updateParty" parameterType="map">
+		UPDATE PARTY_LIST
+		SET
+			name=#{name},
+			CONTENT=#{content},
+			MODIFY_DATE=SYSDATE
+		WHERE
+			PARETY_NO=#{party_no}
+	</update>
+	
+  </mapper>
