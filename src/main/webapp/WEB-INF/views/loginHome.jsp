@@ -73,7 +73,7 @@
 							<h2>관심있는 영화를 확인하세요!</h2>
 							<p>Cras sagittis turpis sit amet est tempus, sit amet consectetur purus tincidunt.</p>
 						</header>
-						<!-- 2개의 비디오섹션 -->
+						<!-- 2개의 비디오섹션 if 문 이용하여 추가하면 될듯 -->
 							<div class="flex flex-2">
 								<div class="video col">
 									<div class="image fit">
