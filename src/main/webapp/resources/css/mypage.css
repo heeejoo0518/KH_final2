@@ -66,6 +66,13 @@
     letter-spacing: -1px;
 }
 
+.list-group-item-light.list-group-item-action.active {
+    color: black;
+    background-color: #ececf6;
+    border-color: transparent;
+    font-weight: 1000;
+}
+
 img#img_sidebar {
 	width:30px; 
 	height:30px;
@@ -147,4 +154,52 @@ img#img_sidebar {
 	width:15px; 
 	height:15px;
 	object-fit:cover;
+}
+
+/* myreview.jsp */
+.myReview-container {
+    max-width:80%;
+    margin:50px auto;
+    padding-left:50px;
+}
+
+.myReview-container h2{
+	flex: 1 1 0%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
+    color: white;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: -1px;
+	margin-bottom:30px;
+}
+
+.myReview-container table{
+	background-color:transparent;
+}
+
+/* mymovie.jsp */
+.myLike-container {
+	max-width:80%;
+    margin:50px auto;
+    padding-left:50px;
+}
+
+.myLike-container h2{
+	flex: 1 1 0%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
+    color: white;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom:30px;
+}
+
+.myLike-container .col{
+	height:200px;
+	color:white;
+	text-align:center;
 }
