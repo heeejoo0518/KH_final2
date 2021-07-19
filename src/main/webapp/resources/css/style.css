@@ -3684,7 +3684,7 @@ input,
 select,
 textarea {
   font-family: 'OpenSans', sans-serif;
-  line-height: 1.5;
+  line-height: 3;
 }
 h1,
 h2,
@@ -5982,7 +5982,7 @@ ul {
 }
 .movie-single .movie-img .movie-btn a,
 .movie-single .mv-ceb .movie-btn a {
-  height: 45px;
+  height: 70px;
 }
 .movie-single .movie-img .movie-btn .btn-transform.red,
 .movie-single .mv-ceb .movie-btn .btn-transform.red {
@@ -7950,9 +7950,7 @@ header .top-search select {
 header .top-search input::-webkit-input-placeholder {
   color: #abb7c4;
 }
-header .top-search input {
-  background: url('../images/uploads/topsearch.png') no-repeat right 20px center;
-}
+
 header #nav-icon1 {
   width: 15px;
   height: 15px;

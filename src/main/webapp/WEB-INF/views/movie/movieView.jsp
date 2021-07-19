@@ -95,19 +95,32 @@
 						<span><c:out value="${ movie.title }" /></span>
 					</h3>
 
-					<div class="movie-rate">
+					<div class="movie-rate" style="height:80px;">
 						<div class="rate-star">
-							<p>모영 별점</p>
+							<p>네이버 별점</p>
 						</div>
 						<div class="rate">
 							<i class="ion-android-star"></i>
 							<p>
-								<span><c:out value="${ movie.vote }" /></span> /5 <br> <span class="rv">56개의 리뷰</span>
-							</p>
+								<span><c:out value="${ movie.vote }" /></span> /5 <br> 
+<!-- 								<span class="rv">56개의 리뷰</span> -->
+							</p>				
+						</div>
+						
+						<div class="rate-star">
+							<p>모영리뷰별점</p>
+						</div>
+						<div class="rate">
+							<i class="ion-android-star"></i>
+							<p>
+								<span><c:out value="${ movie.vote }" /></span> /5 <br> 
+<!-- 								<span class="rv">56개의 리뷰</span> -->
+							</p>				
 						</div>
 						<br>
 					</div>
-					<div class="movie-rate" style="height: 100px; ">
+					
+					<div class="movie-rate" style="height: 80px; ">
 						<div class="rate-star">
 						<c:if test="${ not empty movie.netflix }">
 							<a href="${ movie.netflix }">
@@ -240,8 +253,8 @@
 												<p>${ movie.run_time } 분</p>
 											</div>
 											<div class="sb-it">
-												<h6>권장 시청연령:</h6>
-												<p>${ movie.viewing_age }</p>
+												<h6>시청연령:</h6>
+												<p>${ movie.viewing_age } </p>
 											</div>
 											<div class="ads">
 												<img src="${ path }/images/uploads/ads1.png" alt="">

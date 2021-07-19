@@ -45,14 +45,18 @@
 					<!-- 추후에 보고 수정할 것  -->
 					<option value="united">영화</option>
 					<option value="saab">드라마/예능/기타</option>
-				</select> <input type="text" placeholder="검색을 원하시는 컨텐츠의 제목을 입력하세요">
+				</select> 
+		<!-- search{s} -->
+				<input type="text"class="form-control form-control-sm" name="keyword" id="keyword" placeholder="검색을 원하시는 컨텐츠의 제목을 입력하세요">
+				<button class="btn btn-sm btn-primary" name="btnSearch" id="btnSearch"><i class="ion-search"></i></button>
 			</div>
+	
 		</div>
 	</header>
 	<!-- END | Header -->
 
 	<div class="hero common-hero" style="background-color: #020d18;">
-		<div class="container">
+		<div class="container" style="height: 50px;">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="hero-ct">
@@ -75,9 +79,9 @@
 						 	<form action="${ path }/movie/list" method="GET">
        				 	<select id="sort-select" name="sort" onchange="this.form.submit();">
 							<option value="">-----</option>
-							<option value="b" id=2>최신순</option>
-							<option value="c" id=3>평점높은순</option>
-							<option value="a" id=1>등록순</option>
+							<option value="b" id=1>최신순</option>
+							<option value="c" id=2>평점높은순</option>
+							<option value="a" id=3>등록순</option>
 						</select>
 							</form>
 					</div>			
@@ -94,9 +98,12 @@
 									</a>
 								</h6>
 								<p class="rate">
-									<i class="ion-android-star"></i>모영별점: <span><c:out
-											value="${ movie.vote }" /></span> /5
-								</p>
+									<i class="ion-android-star"></i>네이버별점: <span>
+									<c:out value="${ movie.vote }" /></span> /5  
+									
+									<i class="ion-android-star" style="padding-left: 10px"></i>모영리뷰별점: <span>
+									<c:out value="${ movie.vote }" /></span> /5
+								</p>		
 								<p class="review">
 									<i class="ion-edit"></i><span class="rv"> 56개의 리뷰</span> <br><br>
 										<c:if test="${ not empty movie.netflix }">

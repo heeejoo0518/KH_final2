@@ -42,7 +42,7 @@ public class MovieController {
 			System.out.println("a if문");
 			
 			List<Movie> list = null;
-			PageInfo pageInfo = new PageInfo(page, 10, service.getMovieCount(), 5);
+			PageInfo pageInfo = new PageInfo(page, 10, service.getMovieCount(), 10);
 			
 			list=service.getMovieList(pageInfo);
 			
@@ -57,7 +57,7 @@ public class MovieController {
 			System.out.println("b if문");
 			
 			List<Movie> list = null;
-			PageInfo pageInfo = new PageInfo(page, 10, service.getMovieCount(), 5);
+			PageInfo pageInfo = new PageInfo(page, 10, service.getMovieCount(), 10);
 			
 			list=service.selectMovieRecent(pageInfo);
 			
@@ -72,7 +72,7 @@ public class MovieController {
 			System.out.println("c if문");
 			
 			List<Review> list = null;
-			PageInfo pageInfo = new PageInfo(page, 10, service.getMovieCount(), 5);
+			PageInfo pageInfo = new PageInfo(page, 10, service.getMovieCount(), 10);
 			
 			list=service.selectMovieVote(pageInfo);
 			
