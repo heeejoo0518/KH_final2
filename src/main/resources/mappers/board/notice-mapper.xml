@@ -5,25 +5,22 @@
 
 <mapper namespace="com.kh.moyoung.notice.model.mapper.NoticeMapper">
 	<sql id="noticeListSql">
-		SELECT
-                N.NO,
+		SELECT 	N.NO,
 				N.TITLE, 
-				M.U_NO,
-				N.WRITER_NO,
+				M.U_ID,
 				N.CONTENT,
 				N.CREATE_DATE
 		FROM NOTICE N
 		JOIN MEMBER M ON(N.WRITER_NO = M.U_NO)
-		WHERE N.STATUS = 'Y';
 	</sql>
 	
 	<resultMap type="Notice" id="noticeListResultMap">
 		<id property="no" column="NO"/>
+		<result property="writerId" column="U_ID"/>
+		<result property="writerNo" column="WRITER_NO"/>		
 		<result property="title" column="TITLE"/>
-		<result property="writerId" column="U_NO"/>
-		<result property="writerNo" column="WRITER_NO"/>
-		<result property="content" column="CONTENT"/>
 		<result property="createDate" column="CREATE_DATE"/>
+		<result property="content" column="CONTENT"/>
 	</resultMap>
 
 	<resultMap type="Notice" extends="noticeListResultMap" id="noticeDetailResultMap">
@@ -38,12 +35,10 @@
 	<select id="selectNoticeCount" resultType="_int">
 		SELECT COUNT(*)
 		FROM NOTICE
-		WHERE STATUS='Y'
 	</select>
 	
-	<select id="selectBoardByNo" parameterType="_int" resultMap="boardDetailResultMap">
- 		SELECT
-                N.NO,
+	<select id="selectNoticeByNo" parameterType="_int" resultMap="noticeDetailResultMap">
+ 		SELECT	N.NO,
 				N.TITLE,
 				N.WRITER_NO,
 				M.U_NO,
@@ -64,7 +59,7 @@
 			STATUS,
 			CREATE_DATE,
 		) VALUES (
-			SEQ_BOARD_NO.NEXTVAL,
+			SEQ_NOTICE_NO.NEXTVAL,
 			#{writerNo},
 			#{title},
 			#{content},
@@ -73,11 +68,12 @@
 		)
 	</insert>
 	
-	<update id="updateBoard" parameterType="map">
-		UPDATE BOARD
+	<update id="updateNotice" parameterType="map">
+		UPDATE NOTICE
 		SET
 			TITLE=#{title},
 			CONTENT=#{content},
+			MODIFY_DATE=SYSDATE
 		WHERE
 			NO=#{no}
 	</update>

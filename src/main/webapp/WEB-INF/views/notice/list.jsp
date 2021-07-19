@@ -8,6 +8,7 @@
 
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" href="${ path }/resources/css/main.css" />
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -17,7 +18,7 @@
 	<div id="board-list-container">
 		<c:if test="${ loginMember != null }">
 			<button type="button" id="btn-add"
-				onclick="location.href='${ path }/board/write'">글쓰기</button>
+				onclick="location.href='${ path }/notice/write'">글쓰기</button>
 		</c:if>
 		<table id="tbl-board">
 			<tr>
@@ -25,8 +26,6 @@
 				<th>제목</th>
 				<th>작성자</th>
 				<th>작성일</th>
-				<th>첨부파일</th>
-				<th>조회수</th>
 			</tr>
 			<c:if test="${ list == null }">
 				<tr>
@@ -36,25 +35,16 @@
 				</tr>
 			</c:if>
 			<c:if test="${ list != null }">
-				<c:forEach var="board" items="${ list }">
+				<c:forEach var="notice" items="${ list }">
 					<tr>
-						<td><c:out value="${ board.no }"/></td>
+						<td><c:out value="${ notice.no }"/></td>
 						<td>
-							<a href="${ path }/board/view?no=${board.no }">
-								<c:out value="${ board.title }"/>
+							<a href="${ path }/notice/view?no=${notice.no }">
+								<c:out value="${ notice.title }"/>
 							</a>
 						</td>
-						<td><c:out value="${ board.writerId }"/></td>
-						<td><fmt:formatDate type="date" value="${ board.createDate }"/></td>
-						<td>
-							<c:if test="${ board.originalFileName != null }">
-								<img src="${ path }/images/file.png" width="20" height="20"/>
-							</c:if>
-							<c:if test="${ board.originalFileName == null }">
-								<span> - </span>
-							</c:if>
-						</td>
-						<td><c:out value="${ board.readCount }"/></td>
+						<td><c:out value="${ notice.writerId }"/></td>
+						<td><fmt:formatDate type="date" value="${ notice.createDate }"/></td>					
 					</tr>				
 				</c:forEach>
 			</c:if>
@@ -72,17 +62,17 @@
 					<button disabled><c:out value="${ status.current }"/></button>
 				</c:if>
 				<c:if test="${ pageInfo.currentPage != status.current}">
-					<button onclick="location.href='${ path }/board/list?page=${ status.current }'">
+					<button onclick="location.href='${ path }/notice/list?page=${ status.current }'">
 						<c:out value="${ status.current }"/>
 					</button>
 				</c:if>
 			</c:forEach>
 			
 			<!-- 다음 페이지로 -->
-			<button onclick="location.href='${ path }/board/list?page=${ pageInfo.nextPage }'">&gt;</button>
+			<button onclick="location.href='${ path }/notice/list?page=${ pageInfo.nextPage }'">&gt;</button>
 			
 			<!-- 맨 끝으로 -->
-			<button onclick="location.href='${ path }/board/list?page=${ pageInfo.maxPage }'">&gt;&gt;</button>
+			<button onclick="location.href='${ path }/notice/list?page=${ pageInfo.maxPage }'">&gt;&gt;</button>
 		</div>
 	</div>
 </body>

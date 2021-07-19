@@ -15,6 +15,7 @@
 <title>모두의영화</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link href="${path}/webjars/bootstrap/4.6.0-1/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="${ path }/resources/css/main.css" />
 <!-- Scripts -->
 			<script src="${ path }/resources/js/jquery.min.js"></script>
@@ -42,7 +43,7 @@
 		<!-- 헤더 -->
 			<header id="header">
 				<h1><a href="${ path }/loginHome">Moyoung</a></h1>
-				<h1><a href="${ path }/board/list" style="padding-left:130px; font-size:15px;">공지사항</a></h1>
+				<h1><a href="${ path }/notice/list" style="padding-left:130px; font-size:15px;">공지사항</a></h1>
 				<a href="#menu">Menu</a>
 			</header>
 

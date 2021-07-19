@@ -16,41 +16,29 @@
 <h2>게시판 수정</h2>
 <div id='board-write-container'>
 	<form action="${ path }/board/update" method="POST" enctype="multipart/form-data">
-		<input type="hidden" name="no" value="${ board.no }" />
-		<input type="hidden" name="originalFileName" value="${ board.originalFileName }" />
-		<input type="hidden" name="renamedFileName" value="${board.renamedFileName}" />
+		<input type="hidden" name="no" value="${ notice.no }" />
+		<input type="hidden" name="originalFileName" value="${ notice.originalFileName }" />
+		<input type="hidden" name="renamedFileName" value="${notice.renamedFileName}" />
 	
 		<table id='tbl-board'>
 			<tr>
 				<th>제목</th>
-				<td><input type="text" name="title" id="title" value="${board.title}"></td>
+				<td><input type="text" name="title" id="title" value="${notice.title}"></td>
 			</tr>
 			<tr>
 				<th>작성자</th>
-				<td><input type="text" name="writerId" value="${ board.writerId }" readonly></td>
-			</tr>
-			<tr>
-				<th>첨부파일</th>
-				<td>
-					<input type="file" name="reloadFile"><br>
-					<c:if test="${ !empty board.originalFileName }">
-						현재 업로드한 파일 : 
-						<a>
-							<c:out value="${ board.originalFileName }"></c:out>
-						</a>
-					</c:if>
-				</td>
+				<td><input type="text" name="writerId" value="${ notice.writerId }" readonly></td>
 			</tr>
 			<tr>
 				<th>내용</th>
 				<td>
-					<textarea name="content" cols="50" rows="15" ><c:out value="${ board.content }"></c:out></textarea>
+					<textarea name="content" cols="50" rows="15" ><c:out value="${ notice.content }"></c:out></textarea>
 				</td>
 			</tr>
 			<tr>
 				<th colspan="2">
 					<input type="submit" value="수정">
-					<input type="button" onclick="location.replace('${ path }/board/list')" value="목록으로">
+					<input type="button" onclick="location.replace('${ path }/notice/list')" value="목록으로">
 				</th>
 			</tr>
 		</table>

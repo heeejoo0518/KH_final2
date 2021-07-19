@@ -10,13 +10,15 @@ import com.kh.moyoung.notice.model.vo.Notice;
 
 @Mapper
 public interface NoticeMapper {
+	
 	int selectNoticeCount();	
 
-	Notice selectNoticeByNo(@Param(" noticeNo") int noticeNo);
+	Notice selectNoticeByNo(@Param("noticeNo") int noticeNo);
 	
 	List<Notice> selectNoticeList(RowBounds rowBounds);
 	
 	int insertNotice(Notice notice);
 
 	int updateNotice(Notice notice);
+
 }

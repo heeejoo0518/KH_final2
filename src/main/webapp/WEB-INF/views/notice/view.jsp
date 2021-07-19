@@ -19,23 +19,19 @@
 	<table id="tbl-board">
 		<tr>
 			<th>글번호</th>
-			<td>${board.no}</td>
+			<td>${notice.no}</td>
 		</tr>
 		<tr>
 			<th>제 목</th>
-			<td>${board.title}</td>
+			<td>${notice.title}</td>
 		</tr>
 		<tr>
 			<th>작성자</th>
-			<td>${board.writerId}</td>
-		</tr>
-		<tr>
-			<th>조회수</th>
-			<td>${board.readCount}</td>
+			<td>${notice.writerId}</td>
 		</tr>
 		<tr>
 			<th>내 용</th>
-			<td>${ board.content }</td>
+			<td>${ notice.content }</td>
 		</tr>
 		<%--글작성자/관리자인경우 수정삭제 가능 --%>
 		<tr>
@@ -46,7 +42,7 @@
 					<button type="button" id="btnDelete">삭제</button>
 				</c:if>
 
-				<button type="button" onclick="location.href='${ path }/board/list'">목록으로</button>
+				<button type="button" onclick="location.href='${ path }/notice/list'">목록으로</button>
 			</th>
 		</tr>
 	</table>
@@ -55,12 +51,12 @@
 <script>
 	$(document).ready(() => {
 		$("#btnUpdate").on("click", (e) => {
-			location.href = "${path}/board/update?no=${board.no}";
+			location.href = "${path}/notice/update?no=${notice.no}";
 		});
 		
 		$("#btnDelete").on("click", (e) => {
 			if(confirm("정말로 게시글을 삭제 하시겠습니까?")) {
-				location.replace("${path}/board/delete?boardNo=${board.no}");
+				location.replace("${path}/notice/delete?boardNo=${notice.no}");
 			}
 		});
 	});
