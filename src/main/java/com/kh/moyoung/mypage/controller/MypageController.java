@@ -100,4 +100,15 @@ public class MypageController {
 		
 		return model;
 	}
+	
+	@GetMapping("/mypage/myreview")
+	public String myreviewView() {
+		return "/mypage/myreview";
+	}
+	
+	@GetMapping("/mypage/mylike")
+	public String mylikeView() {
+		return "/mypage/mylike";
+	}
+	
 }

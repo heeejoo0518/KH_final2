@@ -18,7 +18,7 @@
 	<link rel="stylesheet" href="${ path }/resources/css/main.css" />
 <!-- Scripts -->
 			<script src="${ path }/resources/js/jquery.min.js"></script>
-			<!-- 
+			<!--
 			<script src="${ path }/resources/js/main.js"></script>
 			<script src="${ path }/resources/js/jquery-3.6.0.min.js"></script>
 			 -->
