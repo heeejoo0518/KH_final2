@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kh.moyoung.review.model.mapper.ReviewMapper">
+	<sql id="selectReviewSql">
+		SELECT 
+    			M.NICKNAME,
+			    R.REVIEW_ID,
+			    R.MOVIE_ID,
+			    R.RATE,
+			    R.SPOILER,
+			    R.CONTENT,
+			    R.WRITEDATE,
+			    R.LIKECOUNT,
+			    R.U_NO
+	    FROM MOVIE_REVIEW R
+	    JOIN Member M on (R.U_NO = M.U_NO)
+	</sql>
+	
+	<resultMap type="Review" id="reviewListResultMap">
+		<id property="reviewNo" column="REVIEW_ID"/>
+		<result property="movieNo" column="MOVIE_ID" />
+		<result property="u_no" column="U_NO" />
+		<result property="rate" column="RATE" />
+		<result property="spoiler" column="SPOILER" />
+		<result property="likeCount" column="LIKECOUNT" />
+		<result property="content" column="CONTENT" />
+		<result property="writeDate" column="WRITEDATE" />
+		<result property="nickname" column="NICKNAME" />
+	</resultMap>
+	
+	<select id="selectReviewList" resultMap="reviewListResultMap">
+		<include refid="selectReviewSql"/>
+				ORDER BY R.writeDate DESC  
+	</select>
+	
+	<select id="selectReviewHighRateList" resultMap="reviewListResultMap">
+		<include refid="selectReviewSql"/>
+				ORDER BY R.Rate DESC
+	</select>
+	
+	<select id="selectReviewLowRateList" resultMap="reviewListResultMap">
+		<include refid="selectReviewSql"/>
+				ORDER BY R.Rate ASC
+	</select>
+	
+	
+	<select id="selectReviewCount" resultType="_int"> 
+		SELECT COUNT(*)
+		FROM MOVIE_REVIEW
+		<!--  
+		WHERE MOVIE_ID = #{movieNo}
+		-->
+	</select>
+	
+	<insert id="insertReview" parameterType="map"
+		useGeneratedKeys="true" keyColumn="REVIEW_ID" keyProperty="reviewNo">
+		INSERT INTO MOVIE_REVIEW (
+			REVIEW_ID,
+			MOVIE_ID,
+			RATE,
+			SPOILER,
+			CONTENT,
+			WRITEDATE,
+			LIKECOUNT,
+			U_NO
+		) VALUES (
+			SEQ_REVIEW_ID.NEXTVAL,
+			#{movieNo},
+			#{rate},
+			#{spoiler},
+			#{content},
+			default,
+			default,
+			#{u_no}
+			
+		)
+	</insert>
+	
+	
+</mapper>
