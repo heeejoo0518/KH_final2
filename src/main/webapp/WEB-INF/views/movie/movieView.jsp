@@ -76,10 +76,13 @@
 									class="ion-play"></i></a>
 							</div>
 						</div>
-						<div class="social-btn" style="margin-bottom: 10px">
-							<a href="#" class="parent-btn" style="padding-left:10px">찜하기<i class="ion-heart"></i></a> 
-							<a href="${ path }/review/write" class="parent-btn">리뷰쓰기<i class="ion-edit"></i></a>
-						</div>
+						<form action="${ path }/review/write" method="POST">
+								<input type="hidden" name="movieNo" value="${ movie.movieNo }">
+						</form>
+							<div class="social-btn" style="margin-bottom: 10px">
+								<a href="#" class="parent-btn" style="padding-left:10px">찜하기<i class="ion-heart"></i></a> 
+								<a href="${ path }/review/write?movieNo=${movie.movieNo}" class="parent-btn">리뷰쓰기<i class="ion-edit"></i></a>
+							</div>
 					</div>
 				</div>
 
@@ -159,7 +162,7 @@
 											</div>
 											<div class="title-hd-sm">
 												<h4>모영 리뷰</h4>
-												<a href="#" class="time">모든 모영 리뷰 보기<i
+												<a href="${ path }/review/list?no=${movie.movieNo}" class="time">모든 모영 리뷰 보기<i
 													class="ion-ios-arrow-right"></i></a>
 											</div>
 											<!-- movie user review -->
@@ -258,7 +261,7 @@
 											<div class="div">
 												<h2>Skyfall: Quantum of Spectre</h2>
 											</div>
-											<a href="#" class="redbtn">리뷰 작성</a>
+											<a href="${ path }/review/write?movieNo=${movie.movieNo}" class="redbtn">리뷰 작성</a>
 										</div>
 										<div class="topbar-filter">
 											<p>

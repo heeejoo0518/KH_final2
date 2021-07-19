@@ -22,8 +22,6 @@ public class Review {
 	
 	private int u_no; /* 유저 고유 번호 */
 	
-	/*private String sort;  정렬 */
-	
 	private String content; /* 리뷰 내용 */
 	
 	/*private String writerId;  게시글 작성자 */

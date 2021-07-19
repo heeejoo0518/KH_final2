@@ -4,7 +4,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
-<%@ page import="com.kh.moyoung.movie.model.vo.Movie"%>
 
 <c:set var="path" value="${pageContext.request.contextPath}" />
 
@@ -75,8 +74,8 @@
 <h2>header</h2>
 	<div id="reviewContainer"> <!-- 중앙  -->
 		<form action="${ path }/review/write" method="POST">
-			<input type="hidden" name="nickname" value="${ signinMember.nickname }">
 			<input type="hidden" name="movieNo" value="${ movie.movieNo }">
+			<input type="hidden" name="nickname" value="${ signinMember.nickname }">
 			<div id="formContainer">
 				<div id="div-Content"> <!-- 리뷰작성 공간 -->
 					<textarea id="text-area" name="content" rows="30" cols="100" placeholder="리뷰를 작성해주세요." required="required"></textarea>		

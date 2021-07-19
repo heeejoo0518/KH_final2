@@ -117,11 +117,13 @@ footer
         <div >
             <h2 style="color: white;">모든 리뷰</h2>  
         </div>
-        <form action="${ path }/review/list" method="GET">
+        
+        
+        <form action="${ path }/review/list?sort=${review.sort}&no=${ review.movieNo }&page=1" method="GET">
         <div id="div-sort" >
         <select id="sort-select" name="sort" onchange="this.form.submit();">
-            <option value="" >정렬 방식을 선택해주세요.</option>
-            <option value="a" id="1" >최근 작성한 글</option>
+            <option >정렬 방식을 선택해주세요.</option>
+            <option value="a" id="1">최근 작성한 글</option>
             <option value="b" id="2">별점 높은 순</option>
             <option value="c" id="3">별점 낮은 순</option>
         </select>
@@ -146,13 +148,17 @@ footer
         <br>
         <br>
         <c:if test="${ list == null }">
-			조회된 게시글이 없습니다.
+        		게시글이 없습니다.
 		</c:if>
         <c:if test="${ list != null }">
         	<c:forEach var="review" items="${ list }">
 		        <div id="div-list-container">
 		        	<div id="div-user-nickname">
 		        		<span class="span-nickname"><c:out value="${review.nickname }"/></span>
+		        		
+		        		<!--  <span class="span-nickname"><c:out value="${ no }"/></span>
+		        		-->
+		        		
 		        		<span>
 		        			<c:choose>
 		        				<c:when test="${ review.rate == 0 }">
@@ -178,27 +184,11 @@ footer
 		        	</div>
 		        	
 		        	<!--  
-		        	<script type="text/javascript">
+		        	<script>
 			        	$(function(){
-			        		$("#btn-spoiler").on("click", function(){
-			        			var content = '<c:out value="${review.content}"/>';
+			        		$('#btn-spoiler').click(function(){
+			        			if($("#div-user-spoilerContent").css("blur")== .removeAttr('style');
 			        			
-			        			$.ajax({
-			        				type: "post",
-			        				url: "${path}/review/list",
-			        				dataType: "html",
-			        				data:{
-			        					content
-			        				}, 
-			        				success:function(data){
-			        					console.log("성공");
-			        					$("#div-user-content").html(data);
-			        				},
-			        				error: function(e){
-			        					console.log(e);
-			        					console.log("실패");
-			        				}
-			        			});
 			        			
 			        		});
 			        	});
@@ -222,6 +212,7 @@ footer
 		        		</c:when>
 		        	</c:choose>
 		        	
+		        	<!--  
 		        	<script>
 		        	$(function(){
 		        		$("#btn-spoiler").on("click", function(){
@@ -230,7 +221,7 @@ footer
 		        	});
 		        	
 		        	</script>
-		        	
+		        	-->
 		        	
 		        	<hr>
 		        	<div id="div-like" style="padding-left: 10px;">
