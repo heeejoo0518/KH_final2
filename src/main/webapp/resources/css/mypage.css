@@ -1,6 +1,12 @@
 @charset "UTF-8";
 
 /* mypage_header.jsp */
+section {
+	min-height: calc(100vh - 50px);
+	min-width: 350px;
+	margin-top: 70px !important;
+}
+
 #wrapper {
   overflow-x: hidden;
 }
@@ -71,6 +77,7 @@
     background-color: #ececf6;
     border-color: transparent;
     font-weight: 1000;
+    opacity: 0.8;
 }
 
 img#img_sidebar {
@@ -148,12 +155,22 @@ img#img_sidebar {
 .icon button {
 	border:none; 
 	background:none;
+	opacity: 1 !important;
+    pointer-events: none !important;
+    padding-top:4px;
 }
 
 .icon img {
 	width:15px; 
 	height:15px;
 	object-fit:cover;
+}
+
+#update_button {
+	background-color:transparent;
+}
+#update_button:hover {
+	background-color:#06243c;
 }
 
 /* myreview.jsp */

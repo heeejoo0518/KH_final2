@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="${ path }/resources/css/main.css" />
 
-
 <!-- Footer -->
 			<footer id="footer">
 				<div class="inner">
@@ -46,6 +45,9 @@
 				</div>
 			</footer>
 
+	</body>
+	
+	
 		<!-- Scripts -->
 		
 			<script src="${path}/resources/js/jquery-3.6.0.min.js"></script>
@@ -55,13 +57,12 @@
 			<script src="${path}/webjars/bootstrap/4.6.0-1/js/bootstrap.min.js"></script>
 			
 			
-			<script src="${ path }/resources/js/jquery.min.js"></script>
+			<!-- <script src="${ path }/resources/js/jquery.min.js"></script>-->
 			<script src="${ path }/resources/js/jquery.scrolly.min.js"></script>
 			<script src="${ path }/resources/js/skel.min.js"></script>
 			<script src="${ path }/resources/js/util.js"></script>
 			<script src="${ path }/resources/js/main.js"></script>
-
-	</body>
+	
 
 </html>
 </body>

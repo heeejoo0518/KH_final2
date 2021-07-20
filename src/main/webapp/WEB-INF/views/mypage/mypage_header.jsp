@@ -4,7 +4,7 @@
 
 <link rel="stylesheet" type="text/css" href="${ path }/resources/css/mypage.css">
  
- <section style="min-height: calc(100vh - 50px);min-width: 350px;">
+<section>
  	<div class="d-flex" id="wrapper">
  		<!-- Sidebar-->
         <div class="border-end bg-black" id="sidebar-wrapper">
