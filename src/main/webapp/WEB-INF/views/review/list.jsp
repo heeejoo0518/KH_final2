@@ -109,6 +109,10 @@ footer
         	float: right;
         	margin-right: 10px;
         }
+        #empty-list{
+        	text-align: center;
+        	color: white;
+        }
 
     </style>
 
@@ -119,7 +123,8 @@ footer
         </div>
         
         
-        <form action="${ path }/review/list?sort=${review.sort}&no=${ review.movieNo }&page=1" method="GET">
+        <form action="${ path }/review/list" method="GET">
+        <input type="hidden" name="no" value="${no}">
         <div id="div-sort" >
         <select id="sort-select" name="sort" onchange="this.form.submit();">
             <option >정렬 방식을 선택해주세요.</option>
@@ -147,8 +152,8 @@ footer
         
         <br>
         <br>
-        <c:if test="${ list == null }">
-        		게시글이 없습니다.
+        <c:if test="${ empty list }">
+        		<p id="empty-list">등록된 게시글이 없습니다.</p>
 		</c:if>
         <c:if test="${ list != null }">
         	<c:forEach var="review" items="${ list }">
@@ -271,10 +276,10 @@ footer
 			   
 		        <div id="pageBar" style="text-align:center;">
 					<!-- 맨 처음으로 -->
-					<button onclick="location.href='${ path }/review/list?sort=${review.sort}&page=1'">&lt;&lt;</button>
+					<button onclick="location.href='${ path }/review/list?no=${no}&sort=${sort}&page=1'">&lt;&lt;</button>
 					
 					<!-- 이전 페이지로 -->
-					<button onclick="location.href='${ path }/review/list?sort=${review.sort}&page=${ pageInfo.prvePage }'">&lt;</button>
+					<button onclick="location.href='${ path }/review/list?no=${no}&sort=${sort}&page=${ pageInfo.prvePage }'">&lt;</button>
 		
 					<!--  10개 페이지 목록 -->
 					<c:forEach begin="${ pageInfo.startPage }" end="${ pageInfo.endPage }" step="1" varStatus="status">
@@ -282,17 +287,17 @@ footer
 							<button disabled><c:out value="${ status.current }"/></button>
 						</c:if>
 						<c:if test="${ pageInfo.currentPage != status.current}">
-							<button onclick="location.href='${ path }/review/list?sort=${review.sort}&page=${ status.current }'">
+							<button onclick="location.href='${ path }/review/list?no=${no}&sort=${sort}&page=${ status.current }'">
 								<c:out value="${ status.current }"/>
 							</button>
 						</c:if>
 					</c:forEach>
 					
 					<!-- 다음 페이지로 -->
-					<button onclick="location.href='${ path }/review/list?sort=${review.sort}&page=${ pageInfo.nextPage }'">&gt;</button>
+					<button onclick="location.href='${ path }/review/list?no=${no}&sort=${sort}&page=${ pageInfo.nextPage }'">&gt;</button>
 					
 					<!-- 맨 끝으로 -->
-					<button onclick="location.href='${ path }/review/list?sort=${review.sort}&page=${ pageInfo.maxPage }'">&gt;&gt;</button>
+					<button onclick="location.href='${ path }/review/list?no=${no}&sort=${sort}&page=${ pageInfo.maxPage }'">&gt;&gt;</button>
 				</div>
 				
     </body>

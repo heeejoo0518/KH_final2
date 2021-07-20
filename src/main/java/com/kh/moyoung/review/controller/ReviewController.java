@@ -44,7 +44,7 @@ public class ReviewController {
 	public ModelAndView list(ModelAndView model,
 			@RequestParam(value="page", required = false, defaultValue = "1")int page,
 			@RequestParam(value="sort", required = false, defaultValue = "a")String sort,
-			@RequestParam(value="no", required = false)int no,
+			@RequestParam(value="no")int no,
 			@ModelAttribute Review review,
 			HttpServletRequest request){
 		
