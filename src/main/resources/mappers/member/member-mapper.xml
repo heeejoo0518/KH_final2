@@ -70,8 +70,8 @@
 		    #{u_pwd},
 		    #{nickname},
 		    #{email},
-		    NULL,
-		    NULL,
+		    DEFAULT,
+		    DEFAULT,
 		    DEFAULT,
 		    DEFAULT,
 		    DEFAULT
@@ -80,11 +80,21 @@
  	
  	<update id="updateMember" parameterType="Member">
  		UPDATE MEMBER 
- 		SET 
- 			U_PWD=#{u_pwd}
- 			NICKNAME = #{nickname},
- 			EMAIL = #{email},
-		WHERE U_ID = #{u_id}
+ 			<trim prefix="SET" suffixOverrides="," >
+	 			<if test="u_pwd != null and u_pwd != '' ">
+	 				U_PWD = #{u_pwd},
+	 			</if>
+	 			<if test="nickname != null and nickname != '' ">
+	 				NICKNAME = #{nickname},
+	 			</if>
+	 			<if test="email != null and email != '' ">
+	 				EMAIL = #{email},
+	 			</if>
+	 			<if test="birth != null and birth != '' ">
+	 				BIRTH = #{birth},
+	 			</if>
+ 			</trim>
+		WHERE U_NO = #{u_no}
  	</update>
  	
  	<update id="deleteMember" parameterType="_int">

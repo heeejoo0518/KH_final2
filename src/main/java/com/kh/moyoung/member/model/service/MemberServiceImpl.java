@@ -31,10 +31,10 @@ public class MemberServiceImpl implements MemberService {
 		int result = 0;
 		
 		if(member.getU_no() != 0) {
+			if(member.getU_pwd()!=null) member.setU_pwd(passwordEncoder.encode(member.getU_pwd()));
 			result = mapper.updateMember(member);
 		} else {
 			member.setU_pwd(passwordEncoder.encode(member.getU_pwd()));
-			System.out.println(member);
 			result = mapper.insertMember(member);
 		}
 		
@@ -50,7 +50,6 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Override
 	public boolean validateNickname(String nickname) {
-		System.out.println("체크중: "+this.findByNickname(nickname));
 		return this.findByNickname(nickname) != null;
 	}
 

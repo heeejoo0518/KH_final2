@@ -4,9 +4,11 @@ import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
+@EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
 public class Member {
@@ -29,4 +31,18 @@ public class Member {
 	private int u_role;				/* 유저유형 (0:일반회원, 1:관리자, 2:탈퇴회원, 3:정지회원) */
 	
 	private int signup_type;		/* 가입유형 (0:일반, 1:네이버, 2:..) */
+	
+	public Member(Member member) {
+		this.u_no = member.getU_no();
+		this.u_id = member.getU_id();
+		this.u_pwd = member.getU_pwd();
+		this.nickname = member.getNickname();
+		this.email = member.getEmail();
+		this.birth = member.getBirth();
+		this.account_locked = member.getAccount_locked();
+		this.u_validate = member.getU_validate();
+		this.u_role = member.getU_role();
+		this.signup_type = member.getSignup_type();
+	}
+	
 }
