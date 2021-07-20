@@ -15,11 +15,8 @@
 <body>
 <h2>게시판 수정</h2>
 <div id='board-write-container'>
-	<form action="${ path }/board/update" method="POST" enctype="multipart/form-data">
+	<form action="${ path }/notice/update" method="POST" enctype="multipart/form-data">
 		<input type="hidden" name="no" value="${ notice.no }" />
-		<input type="hidden" name="originalFileName" value="${ notice.originalFileName }" />
-		<input type="hidden" name="renamedFileName" value="${notice.renamedFileName}" />
-	
 		<table id='tbl-board'>
 			<tr>
 				<th>제목</th>

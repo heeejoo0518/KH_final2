@@ -12,6 +12,7 @@
 				N.CREATE_DATE
 		FROM NOTICE N
 		JOIN MEMBER M ON(N.WRITER_NO = M.U_NO)
+		WHERE N.STATUS='Y'
 	</sql>
 	
 	<resultMap type="Notice" id="noticeListResultMap">
@@ -35,6 +36,7 @@
 	<select id="selectNoticeCount" resultType="_int">
 		SELECT COUNT(*)
 		FROM NOTICE
+		WHERE STATUS='Y'
 	</select>
 	
 	<select id="selectNoticeByNo" parameterType="_int" resultMap="noticeDetailResultMap">
@@ -57,7 +59,7 @@
 			TITLE,
 			CONTENT,
 			STATUS,
-			CREATE_DATE,
+			CREATE_DATE
 		) VALUES (
 			SEQ_NOTICE_NO.NEXTVAL,
 			#{writerNo},
@@ -72,9 +74,17 @@
 		UPDATE NOTICE
 		SET
 			TITLE=#{title},
-			CONTENT=#{content},
-			MODIFY_DATE=SYSDATE
+			CONTENT=#{content}
 		WHERE
 			NO=#{no}
 	</update>
+	
+	 <update id="deleteNotice" parameterType="int">
+        UPDATE NOTICE
+       	SET
+       		STATUS='N'
+        WHERE
+        	NO=#{no}
+    </update>
+
 </mapper>

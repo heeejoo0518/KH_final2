@@ -14,6 +14,9 @@ public interface NoticeService {
 	List<Notice> getNoticeList(PageInfo pageInfo);
 
 	Notice findByNo(int noticeNo);
-
 	
+	int delete(int no);
+
+	int deleteNotice(int no);
+
 }

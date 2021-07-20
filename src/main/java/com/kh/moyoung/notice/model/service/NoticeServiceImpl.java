@@ -54,5 +54,20 @@ public class NoticeServiceImpl implements NoticeService {
 		return result;
 	}
 
+
+	
+	@Override
+	public int deleteNotice(int no) {
+		return mapper.deleteNotice(no);
+	}
+
+
+	@Override
+	public int delete(int no) {
+		return mapper.deleteNotice(no);
+	}
+
+	
+
 	
 }
