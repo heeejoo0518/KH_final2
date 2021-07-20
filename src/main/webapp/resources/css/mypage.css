@@ -196,7 +196,7 @@ img#img_sidebar {
 	background-color:transparent;
 }
 
-/* mymovie.jsp */
+/* mylike.jsp */
 .myLike-container {
 	max-width:80%;
     margin:50px auto;
@@ -219,4 +219,11 @@ img#img_sidebar {
 	height:200px;
 	color:white;
 	text-align:center;
+}
+
+.myLike-container .col button {
+	padding:0px;
+	background-color:transparent;
+	height:150px;
+	border:0px;
 }

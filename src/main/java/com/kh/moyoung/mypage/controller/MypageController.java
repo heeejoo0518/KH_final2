@@ -1,12 +1,19 @@
 package com.kh.moyoung.mypage.controller;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,8 +21,11 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kh.moyoung.common.util.PageInfo;
 import com.kh.moyoung.member.model.service.MemberService;
 import com.kh.moyoung.member.model.vo.Member;
+import com.kh.moyoung.movie.model.service.MovieService;
+import com.kh.moyoung.movie.model.vo.Movie;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -24,7 +34,10 @@ import lombok.extern.slf4j.Slf4j;
 @SessionAttributes("signinMember")
 public class MypageController {
 	@Autowired
-	private MemberService service;
+	private MemberService memberService;
+	
+	@Autowired
+	private MovieService movieService;
 	
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
@@ -59,11 +72,11 @@ public class MypageController {
 		
 		log.info("{}",updateMember);
 		
-		int result = service.save(updateMember);
+		int result = memberService.save(updateMember);
 		
 		if(result>0) {
 			model.addObject("msg","회원정보가 정상적으로 변경되었습니다.");
-			signinMember = service.findById(signinMember.getU_id());
+			signinMember = memberService.findById(signinMember.getU_id());
 			model.addObject("signinMember",signinMember);
 			
 		}else {
@@ -107,8 +120,36 @@ public class MypageController {
 	}
 	
 	@GetMapping("/mypage/mylike")
-	public String mylikeView() {
-		return "/mypage/mylike";
+	public ModelAndView mylikeView(ModelAndView model, 
+			@SessionAttribute(name = "signinMember", required = false) Member signinMember) {
+
+		PageInfo pageInfo = new PageInfo(1,1, movieService.getLikeCount(signinMember.getU_no()), 20);
+
+		model.addObject("mylikeList", movieService.getLikeList(pageInfo, signinMember.getU_no()));
+		model.addObject("pageInfo", pageInfo);
+		
+		model.setViewName("mypage/mylike");
+		
+		return model;
 	}
 	
+	@PostMapping("/mypage/mylikeList")
+	public ResponseEntity<Map<String,Object>> mylikeList(@SessionAttribute(name = "signinMember", required = false) Member signinMember,
+			@RequestParam(value="pageNo", required=false, defaultValue="1")int pageNo) {
+		log.info("mylikeList controller");
+		log.info("pageNo : {}", pageNo);
+		log.info("signinMember : {}", signinMember);
+		Map<String,Object> map = new HashMap<>();
+
+		PageInfo pageInfo = new PageInfo(pageNo,1, movieService.getLikeCount(signinMember.getU_no()), 20);
+
+		map.put("mylikeList", movieService.getLikeList(pageInfo, signinMember.getU_no()));
+		map.put("pageInfo", pageInfo);
+		
+		log.info("mylikeList : {}",map.get("mylikeList"));
+		log.info("pageInfo",pageInfo);
+		
+	
+		return new ResponseEntity<Map<String,Object>>(map, HttpStatus.OK);
+	}
 }

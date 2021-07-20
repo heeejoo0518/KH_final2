@@ -1,6 +1,8 @@
 package com.kh.moyoung.movie.model.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,14 +25,11 @@ public class MovieServiceImpl implements MovieService {
 
 	@Override
 	public int getMovieCount() {
-				
 		return mapper.selectMovieCount();
 	}
 
 	@Override
 	public List<Movie> getMovieList(PageInfo pageInfo) {
-		
-		
 		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
 		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
 		
@@ -41,15 +40,12 @@ public class MovieServiceImpl implements MovieService {
 	@Transactional
 	public int save(Movie movie) {
 		int result = 0;
-		
 		result = mapper.insertMovie(movie);
-		
 		return result;
 	}
 
 	@Override
 	public Movie findByNo(int movieNo) {
-		
 		return mapper.selectMovieByNo(movieNo);
 	}
 
@@ -69,9 +65,15 @@ public class MovieServiceImpl implements MovieService {
 		return mapper.selectMovieVote(rowBounds);
 	}
 	
-//	@Override
-//	public Movie findByNo(int movieNo) {
-//		return mapper.selectMovieByNo(movieNo);
-//
-//	}
+	@Override
+	public int getLikeCount(int u_no) {
+		return mapper.selectLikeCount(u_no);
+	}
+	
+	@Override
+	public List<Movie> getLikeList(PageInfo pageInfo, int u_no) {
+		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
+		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
+		return mapper.selectLikeList(rowBounds, u_no);
+	}
 }
