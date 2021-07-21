@@ -77,11 +77,11 @@
 							</div>
 						</div>
 						<form action="${ path }/review/write" method="POST">
-								<input type="hidden" name="movieNo" value="${ movie.movieNo }">
+								<input type="hidden" name="no" value="${ movie.movieNo }">
 						</form>
 							<div class="social-btn" style="margin-bottom: 10px">
 								<a href="#" class="parent-btn" style="padding-left:10px">찜하기<i class="ion-heart"></i></a> 
-								<a href="${ path }/review/write?movieNo=${movie.movieNo}" class="parent-btn">리뷰쓰기<i class="ion-edit"></i></a>
+								<a href="${ path }/review/write?no=${movie.movieNo}" class="parent-btn">리뷰쓰기<i class="ion-edit"></i></a>
 							</div>
 					</div>
 				</div>

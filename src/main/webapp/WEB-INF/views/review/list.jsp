@@ -4,10 +4,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
-<%
-Object sortNum = request.getAttribute("sort");
-String sort = (String)sortNum;
- %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <!--  
 header
@@ -46,7 +42,7 @@ footer
         	border-radius: 10px;
         	height: 50px;
         	width: 200px;
-        	margin-right: 300px;
+        	margin-right: 400px;
         	
         }
         #div-list-container{
@@ -70,12 +66,13 @@ footer
         }
         #div-user-content{
         	padding-left: 10px;
-        	height: 200px;
+        	height: 230px;
         }
         #div-user-spoilerContent{
         	padding-left: 10px;
-        	height: 130px;
-        	filter: blur(3px);
+        	height: 160px;
+        	background-color: black;
+        	
         }
         .like-count{
         	padding-left: 10px;
@@ -113,19 +110,29 @@ footer
         	text-align: center;
         	color: white;
         }
+        #btn-spoiler{
+        	margin-left: 540px;
+        	margin-bottom: 5px;
+        }
+        #spoiler-text{
+        	color:white;
+        }
 
     </style>
 
 </head>
     <body>
+    
         <div >
             <h2 style="color: white;">모든 리뷰</h2>  
         </div>
         
-        
         <form action="${ path }/review/list" method="GET">
         <input type="hidden" name="no" value="${no}">
         <div id="div-sort" >
+        <div id="spoiler-text">
+        	스포일러 게시글<input type="checkbox" id="spoBox" class="spoBox">
+        </div>
         <select id="sort-select" name="sort" onchange="this.form.submit();">
             <option >정렬 방식을 선택해주세요.</option>
             <option value="a" id="1">최근 작성한 글</option>
@@ -135,20 +142,6 @@ footer
         </div>
         </form>
         
-        
-<!--  <script >    
-     화면 전환 후 select box 고정 (ajax사용시 사용가능) 
-    var selectedSort = [[${selectedSort}]]; // 화면전환 하면서 값을 받아온다
-    
-    if(selectedSort == 1){
-        $('#1').attr('selected','selected');
-    } else if(selectedYear == 2){
-        $('#2').attr('selected','selected');
-    } else{
-        $('#3').attr('selected','selected');
-    }
-</script>
-    -->
         
         <br>
         <br>
@@ -188,62 +181,80 @@ footer
 			        	</span>
 		        	</div>
 		        	
-		        	<!--  
-		        	<script>
-			        	$(function(){
-			        		$('#btn-spoiler').click(function(){
-			        			if($("#div-user-spoilerContent").css("blur")== .removeAttr('style');
-			        			
-			        			
-			        		});
-			        	});
-		        	</script>
-		        	-->
-		        	
+		        	<!-- 스포일러(0)==스포일러 포함X -->
 		        	<c:choose>
 		        		<c:when test="${ review.spoiler eq '0' }">
 				        	<div id="div-user-content">
 				        		<c:out value="${ review.content }"/>
 				        	</div>
 		        		</c:when>
-		        		<c:when test="${ review.spoiler eq '1' }">
 		        		
-		        			<p style="text-align: center">스포일러를 보려면 버튼 클릭!</p>
-		        			<input id="btn-spoiler" type="button" value="리뷰 확인">
-		        			<div id="div-user-spoilerContent">
-				        		<c:out value="${ review.content }"/>
+		        		<c:when test="${ review.spoiler eq '1' }">
+		        			<p style="text-align: center">스포일러가 포함된 리뷰를 보려면 버튼 클릭!</p>
+		        			<button id="btn-spoiler" onclick="btnSpoiler()">스포일러 리뷰</button>
+		        			<div id="div-user-spoilerContent" class="div-user-spoilerContent"> 
+		        				<c:out value="${ review.content }"/>
+		        				
 				        	</div>
-				        	
 		        		</c:when>
 		        	</c:choose>
 		        	
-		        	<!--  
-		        	<script>
-		        	$(function(){
-		        		$("#btn-spoiler").on("click", function(){
-							$("#div-user-spoilerContent").css('filter','');
-		        		}
-		        	});
-		        	
-		        	</script>
-		        	-->
 		        	
 		        	<hr>
 		        	<div id="div-like" style="padding-left: 10px;">
-		        		<span class="like-count"> <c:out value="${ review.likeCount }개"/> </span>
 		        		<span class="writeDate" style="text-align: right" > <fmt:formatDate type="date" value="${ review.writeDate }"/> </span>
 		        	</div>
 		        	
-		        	<!--  
-		        	<div id="div-btn"> <!-- 좋아요  
-			        		<input type="button" value="좋아요!" >
-			        		<input type="button" value="test!" id="btn-like" onclick="fun1()">
+		        	<c:if test="${!empty loginMember && loginMember.nickname == review.nickname }">
+		        	<div id="div-btn"> <!-- 삭제버튼 -->  
+		        		<button id="btnDelete" onclick="btnDelete()">게시글 삭제</button>
 		        	</div>
-		        	-->
+		        	</c:if>
 		        	
+		        	<!--   게시글 번호를 가져오면 삭제 가능,, 현재까지 가져올 방법을 못찾음
+		        	<script>
+						var reviewNo = '<:cout value="${reviewNo}"/>';
+						function btnDelete(){
+							if(confirm("리뷰를 삭제하시겠습니까?")){
+								location.replace("${ path }/review/delete?reviewNo=${reviewNo}");
+								console.log(reviewNo)
+							} else{
+								alert("취소하셨습니다.");
+							}
+						}
+					</script>
+					-->
+		
 		        </div>
         </c:forEach>
         </c:if>
+        
+        <script> 
+				        var review_content = '<c:out value="${review.content}"/>';
+				        var loginNickname = '<c:out value="${loginMember.nickname}"/>';
+				        var reviewNickname = '<c:out value="${review.nickname}"/>';
+				        	function btnSpoiler(){
+				        		if(confirm("스포일러가 포함된 리뷰를 확인하시겠습니까?")){
+					        		document.getElementById("div-user-spoilerContent").innerHTML=review_content;
+				        		} else{
+				        			alert("취소하셨습니다.");
+				        		}
+				        			
+				        		console.log(loginNickname);
+				        		console.log(reviewNickname);
+				        		console.log(review_content);
+				       		}
+				    </script>
+        
+        <script>
+        	$(function(){
+        		$("#spoBox").on("click", function(){
+        			alert("체크박스 클릭");
+        			$('.div-user-spoilerContent').css({'background-color' : 'white'});
+        		});
+        	});
+        </script>
+        
         
         <!--  <script>
         	$(function(){
@@ -299,6 +310,7 @@ footer
 					<!-- 맨 끝으로 -->
 					<button onclick="location.href='${ path }/review/list?no=${no}&sort=${sort}&page=${ pageInfo.maxPage }'">&gt;&gt;</button>
 				</div>
+				
 				
     </body>
 </html>

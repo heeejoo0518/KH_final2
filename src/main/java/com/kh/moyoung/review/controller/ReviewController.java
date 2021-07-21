@@ -46,12 +46,16 @@ public class ReviewController {
 			@RequestParam(value="sort", required = false, defaultValue = "a")String sort,
 			@RequestParam(value="no")int no,
 			@ModelAttribute Review review,
+			@ModelAttribute Member member,
 			HttpServletRequest request){
 		
 		log.info("리뷰 게시판 페이지 요청");
 		System.out.println("movieNo: " + no);
 		System.out.println("sort: " + sort);
 		System.out.println("page: " + page);
+		System.out.println("reviewNo: "+ review.getReviewNo());
+		System.out.println("loginMember: "+member);
+		System.out.println("loginMember: "+member.getNickname());
 		
 		
 		List<Review> list = null;
@@ -78,6 +82,7 @@ public class ReviewController {
 			
 			System.out.println(list);
 		}
+			model.addObject("member", member);
 			model.addObject("sort",sort);
 			model.addObject("no",no);
 			model.addObject("page", page);

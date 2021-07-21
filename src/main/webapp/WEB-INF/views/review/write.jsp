@@ -74,7 +74,7 @@
 <h2>header</h2>
 	<div id="reviewContainer"> <!-- 중앙  -->
 		<form action="${ path }/review/write" method="POST">
-			<input type="hidden" name="movieNo" value="${ movie.movieNo }">
+			<input type="hidden" name="no" value="${ no }">
 			<input type="hidden" name="nickname" value="${ signinMember.nickname }">
 			<div id="formContainer">
 				<div id="div-Content"> <!-- 리뷰작성 공간 -->
