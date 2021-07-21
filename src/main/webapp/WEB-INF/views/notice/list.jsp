@@ -108,11 +108,11 @@ div#pageBar {
 
 	<div id="pageBar" style="align-self: center;">
 		<!-- 맨 처음으로 -->
-		<button onclick="location.href='${ path }/board/list?page=1'">&lt;&lt;</button>
+		<button onclick="location.href='${ path }/notice/list?page=1'">&lt;&lt;</button>
 
 		<!-- 이전 페이지로 -->
 		<button
-			onclick="location.href='${ path }/board/list?page=${ pageInfo.prvePage }'">&lt;</button>
+			onclick="location.href='${ path }/notice/list?page=${ pageInfo.prvePage }'">&lt;</button>
 
 		<!--  10개 페이지 목록 -->
 		<c:forEach begin="${ pageInfo.startPage }" end="${ pageInfo.endPage }"

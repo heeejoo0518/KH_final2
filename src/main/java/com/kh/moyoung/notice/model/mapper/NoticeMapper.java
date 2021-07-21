@@ -20,6 +20,7 @@ public interface NoticeMapper {
 	int insertNotice(Notice notice);
 
 	int updateNotice(Notice notice);
+
+	int delete(@Param("no") int no);
 	
-	int deleteNotice(int no);
 }

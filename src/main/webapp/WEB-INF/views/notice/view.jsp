@@ -18,7 +18,6 @@
 
 <link rel="stylesheet" href="${ path }/css/style.css">
 </head>
-<h2>MYMY</h2>
 <style>
     section>div#board-write-container{width:600px; margin:0 auto; text-align:center;}
     section>div#board-write-container h2{margin:10px 0;}
@@ -78,7 +77,7 @@
 		
 		$("#btnDelete").on("click", (e) => {
 			if(confirm("정말로 게시글을 삭제 하시겠습니까?")) {
-				location.replace("${path}/notice/delete?noticeNo=${notice.no}");
+				location.replace("${path}/notice/delete?no=${notice.no}");
 			}
 		});
 	});

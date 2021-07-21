@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
@@ -61,9 +62,8 @@ public class NoticeController {
 	public ModelAndView updateView(ModelAndView model,
 			@SessionAttribute(name = "signinMember", required = false) Member signinMember,
 			@RequestParam("no") int noticeNo) {
-		
 		Notice notice = service.findByNo(noticeNo);
-		
+
 			model.addObject("notice", notice);
 			model.setViewName("notice/update");
 		
@@ -75,7 +75,6 @@ public class NoticeController {
 			@SessionAttribute(name = "signinMember", required = false) Member signinMember,
 			HttpServletRequest request,
 			@ModelAttribute Notice notice) {
-		
 		int result = 0;
 		
 			result = service.save(notice);
@@ -125,93 +124,63 @@ public class NoticeController {
 	}
 	
 	
-	@GetMapping("/delete")
-	public ModelAndView deleteNotice(ModelAndView model,
+	@RequestMapping("/delete")
+	public ModelAndView delete(ModelAndView model,
 			@SessionAttribute(name = "signinMember", required = false) Member signinMember,
-			@ModelAttribute Notice notice) {
+			@RequestParam(name = "no") int no){
+		System.out.println(no);
 		
-		int result = service.deleteNotice(notice.getNo());
+		int result = service.delete(no);
 		
 		if(result > 0) {
 			model.addObject("msg", "정상적으로 삭제되었습니다.");
 			model.addObject("location", "/notice/list");
 		} else {
-			model.addObject("msg", "글 삭제를 실패하였습니다.");
+			model.addObject("msg", "게시글 삭제를 실패하였습니다.");
 			model.addObject("location", "/notice/list");
 		}	
-	
 		
 		model.setViewName("common/msg");
 		
 		return model;
 	}
-//	
+	
 
 //	@GetMapping("/delete")
 //	public void deleteView() {
 //		log.info("게시글 삭제 페이지 요청");
+//		
 //	}
-//
 //	@PostMapping("/delete")
-//	public ModelAndView delete(ModelAndView model, HttpServletRequest request,
+//	public ModelAndView delete(ModelAndView model,
 //			@SessionAttribute(name = "signinMember", required = false) Member signinMember,
-//			@ModelAttribute Notice notice) {
-//		int result = 0;
+//			@RequestParam("no") int noticeNo
+//			) {
+//		log.info("게시글 삭제 실행");
 //
-//		log.info("게시글 삭제 요청");
-//		
-//		if (signinMember.getU_id().equals(notice.getWriterId())) {
-//			notice.setWriterNo(signinMember.getU_no());
+//		System.out.println(noticeNo);
 //
-//			result = service.delete(notice);
+//		int result = service.delete(noticeNo);
 //
-//			if (result > 0) {
-//				model.addObject("msg", "게시글이 정상적으로 삭제되었습니다.");
-//				model.addObject("location", "/notice/list");
-//			} else {
-//				model.addObject("msg", "게시글 삭제를 실패하였습니다.");
-//				model.addObject("location", "/");
-//			}
+//		System.out.println(result);
+//
+//		if(result > 0) {
+//			model.addObject("msg", "정상적으로 삭제되었습니다.");
+//			model.addObject("location", "/notice/list");
 //		} else {
-//			model.addObject("msg", "잘못된 접근입니다");
-//			model.addObject("location", "/");
-//		}
-//
+//			model.addObject("msg", "글 삭제를 실패하였습니다.");
+//			model.addObject("location", "/notice/list");
+//		}		
+//		
 //		model.setViewName("common/msg");
-//
-//		return model;
-//	}
-	
-//	@GetMapping("/delete")
-//	public ModelAndView deleteNotice(ModelAndView model,
-//			@SessionAttribute(name = "signinMember", required = false) Member signinMember,
-//			@RequestParam("no") int noticeNo) {
-//		
-//			Notice notice = service.findByNo(noticeNo);
-//		
-//			model.addObject("notice", notice);
-//			model.setViewName("notice/delete");
 //		
 //		return model;
 //	}
 //	
-//	@PostMapping("/delete")
-//	public ModelAndView deleteNotice(ModelAndView model,
-//			@SessionAttribute(name = "signinMember", required = false) Member signinMember,
-//			HttpServletRequest request,
-//			@ModelAttribute Notice notice) {
-//		
-//			int result = 0;
-//		
-//			result = service.save(notice);
-//			
-//			model.addObject("msg", "게시글이 정상적으로 삭제되었습니다.");
-//			model.addObject("location", "/notice/list");
-//			
-//		model.setViewName("common/msg");
-//		
-//		return model;
-//	}
+	
 	
 	
 }
+
+
+

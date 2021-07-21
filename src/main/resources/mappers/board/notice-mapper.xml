@@ -79,7 +79,7 @@
 			NO=#{no}
 	</update>
 	
-	 <update id="deleteNotice" parameterType="int">
+	 <update id="delete" parameterType="int">
         UPDATE NOTICE
        	SET
        		STATUS='N'
