@@ -42,14 +42,14 @@
 			</div>
 			
 			<div class="col-sm-8" style="text-align:right;">
-				<a href="#" class="forgot-id">아이디 찾기</a>
+				<a href="${path}/member/findId" class="forgot-id">아이디 찾기</a>
 				/
-				<a href="#" class="forgot-password">비밀번호 찾기</a>
+				<a href="${path}/member/findPw" class="forgot-password">비밀번호 찾기</a>
 			</div>
 		</div>
 		
-		<hr>
-		<a href="#" class="row" style="font-size:0.8em; padding-left:15px">다른 방법으로 로그인하기</a>
+		<!-- <hr>
+		<a href="#" class="row" style="font-size:0.8em; padding-left:15px">다른 방법으로 로그인하기</a> -->
 		
     </div>
 </section>

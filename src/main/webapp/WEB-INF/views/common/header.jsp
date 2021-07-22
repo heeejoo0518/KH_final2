@@ -31,8 +31,7 @@
 			<nav id="menu">
 				<ul class="links">
 					<li><a href="${ path }">홈</a></li>
-					<li><a href="${ path }/notice/list">공지사항</a></li>
-
+					<li><a href="${path}/notice/list">공지사항</a></li>
                     <li>
                         <c:if test="${ signinMember == null }">
                             <a href="${ path }/signin">로그인</a>
