@@ -63,7 +63,7 @@ public class MemberController {
 		
 		if(signinMember != null) {
 			model.addObject("signinMember", signinMember);
-			model.setViewName("/loginHome");
+			model.setViewName("redirect:/");
 		} else {
 			model.addObject("msg", "아이디나 패스워드가 일치하지 않습니다.");
 			model.addObject("location", "/");

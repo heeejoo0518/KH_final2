@@ -82,9 +82,9 @@ public class PageInfo {
 	 *
 	 * @return 현재 페이지
 	 */
-	//public int getCurrentPage() {
-	//	return this.currentPage;
-	//}
+	public int getCurrentPage() {
+		return this.currentPage;
+	}
 
 	/**
 	 *

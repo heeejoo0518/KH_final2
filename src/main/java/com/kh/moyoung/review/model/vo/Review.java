@@ -34,7 +34,7 @@ public class Review {
 	
 	private Date writeDate; /* 게시글 작성일 */
 	
-	
+	private String movieTitle_kor; /* 영화 제목 */
 	
 	
 }

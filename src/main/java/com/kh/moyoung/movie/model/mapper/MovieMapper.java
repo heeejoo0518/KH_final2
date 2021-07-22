@@ -1,6 +1,7 @@
 package com.kh.moyoung.movie.model.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -23,5 +24,9 @@ public interface MovieMapper {
 	List<Movie> selectMovieRecent(RowBounds rowBounds);
 
 	List<Review> selectMovieVote(RowBounds rowBounds);
+
+	int selectLikeCount(@Param("u_no") int u_no);
+	
+	List<Movie> selectLikeList(RowBounds rowBounds, @Param("u_no") int u_no);
 
 }

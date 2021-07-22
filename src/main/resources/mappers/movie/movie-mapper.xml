@@ -60,7 +60,7 @@
 		ORDER BY MOVIE_ID DESC
 	</select>
 	
-		<select id="selectMovieRecent" resultMap="movieListResultMap">
+	<select id="selectMovieRecent" resultMap="movieListResultMap">
 		<include refid="selectMovieSql"/>
 		ORDER BY PRODUCT_YEAR DESC
 	</select>
@@ -78,6 +78,21 @@
 	<resultMap type="Movie" extends="movieListResultMap" id="movieDetailResultMap">
 <!-- 		<collection property="replies" javaType="arraylist" columnPrefix="R_" resultMap="boardReplyResultMap"/> -->
 	</resultMap>
+	
+	
+	<!--  마이페이지 - 내가 찜한 영화 카운트 -->
+	<select id="selectLikeCount" parameterType="_int" resultType="_int">
+		SELECT COUNT(*)
+		FROM MOVIE
+		JOIN MOVIE_USER_LIKE L ON (MOVIE.MOVIE_ID = L.MOVIE_ID AND L.U_NO = #{u_no})
+	</select>
+	
+	<!--  마이페이지 - 내가 찜한 영화 리스트 -->
+	<select id="selectLikeList" parameterType="map" resultMap="movieListResultMap">
+		SELECT MOVIE.*
+		FROM MOVIE
+		JOIN MOVIE_USER_LIKE L ON (MOVIE.MOVIE_ID = L.MOVIE_ID AND L.U_NO = #{u_no})
+	</select>
 	
 	<select id="selectMovieByNo" parameterType="_int" resultMap="movieDetailResultMap">
  		SELECT

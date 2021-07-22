@@ -20,4 +20,9 @@ public interface MovieService {
 
 	List<Review> selectMovieVote(PageInfo pageInfo);
 	
+	int getLikeCount(int u_no);
+	
+	List<Movie> getLikeList(PageInfo pageInfo, int u_no);
+	
+	//List<Movie> getLikeList(PageInfo pageInfo);
 }
