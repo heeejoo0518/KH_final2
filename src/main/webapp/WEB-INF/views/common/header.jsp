@@ -52,7 +52,7 @@
 
 <script>
 (function($) {
-	
+
 	$(function() {
 		var	$window = $(window),
 			$body = $('body');
@@ -65,7 +65,7 @@
 			});
 		// Fix
 			$('form').placeholder();
-	
+
 		// 메뉴
 			$('#menu')
 				.append('<a href="#menu" class="close"></a>')
@@ -93,7 +93,7 @@
 								&&	skel.vars.IEVersion > 9)
 									$banner.append('<video autoplay loop><source src="' + video + '.mp4" type="video/mp4" /><source src="' + video + '.webm" type="video/webm" /></video>');
 						});
-				// More 
+				// More
 					$banner.find('.more')
 						.addClass('scrolly');
 			}
