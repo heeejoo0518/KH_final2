@@ -63,6 +63,12 @@ public class ReviewServiceImpl implements ReviewService {
 		return result;
 	}
 
+	@Override
+	public int deleteReview(int reviewNo) {
+		
+		return mapper.deleteReview(reviewNo);
+	}
+
 
 
 

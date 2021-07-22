@@ -22,6 +22,8 @@ public interface ReviewMapper {
 	
 	int insertReview(Review review);
 
+	int deleteReview(int reviewNo);
+
 
 
 
