@@ -26,6 +26,7 @@ import com.kh.moyoung.member.model.service.MemberService;
 import com.kh.moyoung.member.model.vo.Member;
 import com.kh.moyoung.movie.model.service.MovieService;
 import com.kh.moyoung.movie.model.vo.Movie;
+import com.kh.moyoung.review.model.service.ReviewService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -38,6 +39,9 @@ public class MypageController {
 	
 	@Autowired
 	private MovieService movieService;
+	
+	@Autowired
+	private ReviewService reviewService;
 	
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
@@ -115,8 +119,17 @@ public class MypageController {
 	}
 	
 	@GetMapping("/mypage/myreview")
-	public String myreviewView() {
-		return "/mypage/myreview";
+	public ModelAndView myreviewView(ModelAndView model, 
+			@SessionAttribute(name = "signinMember", required = false) Member signinMember,
+			@RequestParam(value="page", required=false, defaultValue="1")int pageNo) {
+		PageInfo pageInfo = new PageInfo(pageNo,5, reviewService.getMyReviewCount(signinMember.getU_no()), 10);
+		
+		model.addObject("myReviewList",reviewService.getMyReviewList(pageInfo, signinMember.getU_no()));
+		model.addObject("pageInfo",pageInfo);
+		
+		model.setViewName("/mypage/myreview");
+	
+		return model;
 	}
 	
 	@GetMapping("/mypage/mylike")
@@ -147,7 +160,7 @@ public class MypageController {
 		map.put("pageInfo", pageInfo);
 		
 		log.info("mylikeList : {}",map.get("mylikeList"));
-		log.info("pageInfo",pageInfo);
+		log.info("like list count",pageInfo.getListCount());
 		
 	
 		return new ResponseEntity<Map<String,Object>>(map, HttpStatus.OK);

@@ -175,7 +175,8 @@ img#img_sidebar {
 
 /* myreview.jsp */
 .myReview-container {
-    max-width:80%;
+    width: 80%;
+    min-width: 850px;
     margin:50px auto;
     padding-left:50px;
 }
@@ -194,6 +195,40 @@ img#img_sidebar {
 
 .myReview-container table{
 	background-color:transparent;
+	text-align:center;
+}
+
+.myReview-container div.row {
+	text-align: center;
+	width:100%;
+}
+
+#pageBar {
+	margin-top:10px; 
+ 	position: relative;
+    /* left: 50%; */
+    left:10%; 
+    width: min-content; 
+	text-align:center;
+}
+
+#pageBar .page-item {
+	padding:0px;
+}
+
+.page-item > a.page-link {
+	color: white;
+    background-color: transparent;
+}
+
+.page-item > a.page-link:hover {
+	background-color: #e9ecef;
+	color: #0056b3;
+}
+
+.page-item.active > a.page-link:hover {
+	color:white;
+	background-color:#007bff;
 }
 
 /* mylike.jsp */

@@ -4,36 +4,6 @@
 
 <!-- Footer -->
 			<footer id="footer">
-				<div class="inner">
-					<div class="flex flex-3">
-						<div class="col">
-							<h3>모두의영화 메뉴</h3>
-							<ul class="alt">
-								<li><a href="#">기능 연결</a></li>
-								<li><a href="#">기능 연결</a></li>
-								<li><a href="#">기능 연결</a></li>
-								<li><a href="#">기능 연결</a></li>
-							</ul>
-						</div>
-						<div class="col">
-							<h3>메뉴2</h3>
-							<ul class="alt">
-								<li><a href="#">기능 연결</a></li>
-								<li><a href="#">기능 연결</a></li>
-								<li><a href="#">기능 연결</a></li>
-								<li><a href="#">기능 연결</a></li>
-							</ul>
-						</div>
-						<div class="col">
-							<h3>메뉴3</h3>
-							<ul class="alt">
-								<li><a href="#">기능 연결</a></li>
-								<li><a href="#">기능 연결</a></li>
-								<li><a href="#">기능 연결</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
 				<div class="copyright">
 					<ul class="icons">
 						<li><a href="https://twitter.com/?lang=ko" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
