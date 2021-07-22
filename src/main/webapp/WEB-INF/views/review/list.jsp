@@ -1,137 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-
-<c:set var="path" value="${pageContext.request.contextPath}"/>
-<!--  
-header
-   <div-sort>
-      <div-list-container>
-         <div-user-nickname>
-         <div-user-rate>
-         <div-user-content>
-         <hr>
-         <div-like-date>
-	<span-btn-count>
-	<span-date>
-         <hr>
-         <div-btn>
-            <span-btn-like>
-            <span-btn-report>
-footer
--->
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<title>모두의 영화</title>
+<%@ include file="/WEB-INF/views/common/header.jsp"%> 
+<link rel="stylesheet" href="${ path }/css/reviewList.css">
 <script src="${ path }/js/jquery-3.6.0.min.js"></script>
-<style>
-        body{
-            background-color: #020d18;
-        }
-        hr{
-        	color:white;
-        }
-        #div-sort{
-        	text-align: right;
-        }
-        #sort-select{
-        	border-radius: 10px;
-        	height: 50px;
-        	width: 200px;
-        	margin-right: 400px;
-        	
-        }
-        #div-list-container{
-        	background-color:white;
-            border-radius: 10px;
-            border: 3px solid;
-            border-color: graytext;
-            width: 60%;
-            height: 350px;
-            margin: auto;
-            margin-bottom: 30px;
-        }
-        #div-user-nickname{
-        	padding-left: 10px;
-		    padding-top: 10px;
-		    padding-bottom: 15px;
-        }
-        #div-user-rate{
-        	padding-left: 10px;
-  			padding-bottom: 15px;
-        }
-        #div-user-content{
-        	padding-left: 10px;
-        	height: 190px;
-        }
-        #div-user-spoilerContent{
-        	padding-left: 10px;
-        	height: 150px;
-        	background-color: black;
-        	color: black;
-        	
-        }
-        .like-count{
-        	padding-left: 10px;
-        	padding-right: 10px;
-		    text-align: center;
-		    color: black;
-		    font-weight: lighter;
-		    border-color: buttonface;
-		    border-style: outset;
-        }
-        #div-btn{
-        	padding-left: 10px;
-    		padding-top: 10px;
-        }
-        .btn-like{
-        	padding-right: 30px;
-        	padding-left: 28px;
-        	position: inherit;
-        }
-        .span-nickname{
-        	padding-right:10px;
-        	padding-left:10px;
-        	margin-right:10px;
-        	text-align:center;
-        	color:black;
-        	font-weight:lighter;
-        	border-color: buttonface;
-        	border-style: outset;
-        }
-        .writeDate{
-        	float: right;
-        	margin-right: 10px;
-        }
-        #empty-list{
-        	text-align: center;
-        	color: white;
-        }
-        #btn-spoiler{
-        	margin-left: 540px;
-        	margin-bottom: 5px;
-        }
-        #spoiler-text{
-        	color:white;
-        }
-
-    </style>
-
-</head>
-    <body>
-    
-        <div >
-            <h2 style="color: white;">모든 리뷰</h2>
-		</div>
         
+        <br><br><br><br><br>
         <form action="${ path }/review/list" method="GET">
         <input type="hidden" name="no" value="${no}">
         <div id="div-sort" >
@@ -337,5 +210,4 @@ footer
 				</div>
 				
 				
-    </body>
-</html>
+<%@ include file="/WEB-INF/views/common/footer.jsp"%>

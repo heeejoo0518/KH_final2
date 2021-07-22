@@ -1,0 +1,91 @@
+@charset "UTF-8";
+		 body{
+            background-color: #020d18;
+        }
+        hr{
+        	color:white;
+        }
+        #div-sort{
+        	text-align: right;
+        }
+        #sort-select{
+        	border-radius: 10px;
+        	height: 50px;
+        	width: 200px;
+        	margin-right: 400px;
+        	color: black;
+        	
+        }
+        #div-list-container{
+        	background-color:white;
+            border-radius: 10px;
+            border: 3px solid;
+            border-color: graytext;
+            width: 60%;
+            height: 350px;
+            margin: auto;
+            margin-bottom: 30px;
+        }
+        #div-user-nickname{
+        	padding-left: 10px;
+		    padding-top: 10px;
+		    padding-bottom: 15px;
+        }
+        #div-user-rate{
+        	padding-left: 10px;
+  			padding-bottom: 15px;
+        }
+        #div-user-content{
+        	padding-left: 10px;
+        	height: 170px;
+        }
+        #div-user-spoilerContent{
+        	padding-left: 10px;
+        	height: 110px;
+        	background-color: black;
+        	color: black;
+        	
+        }
+        .like-count{
+        	padding-left: 10px;
+        	padding-right: 10px;
+		    text-align: center;
+		    color: black;
+		    font-weight: lighter;
+		    border-color: buttonface;
+		    border-style: outset;
+        }
+        #div-btn{
+        	padding-left: 10px;
+    		padding-top: 10px;
+        }
+        .btn-like{
+        	padding-right: 30px;
+        	padding-left: 28px;
+        	position: inherit;
+        }
+        .span-nickname{
+        	padding-right:10px;
+        	padding-left:10px;
+        	margin-right:10px;
+        	text-align:center;
+        	color:black;
+        	font-weight:lighter;
+        	border-color: buttonface;
+        	border-style: outset;
+        }
+        .writeDate{
+        	float: right;
+        	margin-right: 10px;
+        }
+        #empty-list{
+        	text-align: center;
+        	color: white;
+        }
+        #btn-spoiler{
+        	margin-left: 540px;
+        	margin-bottom: 5px;
+        }
+        #spoiler-text{
+        	color:white;
+        }
