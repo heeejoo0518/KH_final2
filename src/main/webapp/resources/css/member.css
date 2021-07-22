@@ -4,7 +4,6 @@ section {
 	margin-top: 150px !important;
 }
 
-
 .signin-container{
     width:300px;
     max-width:100%;
@@ -215,4 +214,38 @@ input:checked + .slider:before {
 #check-permission label a {
 	color:white;
 	opacity: 0.7;
+}
+
+/* findId.jsp*/
+.findId-container {
+	width:300px;
+    max-width:100%;
+    margin:50px auto;
+}
+
+.findId-container a {
+	color:white;
+    font-size:0.8em;
+    opacity: 0.6;
+}
+
+/* findPw.jsp */
+.findPw-container {
+	width:300px;
+    max-width:100%;
+    margin:50px auto;
+}
+
+.findPw-container a {
+	color:white;
+    font-size:0.8em;
+    opacity: 0.6;
+}
+
+/* showId.jsp */
+.showId-container{
+    width:350px;
+    max-width:100%;
+    margin:50px auto;
+    text-align: center;
 }
