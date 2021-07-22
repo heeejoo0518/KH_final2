@@ -16,9 +16,9 @@ public interface ReviewMapper {
 	List<Review> selectReviewList(RowBounds rowBounds);
 
 	List<Review> selectReviewHighRateList(RowBounds rowBounds);
-	
+
 	List<Review> selectReviewLowRateList(RowBounds rowBounds);
-	
+
 	int insertReview(Review review);
 
 	int selectMyReviewCount(@Param("u_no") int u_no);

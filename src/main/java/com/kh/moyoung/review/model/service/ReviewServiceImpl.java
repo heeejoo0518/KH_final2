@@ -19,10 +19,10 @@ import lombok.extern.slf4j.Slf4j;
 public class ReviewServiceImpl implements ReviewService {
 	@Autowired
 	private ReviewMapper mapper;
-	
+
 	@Override
 	public int getReviewCount() {
-		
+
 		return mapper.selectReviewCount();
 	}
 
@@ -30,23 +30,23 @@ public class ReviewServiceImpl implements ReviewService {
 	public List<Review> getReviewList(PageInfo pageInfo) {
 		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
 		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
-		
-		return mapper.selectReviewList(rowBounds);	
+
+		return mapper.selectReviewList(rowBounds);
 	}
-	
+
 	@Override
 	public List<Review> selectReviewHighRateList(PageInfo pageInfo) {
 		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
 		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
-		
+
 		return mapper.selectReviewHighRateList(rowBounds);
 	}
-	
+
 	@Override
 	public List<Review> selectReviewLowRateList(PageInfo pageInfo) {
 		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
 		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
-		
+
 		return mapper.selectReviewLowRateList(rowBounds);
 	}
 
@@ -54,12 +54,12 @@ public class ReviewServiceImpl implements ReviewService {
 	@Transactional
 	public int save(Review review) {
 		int result= 0;
-		
+
 		result = mapper.insertReview(review);
 		/*if(review.getReviewNo() == 0) {
-		 
+
 		}*/
-		
+
 		return result;
 	}
 
@@ -72,7 +72,7 @@ public class ReviewServiceImpl implements ReviewService {
 	public List<Review> getMyReviewList(PageInfo pageInfo, int u_no) {
 		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
 		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
-		
+
 		return mapper.selectMyReviewList(rowBounds,u_no);
 	}
 
