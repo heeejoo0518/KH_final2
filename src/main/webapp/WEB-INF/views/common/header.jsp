@@ -32,7 +32,7 @@
 				<ul class="links">
 					<li><a href="${ path }">홈</a></li>
 					<li><a href="${ path }/notice/list">공지사항</a></li>
-					
+
                     <li>
                         <c:if test="${ signinMember == null }">
                             <a href="${ path }/signin">로그인</a>
@@ -110,7 +110,7 @@
 					// 액티브 활성
 						tab.removeClass('active');
 						x.addClass('active');
-					// show/hide 
+					// show/hide
 						tabs.removeClass('active');
 						t.find('.' + y).addClass('active');
 					e.preventDefault();

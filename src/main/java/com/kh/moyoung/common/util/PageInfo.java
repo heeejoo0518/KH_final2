@@ -1,8 +1,5 @@
 package com.kh.moyoung.common.util;
 
-import lombok.Getter;
-
-@Getter
 public class PageInfo {
 	private int currentPage;
 
@@ -122,5 +119,10 @@ public class PageInfo {
 		int endList = this.getStartList() + this.listLimit - 1;
 
 		return endList > this.listCount ? this.listCount : endList;
+	}
+
+	public int getListLimit() {
+
+		return 0;
 	}
 }
