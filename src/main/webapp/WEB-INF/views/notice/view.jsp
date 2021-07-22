@@ -1,23 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-
-<c:set var="path" value="${pageContext.request.contextPath}" />
 <%@ include file="/WEB-INF/views/common/header.jsp"%>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-
-<link rel="stylesheet"
-	href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
-<meta name=viewport content="width=device-width, initial-scale=1">
-
 <link rel="stylesheet" href="${ path }/css/style.css">
-</head>
+
 <style>
     section>div#board-write-container{width:600px; margin:0 auto; text-align:center;}
     section>div#board-write-container h2{margin:10px 0;}
@@ -67,7 +53,7 @@
 		</tr>
 	</table>
 </div>
-
+<%@ include file="/WEB-INF/views/common/footer.jsp"%>
 
 <script>
 	$(document).ready(() => {
@@ -82,6 +68,3 @@
 		});
 	});
 </script>
-</body>
-</html>
-<%@ include file="/WEB-INF/views/common/footer.jsp"%>

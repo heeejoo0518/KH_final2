@@ -1,16 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-
-<c:set var="path" value="${pageContext.request.contextPath}" />
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>모두의영화 상세보기</title>
+<%@ include file="/WEB-INF/views/common/header.jsp"%>
 
 <!--Google Font-->
 <link rel="stylesheet"
@@ -26,25 +16,9 @@
 <div id="preloader">
 	<img class="logo" src="${ path }/images/logo1.png" alt="" width="119"
 		height="58">
-	<div id="status">
-		<span></span> <span></span>
-	</div>
+	<div id="status"></div>
 </div>
 <!--end of preloading-->
-
-<!-- top search form -->
-<header class="ht-header" style="background-color: #020d18;">
-	<div class="container">
-		<div class="top-search">
-			<select>
-				<!-- 추후에 보고 수정할 것  -->
-				<option value="united">영화</option>
-				<option value="saab">드라마/예능/기타</option>
-			</select> <input type="text" placeholder="검색을 원하시는 컨텐츠의 제목을 입력하세요">
-		</div>
-	</div>
-</header>
-<!-- END | Header -->
 
 <div class="hero common-hero" style="background-color: #020d18;">
 	<div class="container">
@@ -56,7 +30,8 @@
 	</div>
 </div>
 
-<div class="page-single movie-single movie_single" style="background-color: #020d18;">
+<div class="page-single movie-single movie_single"
+	style="background-color: #020d18;">
 	<div class="container">
 		<div class="row ipad-width2">
 			<div class="col-md-4 col-sm-12 col-xs-12">
@@ -65,8 +40,7 @@
 					<div class="movie-btn">
 						<div class="btn-transform transform-vertical red">
 							<div>
-								<a href="#" class="item item-1 redbtn"> 
-								<i class="ion-play"></i>
+								<a href="#" class="item item-1 redbtn"> <i class="ion-play"></i>
 									예고편 보기
 								</a>
 							</div>
@@ -77,12 +51,14 @@
 							</div>
 						</div>
 						<form action="${ path }/review/write" method="POST">
-								<input type="hidden" name="no" value="${ movie.movieNo }">
+							<input type="hidden" name="no" value="${ movie.movieNo }">
 						</form>
-							<div class="social-btn" style="margin-bottom: 10px">
-								<a href="#" class="parent-btn" style="padding-left:10px">찜하기<i class="ion-heart"></i></a> 
-								<a href="${ path }/review/write?no=${movie.movieNo}" class="parent-btn">리뷰쓰기<i class="ion-edit"></i></a>
-							</div>
+						<div class="social-btn" style="margin-bottom: 10px">
+							<a href="#" class="parent-btn" style="padding-left: 10px">찜하기<i
+								class="ion-heart"></i></a> <a
+								href="${ path }/review/write?no=${movie.movieNo}"
+								class="parent-btn">리뷰쓰기<i class="ion-edit"></i></a>
+						</div>
 					</div>
 				</div>
 
@@ -92,72 +68,79 @@
 					style="padding-top: 280px;">
 
 					<h1 class="bd-hd">
-						<c:out value="${ movie.title_kor }" /><span><c:out value="${ movie.product_year }" /></span>
+						<c:out value="${ movie.title_kor }" />
+						<span><c:out value="${ movie.product_year }" /></span>
 					</h1>
 					<h3 class="bd-hd">
 						<span><c:out value="${ movie.title }" /></span>
 					</h3>
 
-					<div class="movie-rate" style="height:80px;">
+					<div class="movie-rate" style="height: 80px;">
 						<div class="rate-star">
-							<p>네이버 별점</p>
+							<p style="font-family: 'Nunito', sans-serif; font-size: 14px">네이버
+								별점</p>
 						</div>
 						<div class="rate">
 							<i class="ion-android-star"></i>
 							<p>
-								<span><c:out value="${ movie.vote }" /></span> /5 <br> 
-<!-- 								<span class="rv">56개의 리뷰</span> -->
-							</p>				
+								<span><c:out value="${ movie.vote }" /></span> /5 <br>
+								<!-- 								<span class="rv">56개의 리뷰</span> -->
+							</p>
 						</div>
-						
+
 						<div class="rate-star">
-							<p>모영리뷰별점</p>
+							<p style="font-family: 'Nunito', sans-serif; font-size: 14px">모영리뷰별점</p>
 						</div>
 						<div class="rate">
 							<i class="ion-android-star"></i>
 							<p>
-								<span><c:out value="${ movie.vote }" /></span> /5 <br> 
-<!-- 								<span class="rv">56개의 리뷰</span> -->
-							</p>				
+								<span><c:out value="${ movie.vote }" /></span> /5 <br>
+								<!-- 								<span class="rv">56개의 리뷰</span> -->
+							</p>
 						</div>
 						<br>
 					</div>
-					
-					<div class="movie-rate" style="height: 80px; ">
+
+					<div class="movie-rate" style="height: 80px;">
 						<div class="rate-star">
-						<c:if test="${ not empty movie.netflix }">
-							<a href="${ movie.netflix }">
-								<img src="${ path }/images/netflix.jpg" alt="netflixlogo" style="width: 50px; height: 50px">																
-							</a> 
-						</c:if>
-						<c:if test="${ not empty movie.watcha }">
-							<a href="${ movie.watcha }">
-								<img src="${ path }/images/watcha.jpg" alt="watchalogo" style="width: 50px; height: 50px">
-							</a> 
-						</c:if>
-						<c:if test="${ not empty movie.tving }">
-							<a href="${ movie.tving }">
-								<img src="${ path }/images/tving.jpg" alt="tvinglogo" style="width: 50px; height: 50px">
-							</a> 
-						</c:if>
-						<c:if test="${ not empty movie.wavve }">
-							<a href="${ movie.wavve }">
-								<img src="${ path }/images/wavve.jpg" alt="neflogo" style="width: 50px; height: 50px">
-							</a> 
-						</c:if>
+							<c:if test="${ not empty movie.netflix }">
+								<a href="${ movie.netflix }"> <img
+									src="${ path }/images/netflix.jpg" alt="netflixlogo"
+									style="width: 50px; height: 50px">
+								</a>
+							</c:if>
+							<c:if test="${ not empty movie.watcha }">
+								<a href="${ movie.watcha }"> <img
+									src="${ path }/images/watcha.jpg" alt="watchalogo"
+									style="width: 50px; height: 50px">
+								</a>
+							</c:if>
+							<c:if test="${ not empty movie.tving }">
+								<a href="${ movie.tving }"> <img
+									src="${ path }/images/tving.jpg" alt="tvinglogo"
+									style="width: 50px; height: 50px">
+								</a>
+							</c:if>
+							<c:if test="${ not empty movie.wavve }">
+								<a href="${ movie.wavve }"> <img
+									src="${ path }/images/wavve.jpg" alt="neflogo"
+									style="width: 50px; height: 50px">
+								</a>
+							</c:if>
 						</div>
 					</div>
 					<div class="movie-tabs">
 						<div class="tabs">
 							<ul class="tab-links tabs-mv">
 								<li class="active"><a href="#overview">작품정보</a></li>
-								<li><a href="#reviews"> 리뷰</a></li>
 							</ul>
 							<div class="tab-content">
 								<div id="overview" class="tab active">
 									<div class="row">
 										<div class="col-md-8 col-sm-12 col-xs-12">
-											<p><c:out value="${ movie.story }"/></p>
+											<p style="font-family: 'Nunito', sans-serif; font-size: 14px">
+												<c:out value="${ movie.story }" />
+											</p>
 
 											<div class="title-hd-sm">
 												<h4>출연진</h4>
@@ -169,75 +152,89 @@
 														<img src="${ path }/images/uploads/cast1.jpg" alt="">
 														<a href="#"><c:out value="${ movie.actor }" /></a>
 													</div>
-<%-- 													<c:out value="${ movie.actor }" /> --%>
 												</div>
-												
 											</div>
 											<div class="title-hd-sm">
+
 												<h4>모영 리뷰</h4>
-												<a href="${ path }/review/list?no=${movie.movieNo}" class="time">모든 모영 리뷰 보기<i
-													class="ion-ios-arrow-right"></i></a>
+												<a href="${ path }/review/list?no=${movie.movieNo}"
+													class="time">모든 모영 리뷰 보기<i class="ion-ios-arrow-right"></i></a>
 											</div>
 											<!-- movie user review -->
-											<div class="mv-user-review-item">
-												<div class="user-review-likeAndReport" style="color:white; float:right;">
-													<i class="ion-heart"></i>
-													<i class="ion-flag"></i>					
-												</div>		
-												
-												<div class="no-star">
-													<i class="ion-android-star"></i> <i
-														class="ion-android-star"></i> <i class="ion-android-star"></i>
-													<i class="ion-android-star"></i> <i
-														class="ion-android-star"></i> <i
-														class="ion-android-star last"></i>
-												</div>
-												<p class="time">
-													17 December 2016 by <a href="#"> hawaiipierson</a>
-												</p>
-												<p>This is by far one of my favorite movies from the
-													MCU. The introduction of new Characters both good and bad
-													also makes the movie more movies (and I do love everything Marvel), 
-													the plotting is
-													splendid (they really do out do themselves in each film,
-													there are no problems watching it more than once.</p>
-											</div>
-											<br><br>
-											<div class="user-review-summary">
-												<div class="mv-user-review-item">
+											<c:if test="${!empty list }">
+												<c:forEach var="review" items="${ list }">
 
-													<!--  신고하기 / 좋아요 버튼 이정도에 들어오면 될거같은데.. -->
-													<div class="no-star">
-														<i class="ion-android-star"></i> <i
-															class="ion-android-star"></i> <i class="ion-android-star"></i>
-														<i class="ion-android-star"></i> <i
-															class="ion-android-star"></i> <i
-															class="ion-android-star last"></i>
-													</div>
-													<p class="time">
-														17 December 2016 by <a href="#"> hawaiipierson</a>
-													</p>
-													<p>This is by far one of my favorite movies from the
-														MCU. The introduction of new Characters both good and bad
-														also makes the moviectors or characters. Having seen
-														the movie three times does not bother me here as it is as
-														thrilling and exciting ever.</p>
-												</div>
-											</div>
-										
+													<div class="mv-user-review-item">
 
+														<!--  신고하기 / 좋아요 버튼 이정도에 들어오면 될거같은데.. -->
+														<div class="no-star">
+															<c:choose>
+																<c:when test="${ review.rate == 0 }">
+																	<img src="${ path }/images/noStar_img.png" width="20"
+																		height="20">
+																</c:when>
+																<c:when test="${ review.rate == 1}">
+																	<img src="${ path }/images/oneStar_img.png" width="20"
+																		height="20">
+																</c:when>
+																<c:when test="${ review.rate == 2 }">
+																	<img src="${ path }/images/twoStar_img.png" width="40"
+																		height="20">
+																</c:when>
+																<c:when test="${ review.rate == 3 }">
+																	<img src="${ path }/images/threeStar_img.png"
+																		width="60" height="20">
+																</c:when>
+																<c:when test="${ review.rate == 4 }">
+																	<img src="${ path }/images/fourStar_img.png" width="80"
+																		height="20">
+																</c:when>
+																<c:when test="${ review.rate == 5 }">
+																	<img src="${ path }/images/fiveStar_img.png"
+																		width="100" height="20">
+																</c:when>
+															</c:choose>
+														</div>
+														<p class="time">
+															<fmt:formatDate value="${ review.writeDate }"
+																pattern="yyyy-MM-dd" />
+
+															<c:out value="${review.nickname}" />
+															님이 작성하신 리뷰입니다.
+														</p>
+														<c:choose>
+															<c:when test="${ review.spoiler eq '0' }">
+																<div id="div-user-content">
+																	<p style="font-weight: bold;">
+																		<c:out value="${ review.content }" />
+																	</p>
+																</div>
+															</c:when>
+															<c:when test="${ review.spoiler eq '1' }">
+																<p
+																	style="text-align: center; text-shadow: 6px 2px 2px gray;">
+																	스포일러가 포함된 리뷰입니다 <br> 내용을 보시려면 모든 리뷰 보기를 이용해 주세요!
+																</p>
+																<div id="div-user-spoilerContent"
+																	class="div-user-spoilerContent"></div>
+															</c:when>
+														</c:choose>
+													</div><br><br>
+												</c:forEach>
+											</c:if>
 										</div>
+
 										<div class="col-md-4 col-xs-12 col-sm-12">
 											<div class="sb-it">
 												<h6>감독:</h6>
 												<p>
 													<a href="#"><c:out value="${ movie.director }" /></a>
 												</p>
-											</div>											
+											</div>
 											<div class="sb-it">
 												<h6>출연진:</h6>
 												<p>
-													<a href="#"><c:out value="${ movie.actor }" /></a>													
+													<a href="#"><c:out value="${ movie.actor }" /></a>
 												</p>
 											</div>
 											<div class="sb-it">
@@ -248,16 +245,17 @@
 											<div class="sb-it">
 												<h6>개봉일</h6>
 												<p>
-													<fmt:formatDate value="${ movie.open_date }" pattern="yyyy-MM-dd" />
+													<fmt:formatDate value="${ movie.open_date }"
+														pattern="yyyy-MM-dd" />
 												</p>
 											</div>
 											<div class="sb-it">
 												<h6>런타임:</h6>
-												<p>${ movie.run_time } 분</p>
+												<p>${ movie.run_time }분</p>
 											</div>
 											<div class="sb-it">
 												<h6>시청연령:</h6>
-												<p>${ movie.viewing_age } </p>
+												<p>${ movie.viewing_age }</p>
 											</div>
 											<div class="ads">
 												<img src="${ path }/images/uploads/ads1.png" alt="">
@@ -265,71 +263,7 @@
 										</div>
 									</div>
 								</div>
-								
-								
-								<!-- 리뷰 탭 -->
-								<div id="reviews" class="tab review">
-									<div class="row">
-										<div class="rv-hd">
-											<div class="div">
-												<h2>Skyfall: Quantum of Spectre</h2>
-											</div>
-											<a href="${ path }/review/write?movieNo=${movie.movieNo}" class="redbtn">리뷰 작성</a>
-										</div>
-										<div class="topbar-filter">
-											<p>
-												총 <span>56</span>개의 리뷰가 있습니다.
-											</p>
 
-										</div>
-										<div class="mv-user-review-item">
-											<div class="user-infor">
-												<img src="${ path }/images/uploads/userava1.jpg" alt="">
-												<div>
-													<h3>Best Marvel movie in my opinion</h3>
-													<div class="no-star">
-														<i class="ion-android-star"></i> <i
-															class="ion-android-star"></i> <i class="ion-android-star"></i>
-														<i class="ion-android-star"></i> <i
-															class="ion-android-star"></i> <i
-															class="ion-android-star last"></i>
-													</div>
-													<p class="time">
-														17 December 2016 by <a href="#"> hawaiipierson</a>
-													</p>
-												</div>
-											</div>
-											<p>This is by far one of my favorite movies from the MCU.
-												The introduction of new Characters both good and bad also
-												makes the movie more exciting. giving the characters more of
-												a back story can also help audiences relate more to
-												different characters better, and it connects a bond between
-												the audience and actors or characters. Having seen the movie
-												three times does not bother me here as it is as thrilling
-												and exciting every time I am watching it. In other words,
-												the movie is by far better than previous movies (and I do
-												love everything Marvel), the plotting is splendid (they
-												really do out do themselves in each film, there are no
-												problems watching it more than once.</p>
-										</div>
-										
-										
-										<div class="topbar-filter">
-											<label>Reviews per page:</label> <select>
-												<option value="range">5 Reviews</option>
-												<option value="saab">10 Reviews</option>
-											</select>
-											<div class="pagination2">
-												<span>Page 1 of 6:</span> <a class="active" href="#">1</a> <a
-													href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a
-													href="#">5</a> <a href="#">6</a> <a href="#"><i
-													class="ion-arrow-right-b"></i></a>
-											</div>
-										</div>
-										
-										
-									</div>
-								</div>
 							</div>
 						</div>
 					</div>
@@ -337,10 +271,11 @@
 			</div>
 		</div>
 	</div>
+
 </div>
+<%@ include file="/WEB-INF/views/common/footer.jsp"%>
+
 <script src="${ path }/js/jquery-3.6.0.min.js"></script>
 <script src="${ path }/js/plugins.js"></script>
 <script src="${ path }/js/plugins2.js"></script>
 <script src="${ path }/js/custom.js"></script>
-</body>
-</html>

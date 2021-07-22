@@ -4027,7 +4027,6 @@ ul {
   color: #ffffff;
   font-weight: 700;
   text-transform: none;
-  margin-bottom: 25px;
 }
 .bd-hd span {
   font-family: 'Dosis', sans-serif;
@@ -5766,7 +5765,7 @@ ul {
   text-transform: uppercase;
   background-color: #dd003f;
   color: #ffffff;
-  padding: 13px 25px;
+  padding: 3px 0px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
@@ -5849,7 +5848,8 @@ ul {
   padding: 30px 0;
 }
 .social-btn {
-  margin-bottom: 40px;
+  margin-top: -20px;
+  padding-left:10px
   display: -webkit-flex;
   display: -moz-box;
   display: -ms-flexbox;
@@ -5982,7 +5982,6 @@ ul {
 }
 .movie-single .movie-img .movie-btn a,
 .movie-single .mv-ceb .movie-btn a {
-  height: 70px;
 }
 .movie-single .movie-img .movie-btn .btn-transform.red,
 .movie-single .mv-ceb .movie-btn .btn-transform.red {

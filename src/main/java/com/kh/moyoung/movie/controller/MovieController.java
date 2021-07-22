@@ -18,6 +18,7 @@ import com.kh.moyoung.common.util.PageInfo;
 import com.kh.moyoung.member.model.vo.Member;
 import com.kh.moyoung.movie.model.service.MovieService;
 import com.kh.moyoung.movie.model.vo.Movie;
+import com.kh.moyoung.review.model.service.ReviewService;
 import com.kh.moyoung.review.model.vo.Review;
 
 import lombok.extern.slf4j.Slf4j;
@@ -28,6 +29,8 @@ import lombok.extern.slf4j.Slf4j;
 public class MovieController {
 	@Autowired
 	private MovieService service;
+	@Autowired
+	private ReviewService Rservice;
 
 	@GetMapping("/list")
 	public ModelAndView list(ModelAndView model,
@@ -92,16 +95,22 @@ public class MovieController {
 	@GetMapping("/view")
 	public ModelAndView view(ModelAndView model,
 			@RequestParam("no") int movieNo) {
+		List<Review> list = null;
+		
 		Movie movie = service.findByNo(movieNo);
-	
+		PageInfo pageInfo = new PageInfo(1, 1, Rservice.getReviewCount(movieNo), 2);
+		list = Rservice.getReviewList(pageInfo, movieNo);
 		
 		System.out.println(movie);
 		System.out.println(model);
+		System.out.println(list);
 		
 		
 		model.addObject("movie",movie);
-		
+		model.addObject("pageInfo", pageInfo);
+		model.addObject("list",list);
 		model.setViewName("movie/movieView");
+
 		
 		return model;
 	}
