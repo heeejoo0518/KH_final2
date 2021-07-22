@@ -24,6 +24,11 @@ public class MemberServiceImpl implements MemberService {
 		return member != null && 
 				passwordEncoder.matches(u_pwd, member.getU_pwd()) ? member : null;
 	}
+	
+	@Override
+	public Member autoLogin(String u_id) {
+		return this.findById(u_id);
+	}
 
 	@Override
 	@Transactional

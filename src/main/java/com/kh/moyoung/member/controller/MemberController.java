@@ -42,9 +42,23 @@ public class MemberController {
 	private UserMailSendService mailsender;
 	
 	@GetMapping("/signin")
-	public String signInView(@SessionAttribute(name = "signinMember", required = false) Member signinMember) {
-		if(signinMember != null) return "redirect:/";
-		else return "/member/signin";
+	public ModelAndView signInView(ModelAndView model, HttpServletRequest request, 
+			@SessionAttribute(name = "signinMember", required = false) Member signinMember) {
+		if(signinMember != null) model.setViewName("redirect:/");
+		
+		model.setViewName("/member/signin");
+		
+		Cookie[] cookies = request.getCookies();
+		
+		for(Cookie cookie:cookies) {
+			if(cookie.getName().equals("saveId")) {
+				signinMember =  service.autoLogin(cookie.getValue());
+				model.addObject("signinMember", signinMember);
+				model.setViewName("redirect:/");
+			}
+		}
+		
+		return model;
 	}
 	
 	@RequestMapping(value = "/signin", method = {RequestMethod.POST})
@@ -73,14 +87,26 @@ public class MemberController {
 			model.addObject("msg", "아이디나 패스워드가 일치하지 않습니다.");
 			model.addObject("location", "/");
 			model.setViewName("common/msg");
+			
+			//일치x -> 쿠키 삭제함
+			Cookie cookie = new Cookie("saveId","");
+			cookie.setMaxAge(0);
+			response.addCookie(cookie);
 		}
 		
 		return model;
 	}
 	
 	@RequestMapping("/signout")
-	public String logout(SessionStatus status) {
+	public String logout(SessionStatus status, HttpServletResponse response) {
+		//세션 삭제
 		status.setComplete();
+		
+		//쿠키 삭제
+		Cookie cookie = new Cookie("saveId","");
+		cookie.setMaxAge(0);
+		response.addCookie(cookie);
+		
 		return "redirect:/";
 	}
 	
