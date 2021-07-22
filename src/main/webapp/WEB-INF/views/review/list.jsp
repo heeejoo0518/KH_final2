@@ -72,6 +72,11 @@ footer
         	padding-left: 10px;
         	height: 200px;
         }
+        #div-user-spoilerContent{
+        	padding-left: 10px;
+        	height: 130px;
+        	filter: blur(3px);
+        }
         .like-count{
         	padding-left: 10px;
         	padding-right: 10px;
@@ -112,11 +117,13 @@ footer
         <div >
             <h2 style="color: white;">모든 리뷰</h2>  
         </div>
-        <form action="${ path }/review/list" method="GET">
+        
+        
+        <form action="${ path }/review/list?sort=${review.sort}&no=${ review.movieNo }&page=1" method="GET">
         <div id="div-sort" >
         <select id="sort-select" name="sort" onchange="this.form.submit();">
-            <option value="" >정렬 방식을 선택해주세요.</option>
-            <option value="a" id="1" >최근 작성한 글</option>
+            <option >정렬 방식을 선택해주세요.</option>
+            <option value="a" id="1">최근 작성한 글</option>
             <option value="b" id="2">별점 높은 순</option>
             <option value="c" id="3">별점 낮은 순</option>
         </select>
@@ -124,8 +131,8 @@ footer
         </form>
         
         
-<script >    
-    <!-- 화면 전환 후 select box 고정 (ajax사용시 사용가능) 
+<!--  <script >    
+     화면 전환 후 select box 고정 (ajax사용시 사용가능) 
     var selectedSort = [[${selectedSort}]]; // 화면전환 하면서 값을 받아온다
     
     if(selectedSort == 1){
@@ -135,19 +142,23 @@ footer
     } else{
         $('#3').attr('selected','selected');
     }
-    -->
 </script>
+    -->
         
         <br>
         <br>
         <c:if test="${ list == null }">
-			조회된 게시글이 없습니다.
+        		게시글이 없습니다.
 		</c:if>
         <c:if test="${ list != null }">
         	<c:forEach var="review" items="${ list }">
 		        <div id="div-list-container">
 		        	<div id="div-user-nickname">
 		        		<span class="span-nickname"><c:out value="${review.nickname }"/></span>
+		        		
+		        		<!--  <span class="span-nickname"><c:out value="${ no }"/></span>
+		        		-->
+		        		
 		        		<span>
 		        			<c:choose>
 		        				<c:when test="${ review.rate == 0 }">
@@ -171,23 +182,65 @@ footer
 		        			</c:choose>
 			        	</span>
 		        	</div>
-		        	<div id="div-user-content">
-		        		<c:out value="${ review.content }"/>
-		        	</div>
+		        	
+		        	<!--  
+		        	<script>
+			        	$(function(){
+			        		$('#btn-spoiler').click(function(){
+			        			if($("#div-user-spoilerContent").css("blur")== .removeAttr('style');
+			        			
+			        			
+			        		});
+			        	});
+		        	</script>
+		        	-->
+		        	
+		        	<c:choose>
+		        		<c:when test="${ review.spoiler eq '0' }">
+				        	<div id="div-user-content">
+				        		<c:out value="${ review.content }"/>
+				        	</div>
+		        		</c:when>
+		        		<c:when test="${ review.spoiler eq '1' }">
+		        		
+		        			<p style="text-align: center">스포일러를 보려면 버튼 클릭!</p>
+		        			<input id="btn-spoiler" type="button" value="리뷰 확인">
+		        			<div id="div-user-spoilerContent">
+				        		<c:out value="${ review.content }"/>
+				        	</div>
+				        	
+		        		</c:when>
+		        	</c:choose>
+		        	
+		        	<!--  
+		        	<script>
+		        	$(function(){
+		        		$("#btn-spoiler").on("click", function(){
+							$("#div-user-spoilerContent").css('filter','');
+		        		}
+		        	});
+		        	
+		        	</script>
+		        	-->
+		        	
 		        	<hr>
 		        	<div id="div-like" style="padding-left: 10px;">
 		        		<span class="like-count"> <c:out value="${ review.likeCount }개"/> </span>
 		        		<span class="writeDate" style="text-align: right" > <fmt:formatDate type="date" value="${ review.writeDate }"/> </span>
 		        	</div>
-		        	<div id="div-btn"> <!-- 좋아요  -->
+		        	
+		        	<!--  
+		        	<div id="div-btn"> <!-- 좋아요  
 			        		<input type="button" value="좋아요!" >
 			        		<input type="button" value="test!" id="btn-like" onclick="fun1()">
 		        	</div>
+		        	-->
+		        	
 		        </div>
         </c:forEach>
         </c:if>
         
-        <script>
+        <!--  <script>
         	$(function(){
         		$("#btn-like").on("click", function(){
 /*	review.likecount 변수로 받아오고
@@ -204,7 +257,6 @@ footer
         				data: 
         				success: function(data) {
         					
-        				}
         				},
         				error: function(e) {
         					console.log(e);
@@ -215,15 +267,14 @@ footer
         	})
         	
         </script>
-
-	    <c:choose>
-			<c:when test="${ review.sort eq 'a' }">
+        -->
+			   
 		        <div id="pageBar" style="text-align:center;">
 					<!-- 맨 처음으로 -->
-					<button onclick="location.href='${ path }/review/list?sort=a&page=1'">&lt;&lt;</button>
+					<button onclick="location.href='${ path }/review/list?sort=${review.sort}&page=1'">&lt;&lt;</button>
 					
 					<!-- 이전 페이지로 -->
-					<button onclick="location.href='${ path }/review/list?sort=a&page=${ pageInfo.prvePage }'">&lt;</button>
+					<button onclick="location.href='${ path }/review/list?sort=${review.sort}&page=${ pageInfo.prvePage }'">&lt;</button>
 		
 					<!--  10개 페이지 목록 -->
 					<c:forEach begin="${ pageInfo.startPage }" end="${ pageInfo.endPage }" step="1" varStatus="status">
@@ -231,75 +282,18 @@ footer
 							<button disabled><c:out value="${ status.current }"/></button>
 						</c:if>
 						<c:if test="${ pageInfo.currentPage != status.current}">
-							<button onclick="location.href='${ path }/review/list?sort=a&page=${ status.current }'">
+							<button onclick="location.href='${ path }/review/list?sort=${review.sort}&page=${ status.current }'">
 								<c:out value="${ status.current }"/>
 							</button>
 						</c:if>
 					</c:forEach>
 					
 					<!-- 다음 페이지로 -->
-					<button onclick="location.href='${ path }/review/list?sort=a&page=${ pageInfo.nextPage }'">&gt;</button>
+					<button onclick="location.href='${ path }/review/list?sort=${review.sort}&page=${ pageInfo.nextPage }'">&gt;</button>
 					
 					<!-- 맨 끝으로 -->
-					<button onclick="location.href='${ path }/review/list?sort=a&page=${ pageInfo.maxPage }'">&gt;&gt;</button>
+					<button onclick="location.href='${ path }/review/list?sort=${review.sort}&page=${ pageInfo.maxPage }'">&gt;&gt;</button>
 				</div>
-		    </c:when> 
-		    
-		    <c:when test="${ review.sort eq 'b' }">
-		        <div id="pageBar" style="text-align:center;">
-					<!-- 맨 처음으로 -->
-					<button onclick="location.href='${ path }/review/list?sort=b&page=1'">&lt;&lt;</button>
-					
-					<!-- 이전 페이지로 -->
-					<button onclick="location.href='${ path }/review/list?sort=b&page=${ pageInfo.prvePage }'">&lt;</button>
-		
-					<!--  10개 페이지 목록 -->
-					<c:forEach begin="${ pageInfo.startPage }" end="${ pageInfo.endPage }" step="1" varStatus="status">
-						<c:if test="${ pageInfo.currentPage == status.current}">
-							<button disabled><c:out value="${ status.current }"/></button>
-						</c:if>
-						<c:if test="${ pageInfo.currentPage != status.current}">
-							<button onclick="location.href='${ path }/review/list?sort=b&page=${ status.current }'">
-								<c:out value="${ status.current }"/>
-							</button>
-						</c:if>
-					</c:forEach>
-					
-					<!-- 다음 페이지로 -->
-					<button onclick="location.href='${ path }/review/list?sort=b&page=${ pageInfo.nextPage }'">&gt;</button>
-					
-					<!-- 맨 끝으로 -->
-					<button onclick="location.href='${ path }/review/list?sort=b&page=${ pageInfo.maxPage }'">&gt;&gt;</button>
-				</div>
-		    </c:when> 
-		    
-		    <c:when test="${ review.sort eq 'c' }">
-		        <div id="pageBar" style="text-align:center;">
-					<!-- 맨 처음으로 -->
-					<button onclick="location.href='${ path }/review/list?sort=c&page=1'">&lt;&lt;</button>
-					
-					<!-- 이전 페이지로 -->
-					<button onclick="location.href='${ path }/review/list?sort=c&page=${ pageInfo.prvePage }'">&lt;</button>
-		
-					<!--  10개 페이지 목록 -->
-					<c:forEach begin="${ pageInfo.startPage }" end="${ pageInfo.endPage }" step="1" varStatus="status">
-						<c:if test="${ pageInfo.currentPage == status.current}">
-							<button disabled><c:out value="${ status.current }"/></button>
-						</c:if>
-						<c:if test="${ pageInfo.currentPage != status.current}">
-							<button onclick="location.href='${ path }/review/list?sort=c&page=${ status.current }'">
-								<c:out value="${ status.current }"/>
-							</button>
-						</c:if>
-					</c:forEach>
-					
-					<!-- 다음 페이지로 -->
-					<button onclick="location.href='${ path }/review/list?sort=c&page=${ pageInfo.nextPage }'">&gt;</button>
-					
-					<!-- 맨 끝으로 -->
-					<button onclick="location.href='${ path }/review/list?sort=c&page=${ pageInfo.maxPage }'">&gt;&gt;</button>
-				</div>
-		    </c:when> 
-		</c:choose>
+				
     </body>
 </html>
