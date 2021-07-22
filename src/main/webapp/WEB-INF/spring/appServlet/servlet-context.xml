@@ -10,7 +10,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
-	
+
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
 
@@ -21,13 +21,13 @@
 	<resources mapping="/css/**" location="/resources/css/" />
 	<resources mapping="/images/**" location="/resources/images/" />
 	<resources mapping="/txt/**" location="/resources/txt/" />
-	
+
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-	
+
 	<!-- Interceptor 객체 설정-->
 	<beans:bean id="authenticationInterceptor" class="com.kh.moyoung.common.interceptor.AuthenticationInterceptor">
     </beans:bean>
@@ -35,14 +35,14 @@
     <interceptors>
         <interceptor>
             <mapping path="/mypage/**"/>
-            <mapping path="/review/**"/>
+            <!--  <mapping path="/review/**"/>-->
             <mapping path="/party/party"/>
-            <exclude-mapping path="/review/list"/>
+            <!--  <exclude-mapping path="/review/list"/>-->
             <beans:ref bean="authenticationInterceptor"/>
         </interceptor>
     </interceptors>
 
 	<context:component-scan base-package="com.kh.moyoung" />
-	
-	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>	
+
+	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
 </beans:beans>

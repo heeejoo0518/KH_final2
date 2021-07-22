@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+section {
+	margin-top: 150px !important;
+}
+
+
 .signin-container{
     width:300px;
     max-width:100%;
@@ -59,7 +64,7 @@
 .input-with-icon .icon {
 	display:none;
 	position: absolute;
-	top:-0.2rem;
+	top:0rem;
 	right: 1rem;
 	width: 15px;
 	height:15px;
@@ -68,6 +73,11 @@
 .icon button {
 	border:none; 
 	background:none;
+	opacity: 1 !important;
+}
+
+.icon button:hover {
+	background-color:transparent;	
 }
 
 .icon img {
@@ -147,7 +157,6 @@ input:checked + .slider:before {
 }
 
 #check-info p{
-	color:red;
 	font-size:0.8em;
 	flex: 1 1 0%;
     flex-grow: 1;
@@ -157,6 +166,10 @@ input:checked + .slider:before {
     font-weight: 400;
     opacity: 0.8;
 	margin:0px;
+}
+
+#check-info p b {
+	color:red;
 }
 
 .form-signup input {

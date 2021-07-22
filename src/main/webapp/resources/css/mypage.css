@@ -1,6 +1,12 @@
 @charset "UTF-8";
 
 /* mypage_header.jsp */
+section {
+	min-height: calc(100vh - 50px);
+	min-width: 350px;
+	margin-top: 70px !important;
+}
+
 #wrapper {
   overflow-x: hidden;
 }
@@ -64,6 +70,14 @@
     flex-basis: 0%;
 	color: white;
     letter-spacing: -1px;
+}
+
+.list-group-item-light.list-group-item-action.active {
+    color: black;
+    background-color: #ececf6;
+    border-color: transparent;
+    font-weight: 1000;
+    opacity: 0.8;
 }
 
 img#img_sidebar {
@@ -141,10 +155,110 @@ img#img_sidebar {
 .icon button {
 	border:none; 
 	background:none;
+	opacity: 1 !important;
+    pointer-events: none !important;
+    padding-top:4px;
 }
 
 .icon img {
 	width:15px; 
 	height:15px;
 	object-fit:cover;
+}
+
+#update_button {
+	background-color:transparent;
+}
+#update_button:hover {
+	background-color:#06243c;
+}
+
+/* myreview.jsp */
+.myReview-container {
+    width: 80%;
+    min-width: 850px;
+    margin:50px auto;
+    padding-left:50px;
+}
+
+.myReview-container h2{
+	flex: 1 1 0%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
+    color: white;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: -1px;
+	margin-bottom:30px;
+}
+
+.myReview-container table{
+	background-color:transparent;
+	text-align:center;
+}
+
+.myReview-container div.row {
+	text-align: center;
+	width:100%;
+}
+
+#pageBar {
+	margin-top:10px; 
+ 	position: relative;
+    /* left: 50%; */
+    left:10%; 
+    width: min-content; 
+	text-align:center;
+}
+
+#pageBar .page-item {
+	padding:0px;
+}
+
+.page-item > a.page-link {
+	color: white;
+    background-color: transparent;
+}
+
+.page-item > a.page-link:hover {
+	background-color: #e9ecef;
+	color: #0056b3;
+}
+
+.page-item.active > a.page-link:hover {
+	color:white;
+	background-color:#007bff;
+}
+
+/* mylike.jsp */
+.myLike-container {
+	max-width:80%;
+    margin:50px auto;
+    padding-left:50px;
+}
+
+.myLike-container h2{
+	flex: 1 1 0%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
+    color: white;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom:30px;
+}
+
+.myLike-container .col{
+	height:200px;
+	color:white;
+	text-align:center;
+}
+
+.myLike-container .col button {
+	padding:0px;
+	background-color:transparent;
+	height:150px;
+	border:0px;
 }

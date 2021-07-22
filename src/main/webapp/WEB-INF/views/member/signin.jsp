@@ -87,6 +87,3 @@
 		$(this).prev().val('');
 	});
 </script>
-
-
-</script>
