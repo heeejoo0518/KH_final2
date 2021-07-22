@@ -59,10 +59,9 @@ public class UserMailSendService {
 		String key = getKey(false, 6);
 		
 		MimeMessage mail = mailSender.createMimeMessage();
-		String htmlStr = "<h2>안녕하세요</h2><br><br>" 
-				+ "<p>아이디 찾기를 위한 인증번호를 발급해드렸습니다. </p>"
+		String htmlStr = "<h2>아이디 찾기를 위한 인증번호를 발급해드렸습니다.</h2><br><br>" 
 				+ "<p>인증번호는 <h2 style='color : blue'>'" + key +"'</h2>이며 3분 안에 입력해주시면 됩니다.</p><br>"
-				+ "(혹시 잘못 전달된 메일이라면 이 이메일을 무시하셔도 됩니다)";
+				+ "(혹시 잘못 전달된 메일이라면 이 이메일을 무시하셔도 됩니다.)";
 		try {
 			mail.setSubject("[모두의 영화] 아이디 인증번호가 발급되었습니다", "utf-8");
 			mail.setText(htmlStr, "utf-8", "html");
