@@ -42,23 +42,10 @@ public class MemberController {
 	private UserMailSendService mailsender;
 	
 	@GetMapping("/signin")
-	public ModelAndView signInView(ModelAndView model, HttpServletRequest request, 
+	public String signInView(ModelAndView model, HttpServletRequest request, 
 			@SessionAttribute(name = "signinMember", required = false) Member signinMember) {
-		if(signinMember != null) model.setViewName("redirect:/");
-		
-		model.setViewName("/member/signin");
-		
-		Cookie[] cookies = request.getCookies();
-		
-		for(Cookie cookie:cookies) {
-			if(cookie.getName().equals("saveId")) {
-				signinMember =  service.autoLogin(cookie.getValue());
-				model.addObject("signinMember", signinMember);
-				model.setViewName("redirect:/");
-			}
-		}
-		
-		return model;
+		if(signinMember != null) return "redirect:/";
+		else return "/member/signin";
 	}
 	
 	@RequestMapping(value = "/signin", method = {RequestMethod.POST})
