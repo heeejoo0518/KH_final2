@@ -163,7 +163,8 @@ public class MemberController {
 	}
 	
 	@GetMapping("/member/findId")
-	public String findIdView() {
+	public String findIdView(@SessionAttribute(name = "signinMember", required = false) Member signinMember) {
+		if(signinMember != null) return "redirect:/";
 		return "member/findId";
 	}
 	
@@ -232,7 +233,8 @@ public class MemberController {
 	}
 	
 	@GetMapping("/member/findPw")
-	public String findPwView() {
+	public String findPwView(@SessionAttribute(name = "signinMember", required = false) Member signinMember) {
+		if(signinMember != null) return "redirect:/";
 		return "member/findPw";
 	}
 	
