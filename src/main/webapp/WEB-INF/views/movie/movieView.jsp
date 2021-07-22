@@ -54,10 +54,16 @@
 							<input type="hidden" name="no" value="${ movie.movieNo }">
 						</form>
 						<div class="social-btn" style="margin-bottom: 10px">
+						
+						 	<c:if test="${empty signinMember }">
+						 		<p>로그인 후 리뷰 작성이 가능합니다.</p>
+						 	</c:if>
+							<c:if test="${! empty signinMember }">
 							<a href="#" class="parent-btn" style="padding-left: 10px">찜하기<i
 								class="ion-heart"></i></a> <a
 								href="${ path }/review/write?no=${movie.movieNo}"
 								class="parent-btn">리뷰쓰기<i class="ion-edit"></i></a>
+							</c:if>	
 						</div>
 					</div>
 				</div>
