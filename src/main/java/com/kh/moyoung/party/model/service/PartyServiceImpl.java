@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
+import com.kh.moyoung.common.util.PageInfo;
 import com.kh.moyoung.party.model.mapper.PartyMapper;
 import com.kh.moyoung.party.model.vo.Party;
 
@@ -22,9 +22,9 @@ public class PartyServiceImpl implements PartyService {
 		int result = 0;
 		
 		if(party.getParty_no() != 0) {
-			result = mapper.updateBoard(party);
+		result=mapper.updateParty(party);
 		} else {
-			result = mapper.insertParty(party);
+		result = mapper.insertParty(party);
 		}
 		
 		return result;
@@ -39,7 +39,7 @@ public class PartyServiceImpl implements PartyService {
 	
 
 	@Override
-	public List<Party> getPartyList() {
+	public List<Party> getPartyList(PageInfo pageInfo) {
 				
 		return mapper.selectPartyList();
 	}
@@ -49,6 +49,12 @@ public class PartyServiceImpl implements PartyService {
 	public Party findByNo(int party_no) {
 		
 		return mapper.selectPartyByNo(party_no);
+	}
+
+	@Override
+	public boolean deleteParty(int party_no) {
+		
+		return mapper.deleteParty(party_no);
 	}
 
 	

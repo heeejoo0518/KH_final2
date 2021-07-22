@@ -75,14 +75,9 @@
 		)
 	</insert>
 	
-	<update id="updateParty" parameterType="map">
-		UPDATE PARTY_LIST
-		SET
-			name=#{name},
-			CONTENT=#{content},
-			MODIFY_DATE=SYSDATE
-		WHERE
-			PARETY_NO=#{party_no}
+	<update id="deleteParty" parameterType="int">
+		DELETE FROM PARTY_LIST WHERE PARTY_NO = #{party_no}
 	</update>
 	
+    
   </mapper>

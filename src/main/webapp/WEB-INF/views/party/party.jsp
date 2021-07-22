@@ -7,10 +7,16 @@
 
 <%@ include file="/WEB-INF/views/common/header.jsp"%>
 
-
 <style>
+@font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 h2 {color:white; margin-top:50px; margin-bottom:30px;}
-#preloader {background-color:#020d18; color: white;}
+#preloader {background-color:#020d18; color: white; font-family: 'NanumSquareRound';}
 textarea{resize:none;}
 
 /* 작성 폼 영역 스타일 */
@@ -29,14 +35,14 @@ p#pt-writer {color: #abb7c4;	font-size:10pt; margin-top:5px;	margin-bottom:5px;}
 /* 상단 로고 이미지 스타일 */
 #ottBt {width:64px; height:64px; background-color:white; border-radius:50%; display:flex; justify-content:center; align-items:center ; cursor:pointer; margin:10px; margin-bottom:30px; }
 /* #ottBt:hover {background-color:#dcf836;} */
-img {width:40px; height:40px;}
+img#listImg {width:40px; height:40px;}
 #select-type{display:flex; justify-content:center; margin:auto; padding:30px;}
 #party-list {display:flex; justify-content:space-evenly;}
 
 /*신고하기 버튼 */
-#siren{width:15px; height:15px; margin-left:10px; opacity:0; transition:0.5s all;}
+#dtimg{width:15px; height:15px; margin-left:10px; opacity:0; transition:0.5s all;}
 #ott-logo{display:inline;}
-#pt-card:hover #siren{opacity:1;}
+#pt-card:hover #dtimg{opacity:1; cursor:pointer;}
 #pt-card:hover {background:#071829; transition:0.5s all;}
 #open-bt{
 	display:flex;
@@ -45,20 +51,6 @@ img {width:40px; height:40px;}
 	padding-top:10px;
 }
 </style>
-
-<%@ include file="/WEB-INF/views/common/modal.jsp"%>
-
-<script>
-	function openModal(){
-		
-			title="파티원 모집하기";
-			$( "#modal-body" ).load('${ path }/party/partyWrite');
-		$('#modal-title').text(title);
-		$('#modal').modal('show');
-	}
-	
-</script>
-
 
 	<section id="preloader">
 		<div class ="container" >
@@ -72,23 +64,23 @@ img {width:40px; height:40px;}
 		
 <div id="select-type" class="center-block">
 		<div id="ottBt">
-		<img src="${path}/resources/images/icon_netflix.png" onclick="openModal();return false;"/>
+		<img id="listImg" src="${path}/resources/images/icon_netflix.png" />
 		</div>
 		
 		<div id="ottBt">
-		<img src="${path}/resources/images/icon_watcha.png" onclick="openModal();return false;"/>
+		<img id="listImg" src="${path}/resources/images/icon_watcha.png" />
 		</div>
 		
 		<div id="ottBt">
-		<img src="${path}/resources/images/icon_wavve.png" onclick="openModal();return false;"/>
+		<img id="listImg" src="${path}/resources/images/icon_wavve.png" />
 		</div>
 		
 		<div id="ottBt">
-		<img src="${path}/resources/images/icon_tving.png" onclick="openModal();return false;"/>
+		<img id="listImg" src="${path}/resources/images/tving_logo.png" />
 		</div>
 </div>
 
-	<button type="button"  class="btn btn-outline-info btn-lg" onclick="openModal();return false;"
+	<button id="ptbt" type="button"  class="btn btn-outline-info btn-lg" 
 					style="width: 40%; margin: auto;">파티원 모집하기</button>
 							
 			
@@ -102,31 +94,6 @@ img {width:40px; height:40px;}
 <div id="party-list" class="row">
 
 	<div class="row" style="justify-content:center;">
-<!--  
-<form name="form1" method="GET" action="party">
-
-    <select name="search_option">
-        <option value="ott_type"
-				<c:if test="${ott_type eq '넷플릭스'}">selected</c:if>
-  > 넷플릭스</option>
-
-        <option value="ott_type" 
-				<c:if test="${ott_type eq '왓챠'}">selected</c:if>
-        >왓챠</option>
-
-        <option value="ott_type" 
-				<c:if test="${ott_type eq '웨이브'}">selected</c:if>
-        >웨이브</option>
-
-        <option value="ott_type" 
-				<c:if test="${ott_type eq '티빙'}">selected</c:if>
-        >티빙</option>
-
-    </select>
-    <input name="keyword" value="${map.keyword}">
-    <input type="submit" value="조회">
-</form>
- -->
 
 			<c:if test="${ list.isEmpty()}">
 				<div class="col-sm-12">
@@ -152,7 +119,7 @@ img {width:40px; height:40px;}
 														<img id="pt-logo" alt="로고" src="${path}/resources/images/icon_wavve.png"/>
 													</c:when>
 													<c:otherwise>
-														<img id="pt-logo" alt="로고" src="${path}/resources/images/icon_tving.png"/>
+														<img id="pt-logo" alt="로고" src="${path}/resources/images/tving_logo.png"/>
 													</c:otherwise>
 											</c:choose> 
 										 	
@@ -160,28 +127,35 @@ img {width:40px; height:40px;}
 												<span id="pt-title" class="card-title"><c:out value="${party.name }"/></span>
 										 <div>
 									  		<span id="pt-writer"><c:out value="${party.writer_id }"/></span>
-									  		<a href="/">
-									  		<img id="siren" src="${path}/resources/images/siren.png"/>
-									  		</a>								  		
+									  		<c:if test="${ !empty signinMember && (signinMember.u_id == party.writer_id || signinMember.u_role == 1) }">
+							 					 <a id="delete" onclick="del(${party.party_no})">
+							 					 <img id="dtimg" src="${path}/resources/images/remove.png"/>
+							 					</a>
+							 				</c:if>
 									  	</div>
 									  	<div>
 										  	<p id="pt-date" style="font-size:10pt; color:grey;"><c:out value="${party.create_date}"/></p>
 									   		<p style="padding-right:5px;"><c:out value="${party.content }"/></p>
 									   	</div>
-									 </div>
-									 
+
 									 <div id="open-bt">
 							 			<button style="padding:10px;" class="btn btn-outline-warning" onclick="location.href='${party.link}' ">오픈채팅방 참여하기</button>
 							 		</div>
 								</div> 
+							</div>
 		</c:forEach>
 	</c:if>			
 </div>
 
 				<div class="col-sm-12">
-						<button id="pt_more" onclick="moreList();" class="btn btn-outline-light btn-lg btn-block" >더보기</button>
+						<button id="more" 
+						onclick="location.href='${ path }/party/list?page=${ pageInfo.nextPage }'"
+						 class="btn btn-outline-light btn-lg btn-block" >더보기</button>
 					</div>
 					
+		<script>
+			
+		</script>
 
 </div>
 					
@@ -194,4 +168,27 @@ img {width:40px; height:40px;}
 
 
 <%@ include file="/WEB-INF/views/common/footer.jsp"%>
+<%@ include file="/WEB-INF/views/common/modal.jsp"%>
 
+<script>
+(function($){  
+	document.getElementById('ptbt').onclick = function () {
+		title="파티원 모집하기";
+		$( "#modal-body" ).load('${ path }/party/partyWrite');
+	$('#modal-title').text(title);
+	$('#modal').modal('show');
+	
+		};
+	
+})(jQuery);
+	
+</script>
+
+<script>
+function del(party_no) {
+	var chk = confirm("정말 삭제하시겠습니까?");
+	if (chk) {
+		location.href='delete?party_no='+party_no;
+	}
+}	
+</script>

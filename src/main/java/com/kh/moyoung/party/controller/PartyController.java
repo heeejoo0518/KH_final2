@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kh.moyoung.common.util.PageInfo;
 import com.kh.moyoung.member.model.vo.Member;
 import com.kh.moyoung.party.model.service.PartyService;
 import com.kh.moyoung.party.model.vo.Party;
@@ -29,11 +31,17 @@ public class PartyController {
 		
 		
 		@GetMapping("/party")
-		public ModelAndView list(ModelAndView mv) {
+		public ModelAndView list(ModelAndView mv,
+				@RequestParam(value="page", required= false, defaultValue="1")int page) {
 			
-			List<Party> list = service.getPartyList();
-		
+			List<Party> list = null;
+			
+			PageInfo pageInfo = new PageInfo(page, 6, service.getPartyCount(), 6);
+			
+			list = service.getPartyList(pageInfo);
+			
 			mv.addObject("list", list);
+			mv.addObject("pageInfo", pageInfo);
 			mv.setViewName("party/party");
 			
 			return mv;
@@ -86,12 +94,16 @@ public class PartyController {
 
 	}
 
-		
-		
-		
-		
-		
-		
-		
-		
+
+		@GetMapping("delete")
+		public String delete(ModelAndView mv, @RequestParam("party_no")int party_no) {
+			service.deleteParty(party_no);
+			return "redirect:/party/party";
+		}
+
+
+
+
+
+
 }

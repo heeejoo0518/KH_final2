@@ -2,6 +2,7 @@ package com.kh.moyoung.party.model.service;
 
 import java.util.List;
 
+import com.kh.moyoung.common.util.PageInfo;
 import com.kh.moyoung.party.model.vo.Party;
 
 public interface PartyService {
@@ -10,8 +11,10 @@ public interface PartyService {
 
 	int getPartyCount();
 
-	List<Party> getPartyList();
+	List<Party> getPartyList(PageInfo pageInfo);
 
 	Party findByNo(int party_no);
+	
+	boolean deleteParty(int party_no);
 
 }

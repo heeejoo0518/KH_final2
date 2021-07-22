@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.session.RowBounds;
 
+import com.kh.moyoung.common.util.PageInfo;
 import com.kh.moyoung.party.model.vo.Party;
 
 @Mapper
@@ -19,8 +19,8 @@ public interface PartyMapper {
 	
 	int insertParty(Party party);
 
-	int updateBoard(Party party);
+	int updateParty(Party party);
 
-	
+	 boolean deleteParty(int party_no);
 
 }

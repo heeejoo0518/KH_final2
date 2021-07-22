@@ -20,7 +20,6 @@ textarea{resize:none;}
 #party-form input{margin:auto;}
 </style>
 
-<body>
 
 <script>
 	/*100자 이내 작성*/
@@ -41,6 +40,8 @@ textarea{resize:none;}
 	}
 	
 </script>
+
+<body>
 
 <div class="row">
 
