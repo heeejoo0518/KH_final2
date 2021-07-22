@@ -11,7 +11,6 @@
 <!-- CSS files -->
 <link rel="stylesheet" href="${ path }/css/plugins.css">
 <link rel="stylesheet" href="${ path }/css/style.css">
-</head>
 <!--preloading-->
 <div id="preloader">
 	<img class="logo" src="${ path }/images/logo1.png" alt="" width="119"
