@@ -7,6 +7,7 @@
 	<sql id="selectReviewSql">
 		SELECT
     			M.NICKNAME,
+    			M2.MOVIE_ID,
 			    R.REVIEW_ID,
 			    R.MOVIE_ID,
 			    R.RATE,
@@ -17,6 +18,8 @@
 			    R.U_NO
 	    FROM MOVIE_REVIEW R
 	    JOIN Member M on (R.U_NO = M.U_NO)
+	    LEFT OUTER JOIN MOVIE M2 ON(R.MOVIE_ID = M2.MOVIE_ID)
+	    WHERE M2.MOVIE_ID =#{movieNo}
 	</sql>
 
 	<resultMap type="Review" id="reviewListResultMap">
@@ -29,7 +32,6 @@
 		<result property="content" column="CONTENT" />
 		<result property="writeDate" column="WRITEDATE" />
 		<result property="nickname" column="NICKNAME" />
-		<result property="movieTitle_kor" column="TITLE_KOR" />
 	</resultMap>
 
 	<select id="selectReviewList" resultMap="reviewListResultMap">
@@ -51,10 +53,10 @@
 	<select id="selectReviewCount" resultType="_int">
 		SELECT COUNT(*)
 		FROM MOVIE_REVIEW
-		<!--
-		WHERE MOVIE_ID = #{movieNo}
-		-->
+		WHERE MOVIE_ID = #{movieNo}  <!-- 전체 리뷰 가져오려면 getReviewCount(매개변수 제거)후 라인 삭제 -->
 	</select>
+
+
 
 	<insert id="insertReview" parameterType="map"
 		useGeneratedKeys="true" keyColumn="REVIEW_ID" keyProperty="reviewNo">
@@ -80,20 +82,7 @@
 		)
 	</insert>
 
-	<!-- 마이페이지-내 리뷰 목록 카운트 -->
-	<select id="selectMyReviewCount" parameterType="_int" resultType="_int">
-		SELECT COUNT(*)
-		FROM MOVIE_REVIEW
-		WHERE U_NO = #{u_no}
-	</select>
 
 
-	<!-- 마이페이지-내 리뷰 목록 리스트 -->
-	<select id="selectMyReviewList" parameterType="map" resultMap="reviewListResultMap">
-		SELECT MOVIE_REVIEW.*,
-				M.TITLE_KOR
-		FROM MOVIE_REVIEW
-		JOIN MOVIE M ON (MOVIE_REVIEW.MOVIE_ID = M.MOVIE_ID)
-		WHERE U_NO = #{u_no}
-	</select>
+
 </mapper>

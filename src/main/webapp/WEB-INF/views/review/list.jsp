@@ -26,6 +26,10 @@ footer
 <html>
 <head>
 <meta charset="UTF-8">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <title>모두의 영화</title>
 <script src="${ path }/js/jquery-3.6.0.min.js"></script>
 <style>
@@ -66,11 +70,11 @@ footer
         }
         #div-user-content{
         	padding-left: 10px;
-        	height: 230px;
+        	height: 190px;
         }
         #div-user-spoilerContent{
         	padding-left: 10px;
-        	height: 160px;
+        	height: 150px;
         	background-color: black;
         	
         }
@@ -124,14 +128,16 @@ footer
     <body>
     
         <div >
-            <h2 style="color: white;">모든 리뷰</h2>  
-        </div>
+            <h2 style="color: white;">모든 리뷰</h2>
+
+
+	</div>
         
         <form action="${ path }/review/list" method="GET">
         <input type="hidden" name="no" value="${no}">
         <div id="div-sort" >
         <div id="spoiler-text">
-        	스포일러 게시글<input type="checkbox" id="spoBox" class="spoBox">
+        	스포일러 게시글<input type="checkbox" id="spoBox" class="spoBox" onclick="">
         </div>
         <select id="sort-select" name="sort" onchange="this.form.submit();">
             <option >정렬 방식을 선택해주세요.</option>
@@ -150,6 +156,8 @@ footer
 		</c:if>
         <c:if test="${ list != null }">
         	<c:forEach var="review" items="${ list }">
+        	
+        	
 		        <div id="div-list-container">
 		        	<div id="div-user-nickname">
 		        		<span class="span-nickname"><c:out value="${review.nickname }"/></span>
@@ -181,6 +189,8 @@ footer
 			        	</span>
 		        	</div>
 		        	
+					        
+		        	
 		        	<!-- 스포일러(0)==스포일러 포함X -->
 		        	<c:choose>
 		        		<c:when test="${ review.spoiler eq '0' }">
@@ -190,8 +200,7 @@ footer
 		        		</c:when>
 		        		
 		        		<c:when test="${ review.spoiler eq '1' }">
-		        			<p style="text-align: center">스포일러가 포함된 리뷰를 보려면 버튼 클릭!</p>
-		        			<button id="btn-spoiler" onclick="btnSpoiler()">스포일러 리뷰</button>
+		        			<p style="text-align: center">스포일러가 포함된 리뷰를 보려면 우측 상단 체크!</p>
 		        			<div id="div-user-spoilerContent" class="div-user-spoilerContent"> 
 		        				<c:out value="${ review.content }"/>
 		        				
@@ -202,14 +211,21 @@ footer
 		        	
 		        	<hr>
 		        	<div id="div-like" style="padding-left: 10px;">
-		        		<span class="writeDate" style="text-align: right" > <fmt:formatDate type="date" value="${ review.writeDate }"/> </span>
+		        	<!-- <span class="like-count"> <c:out value="${ review.likeCount }"></c:out>개</span> -->
+		        		<span class="writeDate"> <fmt:formatDate type="date" value="${ review.writeDate }"/> </span>
 		        	</div>
 		        	
-		        	<c:if test="${!empty loginMember && loginMember.nickname == review.nickname }">
-		        	<div id="div-btn"> <!-- 삭제버튼 -->  
-		        		<button id="btnDelete" onclick="btnDelete()">게시글 삭제</button>
+		        	<form action="${ path }/review/like" method="POST">
+		        	<c:if test="${ !empty loginMember }">
+		        	<div id="div-btn"> <!-- 좋아요 버튼 -->
+
+
+							<!--  <button id="btnLike" onchange="this.form.submit();"> 좋아요 !</button>
+		        		-->
+		        		
 		        	</div>
 		        	</c:if>
+		        	</form>
 		        	
 		        	<!--   게시글 번호를 가져오면 삭제 가능,, 현재까지 가져올 방법을 못찾음
 		        	<script>
@@ -229,6 +245,7 @@ footer
         </c:forEach>
         </c:if>
         
+        <!--  
         <script> 
 				        var review_content = '<c:out value="${review.content}"/>';
 				        var loginNickname = '<c:out value="${loginMember.nickname}"/>';
@@ -244,43 +261,37 @@ footer
 				        		console.log(reviewNickname);
 				        		console.log(review_content);
 				       		}
-				    </script>
-        
+		</script>
+		-->
+		
         <script>
         	$(function(){
         		$("#spoBox").on("click", function(){
-        			alert("체크박스 클릭");
-        			$('.div-user-spoilerContent').css({'background-color' : 'white'});
+        			if(confirm("스포일러가 포함된 리뷰를 확인하시겠습니까?")){
+	        			$('.div-user-spoilerContent').css({'background-color' : 'white'});
+        			} else{
+        				alert("취소하셨습니다.")
+        			}
         		});
         	});
         </script>
-        
-        
-        <!--  <script>
-        	$(function(){
-        		$("#btn-like").on("click", function(){
-/*	review.likecount 변수로 받아오고
- *  데이타에 넣고
- 	성공하면 성공 구문안에 데이터를 
- 
- */
-        			
-        			$.ajax({
-        				type: "post",
-        				url: "${path}/review/like",
-        				dataType: "json",
-        				async: false,
-        				data: 
-        				success: function(data) {
-        					
-        				},
-        				error: function(e) {
-        					console.log(e);
-        					)
-        				
-        			})
-        		});
-        	})
+
+	<!--  
+       	  <script>
+       	$(document).ready(function () {
+       		$("#btn-spoiler").on('click', function() {
+       			spoilerCheck();
+       		})
+       	});
+       	
+       	function spoilerCheck(){
+       		$.ajax({
+       			url: "${ path }/review/list",
+       			type: "POST",
+       			data :
+       				
+       		})
+       	}
         	
         </script>
         -->

@@ -21,33 +21,33 @@ public class ReviewServiceImpl implements ReviewService {
 	private ReviewMapper mapper;
 
 	@Override
-	public int getReviewCount() {
+	public int getReviewCount(int movieNo) {
 
-		return mapper.selectReviewCount();
+		return mapper.selectReviewCount(movieNo);
 	}
 
 	@Override
-	public List<Review> getReviewList(PageInfo pageInfo) {
+	public List<Review> getReviewList(PageInfo pageInfo, int movieNo) {
 		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
 		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
 
-		return mapper.selectReviewList(rowBounds);
+		return mapper.selectReviewList(rowBounds, movieNo);
 	}
 
 	@Override
-	public List<Review> selectReviewHighRateList(PageInfo pageInfo) {
+	public List<Review> selectReviewHighRateList(PageInfo pageInfo, int movieNo) {
 		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
 		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
 
-		return mapper.selectReviewHighRateList(rowBounds);
+		return mapper.selectReviewHighRateList(rowBounds, movieNo);
 	}
 
 	@Override
-	public List<Review> selectReviewLowRateList(PageInfo pageInfo) {
+	public List<Review> selectReviewLowRateList(PageInfo pageInfo, int movieNo) {
 		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
 		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
 
-		return mapper.selectReviewLowRateList(rowBounds);
+		return mapper.selectReviewLowRateList(rowBounds, movieNo);
 	}
 
 	@Override
@@ -57,24 +57,13 @@ public class ReviewServiceImpl implements ReviewService {
 
 		result = mapper.insertReview(review);
 		/*if(review.getReviewNo() == 0) {
-
+		 
 		}*/
 
 		return result;
 	}
 
-	@Override
-	public int getMyReviewCount(int u_no) {
-		return mapper.selectMyReviewCount(u_no);
-	}
 
-	@Override
-	public List<Review> getMyReviewList(PageInfo pageInfo, int u_no) {
-		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
-		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
-
-		return mapper.selectMyReviewList(rowBounds,u_no);
-	}
 
 
 

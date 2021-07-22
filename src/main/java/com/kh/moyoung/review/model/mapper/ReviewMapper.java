@@ -11,17 +11,18 @@ import com.kh.moyoung.review.model.vo.Review;
 @Mapper
 public interface ReviewMapper {
 
-	int selectReviewCount();
 
-	List<Review> selectReviewList(RowBounds rowBounds);
+	int selectReviewCount(int movieNo);
 
-	List<Review> selectReviewHighRateList(RowBounds rowBounds);
+	List<Review> selectReviewList(RowBounds rowBounds, int movieNo);
 
-	List<Review> selectReviewLowRateList(RowBounds rowBounds);
+	List<Review> selectReviewHighRateList(RowBounds rowBounds, int movieNo);
+
+	List<Review> selectReviewLowRateList(RowBounds rowBounds, int movieNo);
 
 	int insertReview(Review review);
 
-	int selectMyReviewCount(@Param("u_no") int u_no);
 
-	List<Review> selectMyReviewList(RowBounds rowBounds, @Param("u_no") int u_no);
+
+
 }
