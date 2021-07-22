@@ -82,7 +82,11 @@
 		)
 	</insert>
 
-
-
+	<delete id="deleteReview" parameterType="_int">
+		DELETE FROM
+			MOVIE_REVIEW
+		WHERE
+			REVIEW_ID = #{reviewNo}
+	</delete>
 
 </mapper>

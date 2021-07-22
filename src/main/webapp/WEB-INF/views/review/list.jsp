@@ -76,6 +76,7 @@ footer
         	padding-left: 10px;
         	height: 150px;
         	background-color: black;
+        	color: black;
         	
         }
         .like-count{
@@ -129,9 +130,7 @@ footer
     
         <div >
             <h2 style="color: white;">모든 리뷰</h2>
-
-
-	</div>
+		</div>
         
         <form action="${ path }/review/list" method="GET">
         <input type="hidden" name="no" value="${no}">
@@ -140,7 +139,7 @@ footer
         	스포일러 게시글<input type="checkbox" id="spoBox" class="spoBox" onclick="">
         </div>
         <select id="sort-select" name="sort" onchange="this.form.submit();">
-            <option >정렬 방식을 선택해주세요.</option>
+            <option >정렬 방식 선택</option>
             <option value="a" id="1">최근 작성한 글</option>
             <option value="b" id="2">별점 높은 순</option>
             <option value="c" id="3">별점 낮은 순</option>
@@ -154,9 +153,8 @@ footer
         <c:if test="${ empty list }">
         		<p id="empty-list">등록된 게시글이 없습니다.</p>
 		</c:if>
-        <c:if test="${ list != null }">
+        <c:if test="${!empty list  }">
         	<c:forEach var="review" items="${ list }">
-        	
         	
 		        <div id="div-list-container">
 		        	<div id="div-user-nickname">
@@ -200,10 +198,11 @@ footer
 		        		</c:when>
 		        		
 		        		<c:when test="${ review.spoiler eq '1' }">
+		        			<div id="divP">
 		        			<p style="text-align: center">스포일러가 포함된 리뷰를 보려면 우측 상단 체크!</p>
+		        			</div>
 		        			<div id="div-user-spoilerContent" class="div-user-spoilerContent"> 
 		        				<c:out value="${ review.content }"/>
-		        				
 				        	</div>
 		        		</c:when>
 		        	</c:choose>
@@ -215,9 +214,9 @@ footer
 		        		<span class="writeDate"> <fmt:formatDate type="date" value="${ review.writeDate }"/> </span>
 		        	</div>
 		        	
-		        	<form action="${ path }/review/like" method="POST">
-		        	<c:if test="${ !empty loginMember }">
-		        	<div id="div-btn"> <!-- 좋아요 버튼 -->
+		        	<c:if test="${!empty signinMember && signinMember.nickname == review.nickname}">
+		        	<div id="div-btn">
+		        	<button type="button" id="btnDelete" onclick="location.href='${ path }/review/delete?reviewNo=${review.reviewNo}&no=${no}'" >삭제하기</button> <!-- 좋아요 버튼 -->
 
 
 							<!--  <button id="btnLike" onchange="this.form.submit();"> 좋아요 !</button>
@@ -225,7 +224,6 @@ footer
 		        		
 		        	</div>
 		        	</c:if>
-		        	</form>
 		        	
 		        	<!--   게시글 번호를 가져오면 삭제 가능,, 현재까지 가져올 방법을 못찾음
 		        	<script>
@@ -261,21 +259,37 @@ footer
 				        		console.log(reviewNickname);
 				        		console.log(review_content);
 				       		}
-		</script>
-		-->
-		
-        <script>
-        	$(function(){
-        		$("#spoBox").on("click", function(){
+				       		
+				       		
+				       		
+				       			$(function(){
+        		$("#spoBox").("click", function(){
         			if(confirm("스포일러가 포함된 리뷰를 확인하시겠습니까?")){
 	        			$('.div-user-spoilerContent').css({'background-color' : 'white'});
+	        					
         			} else{
         				alert("취소하셨습니다.")
         			}
         		});
         	});
+		</script>
+		-->
+		
+        <script>
+        	$(document).ready(function(){
+        	    $("#spoBox").change(function(){
+        	        if($("#spoBox").is(":checked")){
+        	            alert("스포일러 포함 리뷰를 확인합니다!");
+    	        		$('.div-user-spoilerContent').css({'background-color' : 'white'});
+        	        }else{
+        	            alert("스포일러 포함 리뷰를 가립니다!");
+        	            $('.div-user-spoilerContent').css({'background-color' : 'black'});
+        	        }
+        	    });
+        	});
         </script>
-
+        
+        
 	<!--  
        	  <script>
        	$(document).ready(function () {

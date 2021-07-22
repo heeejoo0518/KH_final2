@@ -106,7 +106,6 @@ public class ReviewController {
 		
 		return model;
 	}
-
 	
 	
 	@PostMapping("/write")
@@ -162,6 +161,20 @@ public class ReviewController {
 		return model;
 	}
 	
+	@GetMapping("/delete")
+	public ModelAndView delete(ModelAndView model,
+			@RequestParam("reviewNo")int reviewNo,
+			@RequestParam("no")int no) {
+		
+		service.deleteReview(reviewNo);
+		
+		model.addObject("no",no);
+		model.setViewName("redirect:/review/list");
+		
+		return model;
+		}
+	}
+	
+	
 	
 			
-}

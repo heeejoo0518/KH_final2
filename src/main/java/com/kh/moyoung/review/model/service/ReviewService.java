@@ -17,6 +17,8 @@ public interface ReviewService {
 
 	int save(Review review); /* 리뷰 작성하기 */
 
+	int deleteReview(int reviewNo);
+
 
 
 }
