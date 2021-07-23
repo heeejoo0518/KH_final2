@@ -249,20 +249,20 @@
 											</div>
 											<div class="sb-it">
 												<h6>개봉일</h6>
-												<p>
+												<a href="#">
 													<fmt:formatDate value="${ movie.open_date }"
 														pattern="yyyy-MM-dd" />
-												</p>
+												</a>
 											</div>
 											<div class="sb-it">
 												<h6>런타임:</h6>
-												<p>${ movie.run_time }분</p>
+												<a href="#">${ movie.run_time }분</a>
 											</div>
 											<div class="sb-it">
 												<h6>시청연령:</h6>
-												<p>${ movie.viewing_age }</p>
+												<a href="#">${ movie.viewing_age }</a>
 											</div>
-											<div class="ads">
+											<div class="sb-it">
 												<img src="${ path }/images/uploads/ads1.png" alt="">
 											</div>
 										</div>

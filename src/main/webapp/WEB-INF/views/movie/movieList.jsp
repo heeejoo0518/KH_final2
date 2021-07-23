@@ -75,7 +75,7 @@ div#pageBar button {
 		style="background-color: #020d18; padding-top: 50px;">
 		<div class="container">
 			<div class="row ipad-width2">
-				<div class="col-md-8 col-sm-12 col-xs-12">
+				<div class="col">
 					<div class="topbar-filter">
 						<p>
 							총 <span>100</span> 개의 검색 결과
