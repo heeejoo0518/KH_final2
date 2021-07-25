@@ -176,7 +176,7 @@ public class MemberController {
 
 		if (result > 0) {
 			model.addObject("msg", "정상적으로 탈퇴되었습니다.");
-			model.addObject("location", "/");
+			model.addObject("location", "/signout");
 		} else {
 			model.addObject("msg", "회원 탈퇴를 실패하였습니다.");
 			model.addObject("location", "/member/update");
