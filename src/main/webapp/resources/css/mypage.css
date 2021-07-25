@@ -87,7 +87,7 @@ img#img_sidebar {
 
 /* checkpw.jsp */
 .checkPw-container {
-	width:300px;
+	width:350px;
     max-width:100%;
     margin:50px auto;
 }
@@ -107,6 +107,11 @@ img#img_sidebar {
 	color:white;
 	opacity:0.9;
 	font-size:0.8em;
+	margin:0px !important;
+}
+
+.checkPw-container form {
+	margin-top:20px;
 }
 
 /* update.jsp */
