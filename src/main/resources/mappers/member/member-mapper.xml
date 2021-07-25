@@ -14,7 +14,7 @@
  				BIRTH,
  				ACCOUNT_LOCKED,
  				U_VALIDATE,
- 				U_ROLE
+ 				U_ROLE,
  				SIGNUP_TYPE
 		FROM MEMBER
  	</sql>
@@ -74,7 +74,11 @@
 		    DEFAULT,
 		    DEFAULT,
 		    DEFAULT,
-		    DEFAULT
+		    <choose>
+		    	<when test="signup_type != null and signup_type != ''">#{signup_type}</when>
+		    	<otherwise>DEFAULT</otherwise>
+		    </choose>
+		    
 		) 	
  	</insert>
  	

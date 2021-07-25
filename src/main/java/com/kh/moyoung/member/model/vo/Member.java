@@ -30,7 +30,7 @@ public class Member {
 	
 	private int u_role;				/* 유저유형 (0:일반회원, 1:관리자, 2:탈퇴회원, 3:정지회원) */
 	
-	private int signup_type;		/* 가입유형 (0:일반, 1:네이버, 2:..) */
+	private int signup_type;		/* 가입유형 (0:일반, 1:네이버, 2:구글) */
 	
 	public Member(Member member) {
 		this.u_no = member.getU_no();

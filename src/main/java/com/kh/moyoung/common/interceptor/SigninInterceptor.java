@@ -23,17 +23,17 @@ public class SigninInterceptor extends HandlerInterceptorAdapter{
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		log.info("SigninInterceptor");
-		log.info("request URI: {}", request.getRequestURI());
+		log.info("SigninInterceptor, request URI: {}", request.getRequestURI());
 		
 		HttpSession session = request.getSession();
 		if(session.getAttribute("signinMember") != null) return true;
 		
 		Cookie[] cookies = request.getCookies();
+		if(cookies == null) return true;
 		
 		for(Cookie cookie:cookies) {
 			if(cookie.getName().equals("saveId")) {
-				Member signinMember =  service.autoLogin(cookie.getValue());
+				Member signinMember =  service.findById(cookie.getValue());
 				session.setAttribute("signinMember", signinMember);
 			}
 		}
