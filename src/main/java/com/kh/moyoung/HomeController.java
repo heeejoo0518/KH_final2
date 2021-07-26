@@ -36,7 +36,7 @@ public class HomeController {
 		log.info("메인 페이지");
 		
 		List<Movie> list = null;
-		PageInfo pageInfo = new PageInfo(1,1,service.getMovieCount(),5);
+		PageInfo pageInfo = new PageInfo(1,1,service.getMovieCount(""),5);
 		list = service.top5List(pageInfo);
 		
 		mav.addObject("list",list);
