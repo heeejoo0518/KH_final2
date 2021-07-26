@@ -40,7 +40,7 @@ public class HomeController {
 		list = service.top5List(pageInfo);
 
 
-    pageInfo = new PageInfo(1, 1, service.getPlatformCount(), 2);
+    pageInfo = new PageInfo(1, 1, service.getPlatformCount(), 5);
 		List<Movie> netflix = service.getNetflixList(pageInfo);
 		List<Movie> watcha = service.getWatchaList(pageInfo);
 		List<Movie> tving = service.getTvingList(pageInfo);

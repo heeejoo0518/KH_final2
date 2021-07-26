@@ -110,59 +110,75 @@ input#pt-button {
 	<div class="w3-container">
 		<h2>플랫폼 별 영화리스트</h2>
 	</div>
-		<div class="w3-bar w3-black">
-			<button class="w3-bar-item w3-button" onclick="openCity('Netflix')">Netflix</button>
-			<button class="w3-bar-item w3-button" onclick="openCity('Watcha')">Watcha</button>
-			<button class="w3-bar-item w3-button" onclick="openCity('Wavve')">Wavve</button>
-			<button class="w3-bar-item w3-button" onclick="openCity('Tving')">Tving</button>
-		</div>
+	<div class="w3-bar w3-black">
+		<button class="w3-bar-item w3-button" onclick="openCity('Netflix')">Netflix</button>
+		<button class="w3-bar-item w3-button" onclick="openCity('Watcha')">Watcha</button>
+		<button class="w3-bar-item w3-button" onclick="openCity('Wavve')">Wavve</button>
+		<button class="w3-bar-item w3-button" onclick="openCity('Tving')">Tving</button>
+	</div>
 
-		<div id="Netflix" class="w3-container city">
-			<h2>넷플릭스</h2>
+	<div id="Netflix" class="w3-container city">
+		<h2>넷플릭스</h2>
+		<div class="row" style="text-align: center;">
 			<c:forEach var="netflix" items="${ netflix }">
-				<br>
-				<span style="font-size: xx-large;"><c:out value="${ netflix.title_kor }" /></span>
-				<br> <br>
-				<img src="${ netflix.m_poster }" alt="" style="width: 300px; height: 360px;">
+				<div class="col">
+					<span style="font-size: xx-large;"><c:out
+							value="${ netflix.title_kor }" /></span> <br> <img
+						src="${ netflix.m_poster }" alt=""
+						style="max-width: 250px;">
+				</div>
 			</c:forEach>
 		</div>
+	</div>
 
-		<div id="Watcha" class="w3-container city" style="display: none">
-			<h2>왓챠</h2>
+	<div id="Watcha" class="w3-container city" style="display: none">
+		<h2>왓챠</h2>
+		<div class="row" style="text-align: center;">
 			<c:forEach var="watcha" items="${ watcha }">
-				<br>
-				<span style="font-size: xx-large;"><c:out value="${ watcha.title_kor }" /></span>
-				<br> <br>
-				<img src="${ watcha.m_poster }" alt="" style="width: 300px; height: 360px;">
+				<div class="col">
+					<span style="font-size: xx-large;"><c:out
+							value="${ watcha.title_kor }" /></span> <br> <img
+						src="${ watcha.m_poster }" alt=""
+						style="max-width: 250px; ">
+				</div>
 			</c:forEach>
 		</div>
+	</div>
 
-		<div id="Wavve" class="w3-container city" style="display: none">
-			<h2>웨이브</h2>
+	<div id="Wavve" class="w3-container city" style="display: none">
+		<h2>웨이브</h2>
+		<div class="row" style="text-align: center;">
 			<c:forEach var="wavve" items="${ wavve }">
-				<br>
-				<span style="font-size: xx-large;"><c:out value="${ wavve.title_kor }" /></span>
-				<br> <br>
-				<img src="${ wavve.m_poster }" alt="" style="width: 300px; height: 360px;">
+				<div class="col">
+					<span style="font-size: xx-large;"><c:out
+							value="${ wavve.title_kor }" /></span> <br> <img
+						src="${ wavve.m_poster }" alt=""
+						style="max-width: 250px;">
+				</div>
 			</c:forEach>
 		</div>
+	</div>
 
-		<div id="Tving" class="w3-container city" style="display: none">
-			<h2>티빙</h2>
+	<div id="Tving" class="w3-container city" style="display: none">
+		<h2>티빙</h2>
+		<div class="row" style="text-align: center;">
+
 			<c:forEach var="tving" items="${ tving }">
 				<br>
-				<span style="font-size: xx-large;"><c:out value="${ tving.title_kor }" /></span>
-				<br> <br>
-				<img src="${ tving.m_poster }" alt="" style="width: 300px; height: 360px;">
+				<div class="col">
+
+					<span style="font-size: xx-large;"><c:out
+							value="${ tving.title_kor }" /></span> <br> <img
+						src="${ tving.m_poster }" alt=""
+						style="max-width: 250px;">
+				</div>
 			</c:forEach>
 		</div>
+	</div>
 
 
 </div>
 
-<br>
-<br>
-<br>
 
 <!-- Three -->
 <section class="wrapper ">
