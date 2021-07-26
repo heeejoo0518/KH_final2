@@ -54,9 +54,17 @@
 		<result property="trailer" column="TRAILER"/>
 	</resultMap>
 
-	<!-- movie 리스트 목록 -->
+	<!-- movie 리스트 목록 with title-->
 	<select id="selectMovieList" resultMap="movieListResultMap">
 		<include refid="selectMovieSql"/>
+		ORDER BY MOVIE_ID DESC
+	</select>
+	
+	<select id="selectMovieListWithTitle" parameterType="Map" resultMap="movieListResultMap">
+		<include refid="selectMovieSql"/>
+		<if test="title != null and title != ''">
+			WHERE TITLE_KOR LIKE '%${title}%'
+		</if> 
 		ORDER BY MOVIE_ID DESC
 	</select>
 	
@@ -71,8 +79,20 @@
 	</select>
 		
 	<select id="selectMovieCount" resultType="_int">
-		SELECT COUNT(*)
-		FROM MOVIE
+		SELECT COUNT(*) FROM MOVIE
+	</select>
+	
+	<select id="selectMovieCountWithTitle" parameterType="Map" resultType="_int">
+		SELECT COUNT(*) FROM MOVIE
+		<if test="title != null and title != ''">
+			WHERE TITLE_KOR LIKE '%${title}%'
+		</if>
+	</select>
+	
+	<!-- 메인화면에 DB top5 영화 -->
+	<select id="top5List" resultMap="movieListResultMap">
+		<include refid="selectMovieSql" />
+		ORDER BY VOTE DESC
 	</select>
 	
 	<resultMap type="Movie" extends="movieListResultMap" id="movieDetailResultMap">

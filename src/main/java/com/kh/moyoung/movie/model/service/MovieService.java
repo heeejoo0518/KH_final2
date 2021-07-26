@@ -10,8 +10,12 @@ public interface MovieService {
 
 	int save(Movie movie);
 
+	int getMovieCount(String title);
+	
 	int getMovieCount();
 
+	List<Movie> getMovieList(PageInfo pageInfo, String title);
+	
 	List<Movie> getMovieList(PageInfo pageInfo);
 
 	Movie findByNo(int movieNo);
@@ -23,6 +27,8 @@ public interface MovieService {
 	int getLikeCount(int u_no);
 	
 	List<Movie> getLikeList(PageInfo pageInfo, int u_no);
+
+	List<Movie> top5List(PageInfo pageInfo);
 	
 	//List<Movie> getLikeList(PageInfo pageInfo);
 }

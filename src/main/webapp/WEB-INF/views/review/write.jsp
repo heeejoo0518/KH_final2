@@ -1,17 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+    pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/views/common/header.jsp"%> 
+<script src="${ path }/js/jquery-3.6.0.min.js"></script>
 
-
-<c:set var="path" value="${pageContext.request.contextPath}" />
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>모두의 영화</title>
 <style>
 	body{
 		background-color: #020d18;
@@ -29,6 +20,9 @@
 		resize: none;
 		padding-top: 10px;
 		padding-left: 10px;
+		height: 500px;
+    	width: 700px;
+    	color: black;
 	}
 	#div-spoiler{
 		position: absolute;
@@ -69,9 +63,6 @@
 	.star-input>.input>label[for="p5"]{width:150px;z-index:1;}
 	.star-input>output{display:inline-block;width:40px; font-size:18px;text-align:right; vertical-align:middle;}
 </style>
-</head>
-<body>
-<h2>header</h2>
 	<div id="reviewContainer"> <!-- 중앙  -->
 		<form action="${ path }/review/write" method="POST">
 			<input type="hidden" name="no" value="${ no }">
@@ -110,8 +101,8 @@
 		</div>
 		</form>
 	</div>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<h2>footer</h2>
-</body>
-</html>
+	<br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br>
+	
+<%@ include file="/WEB-INF/views/common/footer.jsp"%>

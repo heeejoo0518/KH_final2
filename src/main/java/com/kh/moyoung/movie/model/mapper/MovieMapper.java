@@ -12,13 +12,13 @@ import com.kh.moyoung.review.model.vo.Review;
 
 @Mapper
 public interface MovieMapper {
-	
-	int selectMovieCount();
+
+	int selectMovieCountWithTitle(@Param("title")String title);
 	
 	int insertMovie(Movie movie);
-	
-	List<Movie> selectMovieList(RowBounds rowBounds);
-	
+
+	List<Movie> selectMovieListWithTitle(RowBounds rowBounds, @Param("title")String title);
+
 	Movie selectMovieByNo(@Param("movieNo") int movieNo);
 
 	List<Movie> selectMovieRecent(RowBounds rowBounds);
@@ -26,7 +26,13 @@ public interface MovieMapper {
 	List<Review> selectMovieVote(RowBounds rowBounds);
 
 	int selectLikeCount(@Param("u_no") int u_no);
-	
+
 	List<Movie> selectLikeList(RowBounds rowBounds, @Param("u_no") int u_no);
+
+	List<Movie> top5List(RowBounds rowBounds);
+
+	int selectMovieCount();
+
+	List<Movie> selectMovieList(RowBounds rowBounds);
 
 }

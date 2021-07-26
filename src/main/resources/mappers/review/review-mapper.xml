@@ -32,6 +32,7 @@
 		<result property="content" column="CONTENT" />
 		<result property="writeDate" column="WRITEDATE" />
 		<result property="nickname" column="NICKNAME" />
+		<result property="movieTitle_kor" column="TITLE_KOR" />
 	</resultMap>
 
 	<select id="selectReviewList" resultMap="reviewListResultMap">
@@ -82,7 +83,27 @@
 		)
 	</insert>
 
+	<delete id="deleteReview" parameterType="_int">
+		DELETE FROM
+			MOVIE_REVIEW
+		WHERE
+			REVIEW_ID = #{reviewNo}
+	</delete>
+	
+	<!-- 마이페이지-내 리뷰 목록 카운트 -->
+    <select id="selectMyReviewCount" parameterType="_int" resultType="_int">
+        SELECT COUNT(*)
+        FROM MOVIE_REVIEW
+        WHERE U_NO = #{u_no}
+    </select>
 
 
-
+    <!-- 마이페이지-내 리뷰 목록 리스트 -->
+    <select id="selectMyReviewList" parameterType="map" resultMap="reviewListResultMap">
+        SELECT MOVIE_REVIEW.*,
+                M.TITLE_KOR
+        FROM MOVIE_REVIEW
+        JOIN MOVIE M ON (MOVIE_REVIEW.MOVIE_ID = M.MOVIE_ID)
+        WHERE U_NO = #{u_no}
+    </select>
 </mapper>

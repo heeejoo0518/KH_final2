@@ -4,8 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
-
-<link href="${path}/resources/css/bootstrapDarkly.css" rel="stylesheet"/> 	
+<link href="${path}/resources/css/bootstrapDarkly.css" rel="stylesheet"/>
 <%@ include file="/WEB-INF/views/common/header.jsp"%>
 
 <style>
@@ -16,7 +15,8 @@
     font-style: normal;
 }
 
-#preloader {padding-top:70px; background-color:#020d18; color: white; font-family: 'NanumSquareRound';}
+h2 {color:white; margin-top:50px; margin-bottom:30px;}
+#preloader {background-color:#020d18; color: white; font-family: 'NanumSquareRound';}
 textarea{resize:none;}
 
 /* 작성 폼 영역 스타일 */
@@ -30,22 +30,16 @@ textarea{resize:none;}
     
 #pt-title{color:#4280bf; padding-left:10px; font-size:13pt; font-weight: bold;}
 #pt-logo{width:20px;height:20px;}
-span#pt-writer {color: #abb7c4;	font-size:11pt; margin-top:5px;	margin-bottom:5px;}
+p#pt-writer {color: #abb7c4;	font-size:10pt; margin-top:5px;	margin-bottom:5px;}
 
 /* 상단 로고 이미지 스타일 */
 #ottBt {width:64px; height:64px; background-color:white; border-radius:50%; display:flex; justify-content:center; align-items:center ; cursor:pointer; margin:10px; margin-bottom:30px; }
+/* #ottBt:hover {background-color:#dcf836;} */
 img#listImg {width:40px; height:40px;}
 #select-type{display:flex; justify-content:center; margin:auto; padding:30px;}
 #party-list {display:flex; justify-content:space-evenly;}
 
-#ptbt {
-text-align:center;
-padding-left:0px;
-color:#3498db !important; 
-}
-#ptbt:hover {color:white !important;}
-
-/*삭제 버튼 */
+/*신고하기 버튼 */
 #dtimg{width:15px; height:15px; margin-left:10px; opacity:0; transition:0.5s all;}
 #ott-logo{display:inline;}
 #pt-card:hover #dtimg{opacity:1; cursor:pointer;}
@@ -63,8 +57,8 @@ color:#3498db !important;
 
 <div class="row">
 		<div class="col-sm-12">
-			<p style="font-size:25pt; text-align:center; margin-bottom:0px;">파티원 모집하기</p>
-			<p style="font-size:13pt; text-align:center;">파티원 구하기로<br>스트리밍을 쉽고 빠르게!</p>
+			<h3 style="text-align:center;">파티원 모집하기</h3>
+			<h5 style="text-align:center;">파티원 구하기로<br>스트리밍을 쉽고 빠르게!</h5>
 		</div>
 	
 		
@@ -92,8 +86,8 @@ color:#3498db !important;
 			
 <div id="party-pt" class="row">
 		<div class="col-sm-12" style="text-align:center; margin-top:50px;">
-			<p style="font-size:25pt; text-align:center; margin-bottom:0px; margin-top:30px;"> 모집 중인 파티</p>
-			<p style="font-size:13pt; color:lightgrey;  text-align:center;">모집 중인 파티에 참가해보세요</p>
+			<h3 style="display:inline;">모집 중인 파티</h3>
+					<p style="color:lightgrey; text-align:center; padding-bottom:20px;"> 모집 중인 파티에 참가해보세요</p>
 		</div>
 		
 		
@@ -140,7 +134,7 @@ color:#3498db !important;
 							 				</c:if>
 									  	</div>
 									  	<div>
-										  	<p id="pt-date" style="font-size:9pt; color:grey;"><c:out value="${party.create_date}"/></p>
+										  	<p id="pt-date" style="font-size:10pt; color:grey;"><c:out value="${party.create_date}"/></p>
 									   		<p style="padding-right:5px;"><c:out value="${party.content }"/></p>
 									   	</div>
 
@@ -152,6 +146,17 @@ color:#3498db !important;
 		</c:forEach>
 	</c:if>			
 </div>
+
+				<div class="col-sm-12">
+						<button id="more" 
+						onclick="location.href='${ path }/party/list?page=${ pageInfo.nextPage }'"
+						 class="btn btn-outline-light btn-lg btn-block" >더보기</button>
+					</div>
+					
+		<script>
+			
+		</script>
+
 </div>
 					
 		 		
@@ -159,6 +164,9 @@ color:#3498db !important;
 </div>
 </div>
 </section>
+
+
+
 <%@ include file="/WEB-INF/views/common/footer.jsp"%>
 <%@ include file="/WEB-INF/views/common/modal.jsp"%>
 
@@ -168,8 +176,8 @@ color:#3498db !important;
 		title="파티원 모집하기";
 		$( "#modal-body" ).load('${ path }/party/partyWrite');
 	$('#modal-title').text(title);
-	$("#modal-save-btn").hide();
 	$('#modal').modal('show');
+	
 		};
 	
 })(jQuery);

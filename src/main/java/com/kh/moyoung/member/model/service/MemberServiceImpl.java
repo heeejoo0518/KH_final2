@@ -24,7 +24,7 @@ public class MemberServiceImpl implements MemberService {
 		return member != null && 
 				passwordEncoder.matches(u_pwd, member.getU_pwd()) ? member : null;
 	}
-
+	
 	@Override
 	@Transactional
 	public int save(Member member) {
@@ -43,7 +43,6 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public boolean validate(String u_id) {				
-		
 		return this.findById(u_id) != null;
 	}
 	
@@ -55,7 +54,6 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public Member findById(String u_id) {
-		
 		return mapper.selectMember(u_id);
 	}
 	

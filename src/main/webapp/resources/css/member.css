@@ -4,215 +4,285 @@ section {
 	margin-top: 150px !important;
 }
 
-
-.signin-container{
-    width:300px;
-    max-width:100%;
-    margin:50px auto;
+.signin-container {
+	width: 300px;
+	max-width: 100%;
+	margin: 50px auto;
 }
 
 /* .signin-container .btn-signin{
     background-color:#FF5964;
     color:white;
 } */
+.signin-container a, p {
+	color: white;
+	font-size: 0.8em;
+	opacity: 0.6;
+}
 
-.signin-container a{
-    color:white;
-    font-size:0.8em;
-    opacity: 0.6;
+.signin-container p.row {
+	margin: 0 0 5px -1em;
 }
 
 #title {
-/* 	font-size:1.3em;
+	/* 	font-size:1.3em;
 	position:relative;
 	display:inline-block;
 	padding-bottom:10px; */
-	
 	flex: 1 1 0%;
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: 0%;
-    color: white;
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: -1px;
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: 0%;
+	color: white;
+	font-size: 18px;
+	font-weight: 700;
+	letter-spacing: -1px;
 }
 
 #save-id {
- 	position:relative;
-	display:inline-block;
-	float:right;
-	margin-right:10px; 
-	
+	position: relative;
+	display: inline-block;
+	float: right;
+	margin-right: 10px;
 	color: white;
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: -0.4px;
-    padding: 0px 0px 0px;
-    opacity: 0.6;
+	font-size: 12px;
+	font-weight: 400;
+	letter-spacing: -0.4px;
+	padding: 0px 0px 0px;
+	opacity: 0.6;
 }
 
 .input-with-icon {
-	 position: relative;
-	 box-sizing: border-box;
+	position: relative;
+	box-sizing: border-box;
 }
 
 .input-with-icon .form-control {
-	padding:6px 12px 6px 12px !important;
+	padding: 6px 12px 6px 12px !important;
 }
 
 .input-with-icon .icon {
-	display:none;
+	display: none;
 	position: absolute;
-	top:0rem;
+	top: 0rem;
 	right: 1rem;
 	width: 15px;
-	height:15px;
+	height: 15px;
 }
 
 .icon button {
-	border:none; 
-	background:none;
+	border: none;
+	background: none;
 	opacity: 1 !important;
 }
 
 .icon button:hover {
-	background-color:transparent;	
+	background-color: transparent;
 }
 
 .icon img {
-	width:15px; 
-	height:15px;
-	object-fit:cover;
+	width: 15px;
+	height: 15px;
+	object-fit: cover;
 }
 
 /* The switch - the box around the slider */
 .switch {
-  position: relative;
-  display: inline-block;
-  width: 30px;
-  height: 17px;
-  float:right;
+	position: relative;
+	display: inline-block;
+	width: 30px;
+	height: 17px;
+	float: right;
 }
 
 /* Hide default HTML checkbox */
-.switch input {display:none;}
+.switch input {
+	display: none;
+}
 
 /* The slider */
 .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	-webkit-transition: .4s;
+	transition: .4s;
 }
 
 .slider:before {
-  position: absolute;
-  content: "";
-  height: 13px;
-  width: 13px;
-  left: 2px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-  top:2px;
+	position: absolute;
+	content: "";
+	height: 13px;
+	width: 13px;
+	left: 2px;
+	bottom: 4px;
+	background-color: white;
+	-webkit-transition: .4s;
+	transition: .4s;
+	top: 2px;
 }
 
-input.success:checked + .slider {
-  background-color: #8bc34a;
+input.success:checked+.slider {
+	background-color: #8bc34a;
 }
 
-input:checked + .slider:before {
-  -webkit-transform: translateX(13px);
-  -ms-transform: translateX(13px);
-  transform: translateX(13px);
+input:checked+.slider:before {
+	-webkit-transform: translateX(13px);
+	-ms-transform: translateX(13px);
+	transform: translateX(13px);
 }
 
 /* Rounded sliders */
 .slider.round {
-  border-radius: 17px;
+	border-radius: 17px;
 }
 
 .slider.round:before {
-  border-radius: 50%;
+	border-radius: 50%;
 }
 
+/* google */
+#customBtn {
+	color: #444;
+    border-radius: 15px;
+    border: thin solid #888;
+    box-shadow: 1px 1px 1px grey;
+    white-space: nowrap;
+    background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png) white 0px 50% no-repeat;
+    background-size: cover;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    width: 35px;
+    height: 35px;
+}
+
+#customBtn:hover {
+	cursor: pointer;
+}
+
+span.label {
+	font-family: serif;
+	font-weight: normal;
+}
+
+span.buttonText {
+	display: inline-block;
+	vertical-align: middle;
+	padding-left: 42px;
+	padding-right: 42px;
+	font-size: 14px;
+	font-weight: bold;
+	/* Use the Roboto font that is loaded in the <head> */
+	font-family: 'Roboto', sans-serif;
+}
 
 /*signup.jsp*/
-.signup-container{
-    width:350px;
-    max-width:100%;
-    margin:50px auto;
+.signup-container {
+	width: 350px;
+	max-width: 100%;
+	margin: 50px auto;
 }
 
 #check-info {
-	padding-bottom:20px;
-	text-align:center;
+	padding-bottom: 20px;
+	text-align: center;
 }
 
-#check-info p{
-	font-size:0.8em;
+#check-info p {
+	font-size: 0.8em;
 	flex: 1 1 0%;
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: 0%;
-    letter-spacing: -0.4px;
-    font-weight: 400;
-    opacity: 0.8;
-	margin:0px;
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: 0%;
+	letter-spacing: -0.4px;
+	font-weight: 400;
+	opacity: 0.8;
+	margin: 0px;
 }
 
 #check-info p b {
-	color:red;
+	color: red;
 }
 
 .form-signup input {
 	flex: 1 1 0%;
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: 0%;
-    color: black;
-    letter-spacing: -1px;
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: 0%;
+	color: black;
+	letter-spacing: -1px;
 }
 
 #signup-info input {
-	content:"";
-	background-image:url("");
-	background-repeat:no-repeat;
-	background-position:98% center;
-	background-size:15px 15px;
-	padding-right:10px;
-	padding-left:10px;
-	box-sizing:border-box;
-	
+	content: "";
+	background-image: url("");
+	background-repeat: no-repeat;
+	background-position: 98% center;
+	background-size: 15px 15px;
+	padding-right: 10px;
+	padding-left: 10px;
+	box-sizing: border-box;
 }
 
 #check-permission {
-	margin-bottom:20px;
+	margin-bottom: 20px;
 }
 
-#check-permission label{
-	display:block;
-	padding-left:10px;
-	font-size:0.8em;
+#check-permission label {
+	display: block;
+	padding-left: 10px;
+	font-size: 0.8em;
 	color: gray;
 	flex: 1 1 0%;
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: 0%;
-    letter-spacing: -0.4px;
-    font-weight: 400;
-    opacity: 0.8;
-	margin:0px;
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: 0%;
+	letter-spacing: -0.4px;
+	font-weight: 400;
+	opacity: 0.8;
+	margin: 0px;
 }
 
 #check-permission label a {
-	color:white;
+	color: white;
 	opacity: 0.7;
+}
+
+/* findId.jsp*/
+.findId-container {
+	width: 300px;
+	max-width: 100%;
+	margin: 50px auto;
+}
+
+.findId-container a {
+	color: white;
+	font-size: 0.8em;
+	opacity: 0.6;
+}
+
+/* findPw.jsp */
+.findPw-container {
+	width: 300px;
+	max-width: 100%;
+	margin: 50px auto;
+}
+
+.findPw-container a {
+	color: white;
+	font-size: 0.8em;
+	opacity: 0.6;
+}
+
+/* showId.jsp */
+.showId-container {
+	width: 350px;
+	max-width: 100%;
+	margin: 50px auto;
+	text-align: center;
 }

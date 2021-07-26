@@ -3,9 +3,8 @@
     
 <%@ include file="/WEB-INF/views/mypage/mypage_header.jsp"%>
 
-<fmt:parseDate value='${signinMember.birth}' var='parse_birth' pattern='yyyy-MM-dd HH:mm:ss.s'/>
+<fmt:parseDate value='${signinMember.birth}' var='parse_birth' pattern='yyyy-MM-dd HH:mm:ss'/>
 <fmt:formatDate value="${parse_birth}" var='fmt_birth' pattern="yyyy-MM-dd" />
-
 
 	<div class="mypage-update-container">
 		<form name="updateForm" class="form-update" action="${ path }/mypage/update" method="POST">
@@ -15,32 +14,33 @@
 			
 			<div id="update-info" style="padding-bottom:15px">
 				<div class="input-with-icon">
-					<input type="text" id="update_id" class="form-control" name="u_id" value="${signinMember.u_id}" disabled>
+					<input type="text" id="update_id" class="form-control" name="u_id" 
+					value="<c:if test='${signinMember.signup_type==0}'>${signinMember.u_id}</c:if><c:if test='${signinMember.signup_type != 0}'><c:out value="${fn:substring(signinMember.u_id,0,8)}"/></c:if>" disabled>
 				</div>
 				
 				<div class="input-with-icon">
-					<input type="password" id="update_pw" class="form-control" name="u_pwd" placeholder="새 비밀번호(영어,숫자,특문 2조합 8자 이상)" autocomplete="new-password" >
+					<input type="password" id="update_pw" class="form-control" name="u_pwd" placeholder="새 비밀번호(영어,숫자,특문 2조합 8자 이상)" autocomplete="new-password" <c:if test="${signinMember.signup_type != 0}">disabled</c:if> >
 					<div class="btn btn-default icon pw-icon">
 						<button disabled><img src="#" id="img_pw"/></button>
 					</div>
 				</div>
 				
 				<div class="input-with-icon">
-					<input type="password" id="update_pw_check" class="form-control" placeholder="새 비밀번호 확인" autocomplete="new-password" >
+					<input type="password" id="update_pw_check" class="form-control" placeholder="새 비밀번호 확인" autocomplete="new-password"  <c:if test="${signinMember.signup_type != 0}">disabled</c:if> >
 					<div class="btn btn-default icon pw-check-icon">
 						<button disabled><img src="#" id="img_pw_check"/></button>
 					</div>
 				</div>
 				
 				<div class="input-with-icon">
-					<input type="text" id="update_nickname" class="form-control" name="nickname" placeholder="${signinMember.nickname}" >
+					<input type="text" id="update_nickname" class="form-control" name="nickname" placeholder="<c:if test='${signinMember.u_id ne signinMember.nickname}'>${signinMember.nickname}</c:if><c:if test='${signinMember.u_id eq signinMember.nickname}'>닉네임</c:if>" >
 					<div class="btn btn-default icon nickname-icon">
 						<button disabled><img src="#" id="img_nickname"/></button>
 					</div>
 				</div>
 				
 				<div class="input-with-icon">
-					<input type="email" id="update_email" class="form-control" name="email" placeholder="${signinMember.email}" >
+					<input type="email" id="update_email" class="form-control" name="email" placeholder="${signinMember.email}" <c:if test="${signinMember.signup_type != 0}">disabled</c:if>>
 					<div class="btn btn-default icon email-icon">
 						<button disabled><img src="#" id="img_email"/></button>
 					</div>
@@ -59,6 +59,8 @@
 			
 			<button type="button" id="update_button" class="btn btn-lg btn-primary btn-block btn-signin" onclick="updateInfo();">정보 수정</button>
 		</form>
+		<hr style="margin: 0 0 10px 0;">
+		<a href="#" onclick="deleteMember();return false;">회원탈퇴</a>
 	</div>
 	
 <%@ include file="/WEB-INF/views/mypage/mypage_footer.jsp"%>
@@ -229,5 +231,11 @@
 		else {
 			form.submit();
 		}
+	}
+</script><script>
+	function deleteMember(){
+		if (confirm("정말 탈퇴하시겠습니까? \n탈퇴 후 같은 아이디나 sns 계정으로 다시 가입하실 수 없습니다.")) {
+			location.href = "${path}/member/delete"; 
+		} 
 	}
 </script>

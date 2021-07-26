@@ -11,7 +11,6 @@
 <!-- CSS files -->
 <link rel="stylesheet" href="${ path }/css/plugins.css">
 <link rel="stylesheet" href="${ path }/css/style.css">
-</head>
 <!--preloading-->
 <div id="preloader">
 	<img class="logo" src="${ path }/images/logo1.png" alt="" width="119"
@@ -54,10 +53,16 @@
 							<input type="hidden" name="no" value="${ movie.movieNo }">
 						</form>
 						<div class="social-btn" style="margin-bottom: 10px">
+						
+<%-- 						 	<c:if test="${empty signinMember }"> --%>
+<!-- 						 		<p>로그인 후 리뷰 작성이 가능합니다.</p> -->
+<%-- 						 	</c:if> --%>
+<%-- 							<c:if test="${! empty signinMember }"> --%>
 							<a href="#" class="parent-btn" style="padding-left: 10px">찜하기<i
 								class="ion-heart"></i></a> <a
 								href="${ path }/review/write?no=${movie.movieNo}"
 								class="parent-btn">리뷰쓰기<i class="ion-edit"></i></a>
+<%-- 							</c:if>	 --%>
 						</div>
 					</div>
 				</div>
@@ -150,7 +155,7 @@
 												<div class="cast-it">
 													<div class="cast-left">
 														<img src="${ path }/images/uploads/cast1.jpg" alt="">
-														<a href="#"><c:out value="${ movie.actor }" /></a>
+														<a href="#" style="font-family: 'Nunito', sans-serif; font-size: 14px"><c:out value="${ movie.actor }" /></a>
 													</div>
 												</div>
 											</div>
@@ -166,7 +171,6 @@
 
 													<div class="mv-user-review-item">
 
-														<!--  신고하기 / 좋아요 버튼 이정도에 들어오면 될거같은데.. -->
 														<div class="no-star">
 															<c:choose>
 																<c:when test="${ review.rate == 0 }">
@@ -244,20 +248,20 @@
 											</div>
 											<div class="sb-it">
 												<h6>개봉일</h6>
-												<p>
+												<a href="#">
 													<fmt:formatDate value="${ movie.open_date }"
 														pattern="yyyy-MM-dd" />
-												</p>
+												</a>
 											</div>
 											<div class="sb-it">
 												<h6>런타임:</h6>
-												<p>${ movie.run_time }분</p>
+												<a href="#">${ movie.run_time }분</a>
 											</div>
 											<div class="sb-it">
 												<h6>시청연령:</h6>
-												<p>${ movie.viewing_age }</p>
+												<a href="#">${ movie.viewing_age }</a>
 											</div>
-											<div class="ads">
+											<div class="sb-it">
 												<img src="${ path }/images/uploads/ads1.png" alt="">
 											</div>
 										</div>
