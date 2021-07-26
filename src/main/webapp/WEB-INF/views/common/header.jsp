@@ -50,7 +50,7 @@
 			<li class="row" style="margin-left: 10px;"><input type="text"
 			class="form-control form-control-sm col-md-10" name="keyword"
 				id="keyword" placeholder="원하시는 컨텐츠의 제목을 입력하세요">
-				<button class="btn btn-sm btn-primary col-md-2" name="btnSearch" id="btnSearch" onclick="location.href='${path}/movie/list'">
+				<button class="btn btn-sm btn-primary col-md-2" name="btnSearch" id="btnSearch" onclick="search();">
 					<i class="ion-search"></i>
 				</button>
 			</li>
@@ -153,4 +153,11 @@
 			}
 	});
 })(jQuery);
+</script>
+
+<script>
+function search(){
+	var text = $('#keyword').val();
+	window.location = '${path}/movie/list?movieTitle='+text;
+}
 </script>
