@@ -29,4 +29,6 @@ public interface MovieMapper {
 	
 	List<Movie> selectLikeList(RowBounds rowBounds, @Param("u_no") int u_no);
 
+	List<Movie> top5List();
+
 }

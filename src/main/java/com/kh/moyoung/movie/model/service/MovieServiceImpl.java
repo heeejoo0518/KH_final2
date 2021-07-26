@@ -76,4 +76,11 @@ public class MovieServiceImpl implements MovieService {
 		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
 		return mapper.selectLikeList(rowBounds, u_no);
 	}
+
+	@Override
+	public List<Movie> top5List() {
+		
+		
+		return mapper.top5List();
+	}
 }

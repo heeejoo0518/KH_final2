@@ -23,6 +23,8 @@ public interface MovieService {
 	int getLikeCount(int u_no);
 	
 	List<Movie> getLikeList(PageInfo pageInfo, int u_no);
+
+	List<Movie> top5List();
 	
 	//List<Movie> getLikeList(PageInfo pageInfo);
 }
