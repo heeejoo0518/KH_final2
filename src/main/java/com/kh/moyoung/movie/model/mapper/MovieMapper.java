@@ -35,4 +35,14 @@ public interface MovieMapper {
 
 	List<Movie> selectMovieList(RowBounds rowBounds);
 
+	int selectPlatformCount();
+
+	List<Movie> selectNetflixList(RowBounds rowBounds);
+
+	List<Movie> selectWatchaList(RowBounds rowBounds);
+
+	List<Movie> selectTvingList(RowBounds rowBounds);
+
+	List<Movie> selectWavveList(RowBounds rowBounds);
+
 }

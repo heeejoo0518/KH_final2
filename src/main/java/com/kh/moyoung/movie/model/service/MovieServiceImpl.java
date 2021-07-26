@@ -98,4 +98,42 @@ public class MovieServiceImpl implements MovieService {
 		
 		return mapper.top5List(rowBounds);
 	}
+
+	@Override
+	public int getPlatformCount() {
+		
+		return mapper.selectPlatformCount();
+	}
+
+	@Override
+	public List<Movie> getNetflixList(PageInfo pageInfo) {
+		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
+		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
+		
+		return mapper.selectNetflixList(rowBounds);
+	}
+
+	@Override
+	public List<Movie> getWatchaList(PageInfo pageInfo) {
+		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
+		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
+		
+		return mapper.selectWatchaList(rowBounds);
+	}
+
+	@Override
+	public List<Movie> getTvingList(PageInfo pageInfo) {
+		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
+		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
+		
+		return mapper.selectTvingList(rowBounds);
+	}
+
+	@Override
+	public List<Movie> getWavveList(PageInfo pageInfo) {
+		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
+		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
+		
+		return mapper.selectWavveList(rowBounds);
+	}
 }

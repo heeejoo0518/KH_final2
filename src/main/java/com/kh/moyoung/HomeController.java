@@ -26,7 +26,7 @@ import lombok.extern.slf4j.Slf4j;
 public class HomeController {
 	@Autowired
 	private MovieService service;
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -34,16 +34,31 @@ public class HomeController {
 			ModelAndView mav) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		log.info("메인 페이지");
-		
+
 		List<Movie> list = null;
-		PageInfo pageInfo = new PageInfo(1,1,service.getMovieCount(),5);
+    PageInfo pageInfo = new PageInfo(1,1,service.getMovieCount(),5);
 		list = service.top5List(pageInfo);
-		
+
+
+    pageInfo = new PageInfo(1, 1, service.getPlatformCount(), 2);
+		List<Movie> netflix = service.getNetflixList(pageInfo);
+		List<Movie> watcha = service.getWatchaList(pageInfo);
+		List<Movie> tving = service.getTvingList(pageInfo);
+		List<Movie> wavve = service.getWavveList(pageInfo);
+
+
+		System.out.println(netflix);
+
 		mav.addObject("list",list);
+		mav.addObject("netflix",netflix);
+		mav.addObject("watcha", watcha);
+		mav.addObject("tving", tving);
+		mav.addObject("wavve", wavve);
 		mav.setViewName("home");
-		
+
 		return mav;
 	}
-	
-	
+
+
+
 }

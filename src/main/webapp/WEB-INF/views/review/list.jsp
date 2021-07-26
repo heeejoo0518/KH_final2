@@ -72,7 +72,7 @@
 		        		
 		        		<c:when test="${ review.spoiler eq '1' }">
 		        			<div id="divP">
-		        			<p style="text-align: center">스포일러가 포함된 리뷰를 보려면 우측 상단 체크!</p>
+		        			<p style="text-align: center">스포일러가 포함된 리뷰를 보려면 좌측 체크!</p>
 		        			</div>
 		        			<div id="div-user-spoilerContent" class="div-user-spoilerContent"> 
 		        				<c:out value="${ review.content }"/>

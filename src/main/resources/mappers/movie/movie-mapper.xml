@@ -5,7 +5,7 @@
 
 <mapper namespace="com.kh.moyoung.movie.model.mapper.MovieMapper">
 	<sql id="selectMovieSql">
-		SELECT   
+		SELECT
 			MOVIE_ID,
 			LAST_UPDATE,
 			TITLE,
@@ -29,7 +29,7 @@
 			TRAILER
 		FROM MOVIE
 	</sql>
-		
+
 	<resultMap type="Movie" id="movieListResultMap" >
 		<id property="movieNo" column="MOVIE_ID"/>
 		<result property="last_update" column="LAST_UPDATE"/>
@@ -59,61 +59,93 @@
 		<include refid="selectMovieSql"/>
 		ORDER BY MOVIE_ID DESC
 	</select>
-	
+
 	<select id="selectMovieListWithTitle" parameterType="Map" resultMap="movieListResultMap">
 		<include refid="selectMovieSql"/>
 		<if test="title != null and title != ''">
 			WHERE TITLE_KOR LIKE '%${title}%'
-		</if> 
+		</if>
 		ORDER BY MOVIE_ID DESC
 	</select>
-	
+
 	<select id="selectMovieRecent" resultMap="movieListResultMap">
 		<include refid="selectMovieSql"/>
 		ORDER BY PRODUCT_YEAR DESC
 	</select>
-	
+
 	<select id="selectMovieVote" resultMap="movieListResultMap">
 		<include refid="selectMovieSql"/>
 		ORDER BY VOTE DESC
 	</select>
-		
+
 	<select id="selectMovieCount" resultType="_int">
 		SELECT COUNT(*) FROM MOVIE
 	</select>
-	
+
 	<select id="selectMovieCountWithTitle" parameterType="Map" resultType="_int">
 		SELECT COUNT(*) FROM MOVIE
 		<if test="title != null and title != ''">
 			WHERE TITLE_KOR LIKE '%${title}%'
 		</if>
 	</select>
-	
+
 	<!-- 메인화면에 DB top5 영화 -->
 	<select id="top5List" resultMap="movieListResultMap">
 		<include refid="selectMovieSql" />
 		ORDER BY VOTE DESC
 	</select>
-	
+
 	<resultMap type="Movie" extends="movieListResultMap" id="movieDetailResultMap">
 <!-- 		<collection property="replies" javaType="arraylist" columnPrefix="R_" resultMap="boardReplyResultMap"/> -->
 	</resultMap>
-	
-	
+
+
 	<!--  마이페이지 - 내가 찜한 영화 카운트 -->
 	<select id="selectLikeCount" parameterType="_int" resultType="_int">
 		SELECT COUNT(*)
 		FROM MOVIE
 		JOIN MOVIE_USER_LIKE L ON (MOVIE.MOVIE_ID = L.MOVIE_ID AND L.U_NO = #{u_no})
 	</select>
-	
+
 	<!--  마이페이지 - 내가 찜한 영화 리스트 -->
 	<select id="selectLikeList" parameterType="map" resultMap="movieListResultMap">
 		SELECT MOVIE.*
 		FROM MOVIE
 		JOIN MOVIE_USER_LIKE L ON (MOVIE.MOVIE_ID = L.MOVIE_ID AND L.U_NO = #{u_no})
 	</select>
-	
+
+	<!-- 플랫폼별 영화 개수 카운트 -->
+	<select id="selectPlatformCount"  resultType="_int">
+		SELECT COUNT(*)
+        FROM MOVIE
+        WHERE NETFLIX IS NOT NULL
+	</select>
+
+	<!-- 넷플릭스 리스트 -->
+	<select id="selectNetflixList" resultMap="movieListResultMap">
+		<include refid="selectMovieSql"/>
+			WHERE NETFLIX IS NOT NULL
+			ORDER BY VOTE DESC
+	</select>
+
+	<select id="selectWatchaList" resultMap="movieListResultMap">
+		<include refid="selectMovieSql"/>
+			WHERE WATCHA IS NOT NULL
+			ORDER BY VOTE DESC
+	</select>
+
+	<select id="selectTvingList" resultMap="movieListResultMap">
+		<include refid="selectMovieSql"/>
+			WHERE TVING IS NOT NULL
+			ORDER BY VOTE DESC
+	</select>
+
+	<select id="selectWavveList" resultMap="movieListResultMap">
+		<include refid="selectMovieSql"/>
+			WHERE WAVVE IS NOT NULL
+			ORDER BY VOTE DESC
+	</select>
+
 	<select id="selectMovieByNo" parameterType="_int" resultMap="movieDetailResultMap">
  		SELECT
 			MOVIE_ID,
@@ -140,10 +172,10 @@
 		FROM MOVIE
 		WHERE MOVIE_ID=#{movieNo}
 	</select>
-	
+
 <!-- 	<select id="selectMovieByDate" resultMap="movieListResultMap"> -->
 <!-- 		<include refid="selectMovieSql"/> -->
 <!-- 		ORDER BY PRODUCT_YEAR DESC -->
 <!-- 	</select> -->
-	
+
 </mapper>

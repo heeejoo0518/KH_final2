@@ -11,11 +11,11 @@ public interface MovieService {
 	int save(Movie movie);
 
 	int getMovieCount(String title);
-	
+
 	int getMovieCount();
 
 	List<Movie> getMovieList(PageInfo pageInfo, String title);
-	
+
 	List<Movie> getMovieList(PageInfo pageInfo);
 
 	Movie findByNo(int movieNo);
@@ -23,12 +23,22 @@ public interface MovieService {
 	List<Movie> selectMovieRecent(PageInfo pageInfo);
 
 	List<Review> selectMovieVote(PageInfo pageInfo);
-	
+
 	int getLikeCount(int u_no);
 	
 	List<Movie> getLikeList(PageInfo pageInfo, int u_no);
 
 	List<Movie> top5List(PageInfo pageInfo);
-	
+
+	int getPlatformCount();
+
+	List<Movie> getNetflixList(PageInfo pageInfo);
+
+	List<Movie> getWatchaList(PageInfo pageInfo);
+
+	List<Movie> getTvingList(PageInfo pageInfo);
+
+	List<Movie> getWavveList(PageInfo pageInfo);
+
 	//List<Movie> getLikeList(PageInfo pageInfo);
 }
