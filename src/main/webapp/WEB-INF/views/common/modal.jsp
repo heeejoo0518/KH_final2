@@ -20,4 +20,8 @@
 	$('#modal').on('hide',function(){
 		$('#modal-close-btn').show();
 	});
+	
+	$('#modal-save-btn').on('click',function(){
+		$('#modal').modal('hide');
+	})
 </script>
