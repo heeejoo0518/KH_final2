@@ -68,13 +68,19 @@
 		ORDER BY MOVIE_ID DESC
 	</select>
 
-	<select id="selectMovieRecent" resultMap="movieListResultMap">
+	<select id="selectMovieRecent" parameterType="Map" resultMap="movieListResultMap">
 		<include refid="selectMovieSql"/>
+		<if test="title != null and title != ''">
+			WHERE TITLE_KOR LIKE '%${title}%'
+		</if>
 		ORDER BY PRODUCT_YEAR DESC
 	</select>
 
-	<select id="selectMovieVote" resultMap="movieListResultMap">
+	<select id="selectMovieVote" parameterType="Map" resultMap="movieListResultMap">
 		<include refid="selectMovieSql"/>
+		<if test="title != null and title != ''">
+			WHERE TITLE_KOR LIKE '%${title}%'
+		</if>
 		ORDER BY VOTE DESC
 	</select>
 

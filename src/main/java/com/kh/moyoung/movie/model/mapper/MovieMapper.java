@@ -21,9 +21,9 @@ public interface MovieMapper {
 
 	Movie selectMovieByNo(@Param("movieNo") int movieNo);
 
-	List<Movie> selectMovieRecent(RowBounds rowBounds);
+	List<Movie> selectMovieRecent(RowBounds rowBounds, @Param("title")String title);
 
-	List<Review> selectMovieVote(RowBounds rowBounds);
+	List<Review> selectMovieVote(RowBounds rowBounds, @Param("title")String title);
 
 	int selectLikeCount(@Param("u_no") int u_no);
 

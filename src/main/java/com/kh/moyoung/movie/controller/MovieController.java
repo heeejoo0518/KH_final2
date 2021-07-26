@@ -52,10 +52,10 @@ public class MovieController {
 			model.addObject("list",service.getMovieList(pageInfo, title));
 			break;
 		case "b":
-			model.addObject("list",service.selectMovieRecent(pageInfo));
+			model.addObject("list",service.selectMovieRecent(pageInfo, title));
 			break;
 		case "c":
-			model.addObject("list",service.selectMovieVote(pageInfo));
+			model.addObject("list",service.selectMovieVote(pageInfo, title));
 			break;
 		}
 		

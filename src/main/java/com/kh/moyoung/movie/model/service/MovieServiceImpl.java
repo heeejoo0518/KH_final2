@@ -64,19 +64,19 @@ public class MovieServiceImpl implements MovieService {
 	}
 
 	@Override
-	public List<Movie> selectMovieRecent(PageInfo pageInfo) {
+	public List<Movie> selectMovieRecent(PageInfo pageInfo, String title) {
 		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
 		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
 		
-		return mapper.selectMovieRecent(rowBounds);
+		return mapper.selectMovieRecent(rowBounds,title);
 	}
 
 	@Override
-	public List<Review> selectMovieVote(PageInfo pageInfo) {
+	public List<Review> selectMovieVote(PageInfo pageInfo, String title) {
 		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
 		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
 		
-		return mapper.selectMovieVote(rowBounds);
+		return mapper.selectMovieVote(rowBounds,title);
 	}
 	
 	@Override

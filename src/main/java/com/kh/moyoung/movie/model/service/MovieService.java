@@ -20,9 +20,9 @@ public interface MovieService {
 
 	Movie findByNo(int movieNo);
 
-	List<Movie> selectMovieRecent(PageInfo pageInfo);
+	List<Movie> selectMovieRecent(PageInfo pageInfo, String title);
 
-	List<Review> selectMovieVote(PageInfo pageInfo);
+	List<Review> selectMovieVote(PageInfo pageInfo, String title);
 
 	int getLikeCount(int u_no);
 	
