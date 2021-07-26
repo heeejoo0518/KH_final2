@@ -25,6 +25,16 @@ public interface MovieService {
 	List<Movie> getLikeList(PageInfo pageInfo, int u_no);
 
 	List<Movie> top5List();
+
+	int getPlatformCount();
+
+	List<Movie> getNetflixList(PageInfo pageInfo);
+
+	List<Movie> getWatchaList(PageInfo pageInfo);
+
+	List<Movie> getTvingList(PageInfo pageInfo);
+
+	List<Movie> getWavveList(PageInfo pageInfo);
 	
 	//List<Movie> getLikeList(PageInfo pageInfo);
 }

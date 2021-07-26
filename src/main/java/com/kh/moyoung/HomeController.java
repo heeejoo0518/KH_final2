@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kh.moyoung.common.util.PageInfo;
 import com.kh.moyoung.movie.model.service.MovieService;
 import com.kh.moyoung.movie.model.vo.Movie;
 
@@ -35,14 +36,31 @@ public class HomeController {
 		log.info("메인 페이지");
 		
 		List<Movie> list = null;
+		List<Movie> netflix = null;
+		List<Movie> watcha = null;
+		List<Movie> tving = null;
+		List<Movie> wavve = null;
 		
+		PageInfo pageInfo = new PageInfo(1, 1, service.getPlatformCount(), 2);
+		
+		netflix = service.getNetflixList(pageInfo);
+		watcha = service.getWatchaList(pageInfo);
+		tving = service.getTvingList(pageInfo);
+		wavve = service.getWavveList(pageInfo);
 		list = service.top5List();
 		
+		System.out.println(netflix);
+		
 		mav.addObject("list",list);
+		mav.addObject("netflix",netflix);
+		mav.addObject("watcha", watcha);
+		mav.addObject("tving", tving);
+		mav.addObject("wavve", wavve);
 		mav.setViewName("home");
 		
 		return mav;
 	}
+	
 	
 	
 }

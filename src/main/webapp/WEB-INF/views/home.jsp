@@ -2,21 +2,43 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp"%>
 <link rel="stylesheet" href="${ path }/resources/css/main.css" />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <!-- 배너 -->
 <!--
 				비디오 백그라운드 사용시 data-video속성을 다음과 같이 설정해야함 (ex. images/banner).  .mp4 와 .webm 파일 둘 다 있어야함
 			-->
 <style>
 img#ott-img {
-width:558px;
-height:171px;
--webkit-box-reflect: below -2vw -webkit-gradient(linear, left top, left bottom, from(transparent), 
-color-stop(0.45, transparent), to(rgba(255, 255, 255, 0.25)));}
-#pt-1{margin-bottom:0px; padding-bottom:0px; text-align:center;}
-#pt-2{color: #abb7c4;   font-size:13pt; margin-top:20px; margin-bottom:40px; text-align:center;}
-input#pt-button {float:right;}
-</style>			
-			
+	width: 558px;
+	height: 171px;
+	-webkit-box-reflect: below -2vw
+		-webkit-gradient(linear, left top, left bottom, from(transparent),
+		color-stop(0.45, transparent), to(rgba(255, 255, 255, 0.25)));
+}
+
+#pt-1 {
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+	text-align: center;
+}
+
+#pt-2 {
+	color: #abb7c4;
+	font-size: 13pt;
+	margin-top: 20px;
+	margin-bottom: 40px;
+	text-align: center;
+}
+
+input#pt-button {
+	float: right;
+}
+
+* {
+	box-sizing: border-box
+}
+</style>
+
 <section id="banner" data-video="images/banner">
 	<div class="inner">
 		<header>
@@ -52,271 +74,105 @@ input#pt-button {float:right;}
 				</div>
 				<br>
 			</header>
-			<!-- 2개의 비디오섹션 if 문 이용하여 추가하면 될듯 -->
-			<div class="flex flex-2">
-				<div class="video col">
-					<div class="image fit">
-						<img src="images/pic07.jpg" alt="" />
-						<div class="arrow">
-							<div class="icon fa-play"></div>
-						</div>
-					</div>
-				</div>
-				<div class="video col">
-					<div class="image fit">
-						<img src="images/pic08.jpg" alt="" />
-						<div class="arrow">
-							<div class="icon fa-play"></div>
-						</div>
-					</div>
-				</div>
-			</div>
+
 		</div>
 	</section>
 
 	<!-- 두번째 탭 -->
-	<section class="wrapper style2">
-		<div class="inner">
-			<header>
-				<h2>여러 사이트의 영화들</h2>
-				<p>Fusce fringilla enim sit amet lectus sollicitudin, eu
-					tincidunt odio semper.</p>
-			</header>
-			<!-- 비디오섹션 여러개 -->
-			<div class="flex flex-tabs">
-				<ul class="tab-list">
-					<li><a href="#" data-tab="tab-1" class="active">Netfilx</a></li>
-					<li><a href="#" data-tab="tab-2">Watcha</a></li>
-					<li><a href="#" data-tab="tab-3">Wavve</a></li>
-				</ul>
-				<div class="tabs">
-
-					<!-- Tab 1 -->
-					<div class="tab tab-1 flex flex-3 active">
-
-						<!-- 썸네일 -->
-						<div class="video col">
-							<div class="image fit">
-								<img src="images/pic01.jpg" alt="" />
-								<div class="arrow">
-									<div class="icon fa-play"></div>
-								</div>
-							</div>
-							<a href="generic.html" class="link"><span>Click Me</span></a>
-						</div>
-						<!-- 썸네일 -->
-						<div class="video col">
-							<div class="image fit">
-								<img src="images/pic02.jpg" alt="" />
-								<div class="arrow">
-									<div class="icon fa-play"></div>
-								</div>
-							</div>
-							<a href="generic.html" class="link"><span>Click Me</span></a>
-						</div>
-						<!-- 썸네일 -->
-						<div class="video col">
-							<div class="image fit">
-								<img src="images/pic03.jpg" alt="" />
-								<div class="arrow">
-									<div class="icon fa-play"></div>
-								</div>
-							</div>
-							<a href="generic.html" class="link"><span>Click Me</span></a>
-						</div>
-						<!-- 썸네일 -->
-						<div class="video col">
-							<div class="image fit">
-								<img src="images/pic04.jpg" alt="" />
-								<div class="arrow">
-									<div class="icon fa-play"></div>
-								</div>
-							</div>
-							<a href="generic.html" class="link"><span>Click Me</span></a>
-						</div>
-						<!-- 썸네일 -->
-						<div class="video col">
-							<div class="image fit">
-								<img src="images/pic05.jpg" alt="" />
-								<div class="arrow">
-									<div class="icon fa-play"></div>
-								</div>
-							</div>
-							<a href="generic.html" class="link"><span>Click Me</span></a>
-						</div>
-						<!-- 썸네일 -->
-						<div class="video col">
-							<div class="image fit">
-								<img src="images/pic06.jpg" alt="" />
-								<div class="arrow">
-									<div class="icon fa-play"></div>
-								</div>
-							</div>
-							<a href="generic.html" class="link"><span>Click Me</span></a>
-						</div>
-					</div>
-
-					<!-- 두번째 탭 -->
-					<div class="tab tab-2 flex flex-3">
-						<!-- 썸네일 -->
-						<div class="video col">
-							<div class="image fit">
-								<img src="images/pic06.jpg" alt="" />
-								<div class="arrow">
-									<div class="icon fa-play"></div>
-								</div>
-							</div>
-							<a href="generic.html" class="link"><span>Click Me</span></a>
-						</div>
-						<!-- 썸네일 -->
-						<div class="video col">
-							<div class="image fit">
-								<img src="images/pic05.jpg" alt="" />
-								<div class="arrow">
-									<div class="icon fa-play"></div>
-								</div>
-							</div>
-							<a href="generic.html" class="link"><span>Click Me</span></a>
-						</div>
-						<!-- 썸네일 -->
-						<div class="video col">
-							<div class="image fit">
-								<img src="images/pic04.jpg" alt="" />
-								<div class="arrow">
-									<div class="icon fa-play"></div>
-								</div>
-							</div>
-							<a href="generic.html" class="link"><span>Click Me</span></a>
-						</div>
-						<!-- 썸네일 -->
-						<div class="video col">
-							<div class="image fit">
-								<img src="images/pic03.jpg" alt="" />
-								<div class="arrow">
-									<div class="icon fa-play"></div>
-								</div>
-							</div>
-							<a href="generic.html" class="link"><span>Click Me</span></a>
-						</div>
-						<!-- 썸네일 -->
-						<div class="video col">
-							<div class="image fit">
-								<img src="images/pic02.jpg" alt="" />
-								<div class="arrow">
-									<div class="icon fa-play"></div>
-								</div>
-							</div>
-							<a href="generic.html" class="link"><span>Click Me</span></a>
-						</div>
-						<!-- 썸네일 -->
-						<div class="video col">
-							<div class="image fit">
-								<img src="images/pic01.jpg" alt="" />
-								<div class="arrow">
-									<div class="icon fa-play"></div>
-								</div>
-							</div>
-							<a href="generic.html" class="link"><span>Click Me</span></a>
-						</div>
-					</div>
-
-					<!-- Tab 3 -->
-					<div class="tab tab-3 flex flex-3">
-						<!-- 썸네일 -->
-						<div class="video col">
-							<div class="image fit">
-								<img src="images/pic03.jpg" alt="" />
-								<div class="arrow">
-									<div class="icon fa-play"></div>
-								</div>
-							</div>
-							<a href="generic.html" class="link"><span>Click Me</span></a>
-						</div>
-						<!-- 썸네일 -->
-						<div class="video col">
-							<div class="image fit">
-								<img src="images/pic02.jpg" alt="" />
-								<div class="arrow">
-									<div class="icon fa-play"></div>
-								</div>
-							</div>
-							<a href="generic.html" class="link"><span>Click Me</span></a>
-						</div>
-						<!-- 썸네일 -->
-						<div class="video col">
-							<div class="image fit">
-								<img src="images/pic01.jpg" alt="" />
-								<div class="arrow">
-									<div class="icon fa-play"></div>
-								</div>
-							</div>
-							<a href="generic.html" class="link"><span>Click Me</span></a>
-						</div>
-						<!-- 썸네일 -->
-						<div class="video col">
-							<div class="image fit">
-								<img src="images/pic06.jpg" alt="" />
-								<div class="arrow">
-									<div class="icon fa-play"></div>
-								</div>
-							</div>
-							<a href="generic.html" class="link"><span>Click Me</span></a>
-						</div>
-						<!-- 썸네일 -->
-						<div class="video col">
-							<div class="image fit">
-								<img src="images/pic05.jpg" alt="" />
-								<div class="arrow">
-									<div class="icon fa-play"></div>
-								</div>
-							</div>
-							<a href="generic.html" class="link"><span>Click Me</span></a>
-						</div>
-						<!-- 썸네일 -->
-						<div class="video col">
-							<div class="image fit">
-								<img src="images/pic04.jpg" alt="" />
-								<div class="arrow">
-									<div class="icon fa-play"></div>
-								</div>
-							</div>
-							<a href="generic.html" class="link"><span>Click Me</span></a>
-						</div>
-					</div>
-
-				</div>
-			</div>
+	<div class="w3-container">
+		<h2>플랫폼 별 영화리스트</h2>
+	</div>
+		<div class="w3-bar w3-black">
+			<button class="w3-bar-item w3-button" onclick="openCity('Netflix')">Netflix</button>
+			<button class="w3-bar-item w3-button" onclick="openCity('Watcha')">Watcha</button>
+			<button class="w3-bar-item w3-button" onclick="openCity('Wavve')">Wavve</button>
+			<button class="w3-bar-item w3-button" onclick="openCity('Tving')">Tving</button>
 		</div>
-	</section>
 
-	<!-- Three -->
-	<section class="wrapper ">
-		<div class="inner">
-
-			<header class="align-center"> </header>
-			<!-- 3 Column Video Section -->
-
-			<div class="row">
-
-				<div class="col-sm-4">
-					<img id="ott-img" src="${path }/resources/images/ott_logo.png"
-						alt="ottimg" />
-				</div>
-
-				<div class="col-sm-2"></div>
-
-				<div class="col-sm-4">
-					<h2 id="pt-1">파티를 모집중입니다</h2>
-					<p id="pt-2">원하는 OTT를 함께 볼 사람을 간편하게 찾아보세요</p>
-
-					<input type="button" id="pt-button" class="btn btn-lg btn-dark"
-						onClick="location.href='${path}/party/party'" value="파티 구하러가기" />
-				</div>
-
-			</div>
+		<div id="Netflix" class="w3-container city">
+			<h2>넷플릭스</h2>
+			<c:forEach var="netflix" items="${ netflix }">
+				<br>
+				<span style="font-size: xx-large;"><c:out value="${ netflix.title_kor }" /></span> 
+				<br> <br>
+				<img src="${ netflix.m_poster }" alt="" style="width: 300px; height: 360px;">
+			</c:forEach>	
 		</div>
-	</section>
+
+		<div id="Watcha" class="w3-container city" style="display: none">
+			<h2>왓챠</h2>
+			<c:forEach var="watcha" items="${ watcha }">
+				<br>
+				<span style="font-size: xx-large;"><c:out value="${ watcha.title_kor }" /></span>
+				<br> <br>
+				<img src="${ watcha.m_poster }" alt="" style="width: 300px; height: 360px;">
+			</c:forEach>
+		</div>
+
+		<div id="Wavve" class="w3-container city" style="display: none">
+			<h2>웨이브</h2>
+			<c:forEach var="wavve" items="${ wavve }">
+				<br>
+				<span style="font-size: xx-large;"><c:out value="${ wavve.title_kor }" /></span>
+				<br> <br>
+				<img src="${ wavve.m_poster }" alt="" style="width: 300px; height: 360px;">
+			</c:forEach>
+		</div>
+
+		<div id="Tving" class="w3-container city" style="display: none">
+			<h2>티빙</h2>
+			<c:forEach var="tving" items="${ tving }">
+				<br>
+				<span style="font-size: xx-large;"><c:out value="${ tving.title_kor }" /></span>
+				<br> <br>
+				<img src="${ tving.m_poster }" alt="" style="width: 300px; height: 360px;">
+			</c:forEach>
+		</div>
 
 
 </div>
+
+<br>
+<br>
+<br>
+
+<!-- Three -->
+<section class="wrapper ">
+	<div class="inner">
+
+		<header class="align-center"> </header>
+		<!-- 3 Column Video Section -->
+
+		<div class="row">
+
+			<div class="col-sm-4">
+				<img id="ott-img" src="${path }/resources/images/ott_logo.png"
+					alt="ottimg" />
+			</div>
+
+			<div class="col-sm-2"></div>
+
+			<div class="col-sm-4">
+				<h2 id="pt-1">파티를 모집중입니다</h2>
+				<p id="pt-2">원하는 OTT를 함께 볼 사람을 간편하게 찾아보세요</p>
+
+				<input type="button" id="pt-button" class="btn btn-lg btn-dark"
+					onClick="location.href='${path}/party/party'" value="파티 구하러가기" />
+			</div>
+
+		</div>
+	</div>
+</section>
+
+<script>
+	function openCity(cityName) {
+		var i;
+		var x = document.getElementsByClassName("city");
+		for (i = 0; i < x.length; i++) {
+			x[i].style.display = "none";
+		}
+		document.getElementById(cityName).style.display = "block";
+	}
+</script>
+
 <%@ include file="/WEB-INF/views/common/footer.jsp"%>

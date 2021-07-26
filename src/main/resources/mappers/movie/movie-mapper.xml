@@ -79,7 +79,6 @@
 	<select id="top5List" resultMap="movieListResultMap">
 		<include refid="selectMovieSql" />
 		WHERE VOTE = 5
-	
 	</select>
 	
 	<resultMap type="Movie" extends="movieListResultMap" id="movieDetailResultMap">
@@ -99,6 +98,38 @@
 		SELECT MOVIE.*
 		FROM MOVIE
 		JOIN MOVIE_USER_LIKE L ON (MOVIE.MOVIE_ID = L.MOVIE_ID AND L.U_NO = #{u_no})
+	</select>
+	
+	<!-- 플랫폼별 영화 개수 카운트 -->
+	<select id="selectPlatformCount"  resultType="_int">
+		SELECT COUNT(*)
+        FROM MOVIE 
+        WHERE NETFLIX IS NOT NULL
+	</select>
+	
+	<!-- 넷플릭스 리스트 -->
+	<select id="selectNetflixList" resultMap="movieListResultMap">
+		<include refid="selectMovieSql"/>
+			WHERE NETFLIX IS NOT NULL
+			ORDER BY VOTE DESC
+	</select>
+	
+	<select id="selectWatchaList" resultMap="movieListResultMap">
+		<include refid="selectMovieSql"/>
+			WHERE WATCHA IS NOT NULL
+			ORDER BY VOTE DESC
+	</select>
+	
+	<select id="selectTvingList" resultMap="movieListResultMap">
+		<include refid="selectMovieSql"/>
+			WHERE TVING IS NOT NULL
+			ORDER BY VOTE DESC
+	</select>
+	
+	<select id="selectWavveList" resultMap="movieListResultMap">
+		<include refid="selectMovieSql"/>
+			WHERE WAVVE IS NOT NULL
+			ORDER BY VOTE DESC
 	</select>
 	
 	<select id="selectMovieByNo" parameterType="_int" resultMap="movieDetailResultMap">

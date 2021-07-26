@@ -90,7 +90,7 @@
 					    	<input type="checkbox" name="star-input" value="5" id="p5">
 					    	<label for="p5">5</label>
 				  		</span>
-				  		<output for="star-input"><b>0</b>점</output>
+				  		<output for="star-input" style="color: black;"><b style="color:black;">0</b>점</output>
 					</span>
 					<script src="${ path }/js/jquery-1.11.3.min.js"></script>
 					<script src="${ path }/js/star.js"></script>
