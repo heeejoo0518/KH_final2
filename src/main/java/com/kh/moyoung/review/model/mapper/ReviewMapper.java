@@ -24,7 +24,8 @@ public interface ReviewMapper {
 
 	int deleteReview(int reviewNo);
 
+	int selectMyReviewCount(@Param("u_no") int u_no);
 
-
+    List<Review> selectMyReviewList(RowBounds rowBounds, @Param("u_no") int u_no);
 
 }

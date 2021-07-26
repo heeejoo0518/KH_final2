@@ -70,6 +70,18 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 
+	@Override
+    public int getMyReviewCount(int u_no) {
+        return mapper.selectMyReviewCount(u_no);
+    }
+
+    @Override
+    public List<Review> getMyReviewList(PageInfo pageInfo, int u_no) {
+        int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
+        RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
+
+        return mapper.selectMyReviewList(rowBounds,u_no);
+    }
 
 
 

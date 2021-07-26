@@ -19,6 +19,8 @@ public interface ReviewService {
 
 	int deleteReview(int reviewNo);
 
+	int getMyReviewCount(int u_no);    /* 내 리뷰 카운팅 */
 
+    List<Review> getMyReviewList(PageInfo pageInfo, int u_no);    /* 내 리뷰 리스트 */
 
 }
