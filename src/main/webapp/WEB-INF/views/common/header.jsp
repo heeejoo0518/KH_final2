@@ -35,15 +35,18 @@
 		<ul class="links">
 			<li><a href="${ path }">홈</a></li>
 			<li><a href="${path}/notice/list">공지사항</a></li>
+			<li><c:if test="${ signinMember != null }"><a href="${path}/party/party">파티구하기</a></c:if></li>
 			<li><c:if test="${ signinMember != null }">
 					<a href="${ path }/mypage">마이페이지</a>
 				</c:if></li>
+			
+			
 			<li><c:if test="${ signinMember == null }">
 					<a href="${ path }/signin">로그인</a>
 				</c:if> <c:if test="${ signinMember != null }">
 					<a href="${ path }/signout">로그아웃</a>
 				</c:if></li>
-
+			
 			<li class="row" style="margin-left: 10px;"><input type="text" 
 			class="form-control form-control-sm col-md-10" name="keyword"
 				id="keyword" placeholder="원하시는 컨텐츠의 제목을 입력하세요">

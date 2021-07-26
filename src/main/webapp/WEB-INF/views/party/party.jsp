@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
-
+<link href="${path}/resources/css/bootstrapDarkly.css" rel="stylesheet"/>
 <%@ include file="/WEB-INF/views/common/header.jsp"%>
 
 <style>
