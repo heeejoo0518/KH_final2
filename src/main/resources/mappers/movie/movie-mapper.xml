@@ -75,6 +75,13 @@
 		FROM MOVIE
 	</select>
 	
+	<!-- 메인화면에 DB top5 영화 -->
+	<select id="top5List" resultMap="movieListResultMap">
+		<include refid="selectMovieSql" />
+		WHERE VOTE = 5
+	
+	</select>
+	
 	<resultMap type="Movie" extends="movieListResultMap" id="movieDetailResultMap">
 <!-- 		<collection property="replies" javaType="arraylist" columnPrefix="R_" resultMap="boardReplyResultMap"/> -->
 	</resultMap>

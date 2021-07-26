@@ -12,7 +12,7 @@
         	border-radius: 10px;
         	height: 50px;
         	width: 200px;
-        	margin-right: 400px;
+        	margin-right: 450px;
         	color: black;
         	
         }
@@ -88,4 +88,5 @@
         }
         #spoiler-text{
         	color:white;
+        	margin-right: 30px;
         }
