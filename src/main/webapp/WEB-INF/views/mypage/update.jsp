@@ -3,7 +3,7 @@
     
 <%@ include file="/WEB-INF/views/mypage/mypage_header.jsp"%>
 
-<fmt:parseDate value='${signinMember.birth}' var='parse_birth' pattern='yyyy-MM-dd HH:mm:ss.s'/>
+<fmt:parseDate value='${signinMember.birth}' var='parse_birth' pattern='yyyy-MM-dd HH:mm:ss'/>
 <fmt:formatDate value="${parse_birth}" var='fmt_birth' pattern="yyyy-MM-dd" />
 
 	<div class="mypage-update-container">
