@@ -54,15 +54,15 @@
 						</form>
 						<div class="social-btn" style="margin-bottom: 10px">
 						
-						 	<c:if test="${empty signinMember }">
-						 		<p>로그인 후 리뷰 작성이 가능합니다.</p>
-						 	</c:if>
-							<c:if test="${! empty signinMember }">
+<%-- 						 	<c:if test="${empty signinMember }"> --%>
+<!-- 						 		<p>로그인 후 리뷰 작성이 가능합니다.</p> -->
+<%-- 						 	</c:if> --%>
+<%-- 							<c:if test="${! empty signinMember }"> --%>
 							<a href="#" class="parent-btn" style="padding-left: 10px">찜하기<i
 								class="ion-heart"></i></a> <a
 								href="${ path }/review/write?no=${movie.movieNo}"
 								class="parent-btn">리뷰쓰기<i class="ion-edit"></i></a>
-							</c:if>	
+<%-- 							</c:if>	 --%>
 						</div>
 					</div>
 				</div>
@@ -155,7 +155,7 @@
 												<div class="cast-it">
 													<div class="cast-left">
 														<img src="${ path }/images/uploads/cast1.jpg" alt="">
-														<a href="#"><c:out value="${ movie.actor }" /></a>
+														<a href="#" style="font-family: 'Nunito', sans-serif; font-size: 14px"><c:out value="${ movie.actor }" /></a>
 													</div>
 												</div>
 											</div>
@@ -171,7 +171,6 @@
 
 													<div class="mv-user-review-item">
 
-														<!--  신고하기 / 좋아요 버튼 이정도에 들어오면 될거같은데.. -->
 														<div class="no-star">
 															<c:choose>
 																<c:when test="${ review.rate == 0 }">

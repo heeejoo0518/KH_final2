@@ -1,22 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-
-<c:set var="path" value="${pageContext.request.contextPath}" />
 <%@ include file="/WEB-INF/views/common/header.jsp"%>
 
-<!DOCTYPE html>
-<html>
-<meta charset="UTF-8">
-<head>
-<title>공지사항</title>
+<!--Google Font-->
 <link rel="stylesheet"
 	href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
+<!-- Mobile specific meta -->
 <meta name=viewport content="width=device-width, initial-scale=1">
-
+<meta name="format-detection" content="telephone-no">
+<!-- CSS files -->
+<link rel="stylesheet" href="${ path }/css/plugins.css">
 <link rel="stylesheet" href="${ path }/css/style.css">
+<!--preloading-->
+<div id="preloader">
+	<img class="logo" src="${ path }/images/logo1.png" alt="" width="119"
+		height="58">
+	<div id="status"></div>
+</div>
 
 <style>
 #board-container {
@@ -60,6 +60,14 @@ div#pageBar {
 </head>
 
 <body>
+<!-- 	<div id="preloader"> -->
+<%-- 		<img class="logo" src="${ path }/images/logo1.png" alt="" width="119" --%>
+<!-- 			height="58"> -->
+<!-- 		<div id="status"> -->
+<!-- 			<span></span> <span></span> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+	
 	<div class="hero common-hero">
 		<div class="container">
 			<div class="row">
@@ -143,6 +151,10 @@ div#pageBar {
 	<script src="${ path }/js/plugins.js"></script>
 	<script src="${ path }/js/plugins2.js"></script>
 	<script src="${ path }/js/custom.js"></script>
-</body>
-</html>
+
 <%@ include file="/WEB-INF/views/common/footer.jsp"%>
+
+<script src="${ path }/js/jquery-3.6.0.min.js"></script>
+<script src="${ path }/js/plugins.js"></script>
+<script src="${ path }/js/plugins2.js"></script>
+<script src="${ path }/js/custom.js"></script>

@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp"%>
-
 <link rel="stylesheet" href="${ path }/css/style.css">
-
+<link rel="stylesheet" href="${ path }/css/plugins.css">
 <style>
     section>div#board-write-container{width:600px; margin:0 auto; text-align:center;}
     section>div#board-write-container h2{margin:10px 0;}
@@ -11,6 +10,11 @@
     table#tbl-board th {width: 125px; padding: 5px 0; text-align:center;} 
     table#tbl-board td {padding: 5px 0 5px 10px; text-align:left;} 
 </style>
+<div id="preloader">
+	<img class="logo" src="${ path }/images/logo1.png" alt="" width="119"
+		height="58">
+	<div id="status"></div>
+</div>
 	<div class="hero common-hero">
 		<div class="container">
 			<div class="row">
@@ -54,6 +58,9 @@
 	</table>
 </div>
 <%@ include file="/WEB-INF/views/common/footer.jsp"%>
+<script src="${ path }/js/plugins.js"></script>
+<script src="${ path }/js/plugins2.js"></script>
+<script src="${ path }/js/custom.js"></script>
 
 <script>
 	$(document).ready(() => {

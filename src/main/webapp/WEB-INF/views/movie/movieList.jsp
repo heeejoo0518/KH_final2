@@ -99,7 +99,7 @@ div#pageBar button {
 							<img src="${ movie.m_poster }" alt="">
 							<div class="mv-item-infor">
 								<h6>
-									<a href="${ path }/movie/view?no=${ movie.movieNo }"> <c:out
+									<a style="font-family: 'Nunito', sans-serif; font-size: 18px;" href="${ path }/movie/view?no=${ movie.movieNo }"> <c:out
 											value="${ movie.title_kor }" /> <span><c:out
 												value="${ movie.product_year }" /></span>
 									</a>
