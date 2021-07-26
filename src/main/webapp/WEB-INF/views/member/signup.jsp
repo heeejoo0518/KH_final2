@@ -2,6 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp"%>
 
+<link href="https://fonts.googleapis.com/css?family=Roboto"
+	rel="stylesheet" type="text/css">
+<script src="https://apis.google.com/js/api:client.js"></script>
+
 <link rel="stylesheet" type="text/css" href="${ path }/resources/css/member.css">
 
 <section>
@@ -77,6 +81,11 @@
 			
 			<button type="button" id="signup_button" class="btn btn-lg btn-primary btn-block btn-signin" onclick="signup();">회원가입</button>
 		</form>
+		<hr style="margin: 5px;">
+		<p class="row" style="font-size: 0.8em; padding-left: 15px">sns 아이디로 회원가입하기</p>
+		<div id="gSignUpWrapper">
+			<div id="customBtn" class="customGPlusSignUp"></div>
+		</div>
 	</div>
 </section>
 
@@ -295,6 +304,71 @@
 	});
 	
 </script>
+
+<script>
+	var googleUser = {};
+	var startApp = function() {
+		gapi.load('auth2', function() {
+			auth2 = gapi.auth2.init({
+				client_id : '955108501404-e26jfs97pn99soeeco8qoun7am449dt4.apps.googleusercontent.com',
+				cookiepolicy : 'single_host_origin',
+			// Request scopes in addition to 'profile' and 'email'
+			//scope: 'additional_scope'
+			});
+			attachSignin(document.getElementById('customBtn'));
+		});
+	};
+
+	function attachSignin(element) {
+		//console.log(element.id);
+		auth2.attachClickHandler(element, {}, function(googleUser) {
+			onSignUp(googleUser);
+		}, function(error) {
+			alert(JSON.stringify(error, undefined, 2));
+		});
+	}
+	
+	function onSignUp(googleUser) {
+		var id_token = googleUser.getAuthResponse().id_token;
+/* 		var xhr = new XMLHttpRequest();
+		xhr.open('POST', '${path}/member/tokensignup');
+		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xhr.onload = function() {
+		 // console.log('Signed in as: ' + xhr.responseText);
+		};
+		xhr.send('id_token=' + id_token); */
+		
+		
+		$.ajax({
+			type: "post",
+			url: "${path}/member/tokensignup",
+			dataType: "json",
+			async: false,
+			data: {
+				id_token
+			},
+			beforeSend: function(xhr){
+				xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+			},
+			success: function(data) {
+				if(data.result > 0){
+					//성공
+					alert("회원가입에 성공했습니다.");
+					location.replace("${path}/signin");
+				}else{
+					alert("회원가입에 실패했습니다.");
+					location.replace("${path}/signup");
+				}
+			},
+			error: function(e) {
+				console.log(e);
+			} 
+		});
+		
+		
+	}
+</script>
+<script>startApp();</script>
 
 <%@ include file="/WEB-INF/views/common/modal.jsp"%>
 <script>
