@@ -4,8 +4,6 @@ import com.kh.moyoung.member.model.vo.Member;
 
 public interface MemberService {
 	Member login(String u_id, String u_pwd);
-	
-	Member autoLogin(String u_id);
 
 	int save(Member member);
 

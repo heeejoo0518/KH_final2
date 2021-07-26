@@ -26,11 +26,6 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	@Override
-	public Member autoLogin(String u_id) {
-		return this.findById(u_id);
-	}
-
-	@Override
 	@Transactional
 	public int save(Member member) {
 		int result = 0;
@@ -48,7 +43,6 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public boolean validate(String u_id) {				
-		
 		return this.findById(u_id) != null;
 	}
 	
@@ -60,7 +54,6 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public Member findById(String u_id) {
-		
 		return mapper.selectMember(u_id);
 	}
 	
