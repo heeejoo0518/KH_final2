@@ -4,10 +4,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
+<link href="${path}/resources/css/bootstrapDarkly.css" rel="stylesheet"/> 	
 
 <style>
-h2 {color: white; margin-top:50px; margin-bottom:30px;}
-#preloader {background-color: #020d18; color: white;}
 textarea{resize:none;}
 
 /* 작성 폼 영역 스타일 */
@@ -41,7 +40,7 @@ textarea{resize:none;}
 	
 </script>
 
-<body>
+<body id="pt-write">
 
 <div class="row">
 

@@ -5,6 +5,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 
+<link href="${path}/resources/css/bootstrapDarkly.css" rel="stylesheet"/> 	
 <%@ include file="/WEB-INF/views/common/header.jsp"%>
 
 <style>
@@ -167,8 +168,8 @@ color:#3498db !important;
 		title="파티원 모집하기";
 		$( "#modal-body" ).load('${ path }/party/partyWrite');
 	$('#modal-title').text(title);
+	$("#modal-save-btn").hide();
 	$('#modal').modal('show');
-	
 		};
 	
 })(jQuery);
