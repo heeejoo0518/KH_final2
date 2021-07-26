@@ -78,8 +78,7 @@
 	<!-- 메인화면에 DB top5 영화 -->
 	<select id="top5List" resultMap="movieListResultMap">
 		<include refid="selectMovieSql" />
-		WHERE VOTE = 5
-	
+		ORDER BY VOTE DESC
 	</select>
 	
 	<resultMap type="Movie" extends="movieListResultMap" id="movieDetailResultMap">

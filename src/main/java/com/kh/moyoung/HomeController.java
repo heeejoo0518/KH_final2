@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kh.moyoung.common.util.PageInfo;
 import com.kh.moyoung.movie.model.service.MovieService;
 import com.kh.moyoung.movie.model.vo.Movie;
 
@@ -35,8 +36,8 @@ public class HomeController {
 		log.info("메인 페이지");
 		
 		List<Movie> list = null;
-		
-		list = service.top5List();
+		PageInfo pageInfo = new PageInfo(1,1,service.getMovieCount(),5);
+		list = service.top5List(pageInfo);
 		
 		mav.addObject("list",list);
 		mav.setViewName("home");

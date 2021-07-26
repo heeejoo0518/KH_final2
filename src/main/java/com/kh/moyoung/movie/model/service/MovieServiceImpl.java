@@ -78,9 +78,10 @@ public class MovieServiceImpl implements MovieService {
 	}
 
 	@Override
-	public List<Movie> top5List() {
+	public List<Movie> top5List(PageInfo pageInfo) {
+		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
+		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
 		
-		
-		return mapper.top5List();
+		return mapper.top5List(rowBounds);
 	}
 }
