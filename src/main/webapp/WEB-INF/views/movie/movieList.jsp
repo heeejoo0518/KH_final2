@@ -47,7 +47,7 @@
 					<option value="saab">드라마/예능/기타</option>
 				</select>
 		<!-- search{s} -->
-				<input type="text"class="form-control form-control-sm" name="keyword" id="keyword" placeholder="검색을 원하시는 컨텐츠의 제목을 입력하세요">
+				<input type="text"class="form-control form-control-sm" name="keyword" id="keyword" placeholder="검색을 원하시는 컨텐츠의 제목을 입력하세요" value="<c:if test='${title != null}'>${ title }</c:if>">
 				<button class="btn btn-sm btn-primary" name="btnSearch" id="btnSearch" onclick="search();"><i class="ion-search"></i></button>
 			</div>
 
@@ -60,7 +60,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="hero-ct">
-						<h1>검색한 영화명의 검색 결과</h1>
+						<h1>검색한 키워드 : <c:if test='${title != null}'>${ title }</c:if></h1>
 					</div>
 				</div>
 			</div>
@@ -77,12 +77,14 @@
 
 						<label>정렬기준:</label>
 						 	<form action="${ path }/movie/list" method="GET">
-       				 	<select id="sort-select" name="sort" onchange="this.form.submit();">
-							<option value="">-----</option>
-							<option value="b" id=1>최신순</option>
-							<option value="c" id=2>평점높은순</option>
-							<option value="a" id=3>등록순</option>
-						</select>
+		       				 	<select id="sort-select" name="sort" onchange="this.form.submit();" style="line-height: 1.3em !important;">
+									<option value="b" id=1 <c:if test="${sort eq 'b'}">selected</c:if>>최신순</option>
+									<option value="c" id=2 <c:if test="${sort eq 'c'}">selected</c:if>>평점높은순</option>
+									<option value="a" id=3 <c:if test="${sort eq 'a' or sort eq null}">selected</c:if>>등록순</option>
+								</select>
+								
+								<!-- input hidden -->
+								<input type="hidden" id="sort-title" name="movieTitle" value="${ title }">								
 							</form>
 					</div>
 

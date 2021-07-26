@@ -44,53 +44,26 @@ public class MovieController {
 		movie.setSort(sort);
 		System.out.println("if 전 sort: "+movie.getSort());
 
-		if(sort.equals("a")) {
-			System.out.println("a if문");
+		int cnt = service.getMovieCount(title);
+		PageInfo pageInfo = new PageInfo(page, 10, cnt, 10);
 
-			List<Movie> list = null;
-			int cnt = service.getMovieCount(title);
-			PageInfo pageInfo = new PageInfo(page, 10, cnt, 10);
-
-			list=service.getMovieList(pageInfo, title);
-
-			System.out.println(list);
-			System.out.println("sort: "+sort);
-
-			model.addObject("listCnt", cnt);
-			model.addObject("list",list);
-			model.addObject("pageInfo", pageInfo);
-			model.setViewName("movie/movieList");
-
-		} else if(sort.equals("b")) {
-			System.out.println("b if문");
-
-			List<Movie> list = null;
-			PageInfo pageInfo = new PageInfo(page, 10, service.getMovieCount(title), 10);
-
-			list=service.selectMovieRecent(pageInfo);
-
-			System.out.println(list);
-			System.out.println("sort: "+sort);
-
-			model.addObject("list",list);
-			model.addObject("pageInfo", pageInfo);
-			model.setViewName("movie/movieList");
-
-		} else if(sort.equals("c")){
-			System.out.println("c if문");
-
-			List<Review> list = null;
-			PageInfo pageInfo = new PageInfo(page, 10, service.getMovieCount(title), 10);
-
-			list=service.selectMovieVote(pageInfo);
-
-			System.out.println(list);
-			System.out.println("sort: "+sort);
-
-			model.addObject("list",list);
-			model.addObject("pageInfo", pageInfo);
-			model.setViewName("movie/movieList");
+		switch(sort) {
+		case "a":
+			model.addObject("list",service.getMovieList(pageInfo, title));
+			break;
+		case "b":
+			model.addObject("list",service.selectMovieRecent(pageInfo));
+			break;
+		case "c":
+			model.addObject("list",service.selectMovieVote(pageInfo));
+			break;
 		}
+		
+		model.addObject("sort",sort);
+		model.addObject("listCnt", cnt);
+		model.addObject("pageInfo", pageInfo);
+		model.addObject("title",title);
+		model.setViewName("movie/movieList");
 
 			return model;
 		}
