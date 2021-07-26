@@ -33,7 +33,7 @@
 				</div>
 				
 				<div class="input-with-icon">
-					<input type="text" id="update_nickname" class="form-control" name="nickname" placeholder="<c:if test='${signinMember.u_id ne signinMember.nickname}'>${signinMember.nickname}</c:if>" >
+					<input type="text" id="update_nickname" class="form-control" name="nickname" placeholder="<c:if test='${signinMember.u_id ne signinMember.nickname}'>${signinMember.nickname}</c:if><c:if test='${signinMember.u_id eq signinMember.nickname}'>닉네임</c:if>" >
 					<div class="btn btn-default icon nickname-icon">
 						<button disabled><img src="#" id="img_nickname"/></button>
 					</div>
