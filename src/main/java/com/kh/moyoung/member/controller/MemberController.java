@@ -95,7 +95,7 @@ public class MemberController {
 			model.addObject("signinMember", signinMember);
 			model.setViewName("redirect:/");
 		} else {
-			model.addObject("msg", "아이디나 패스워드가 일치하지 않습니다.");
+			model.addObject("msg", "해당하는 회원이 없습니다.");
 			model.addObject("location", "/");
 			model.setViewName("common/msg");
 

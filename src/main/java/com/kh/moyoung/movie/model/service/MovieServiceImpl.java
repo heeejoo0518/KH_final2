@@ -24,16 +24,16 @@ public class MovieServiceImpl implements MovieService {
 	private MovieMapper mapper;
 
 	@Override
-	public int getMovieCount() {
-		return mapper.selectMovieCount();
+	public int getMovieCount(String title) {
+		return mapper.selectMovieCount(title);
 	}
 
 	@Override
-	public List<Movie> getMovieList(PageInfo pageInfo) {
+	public List<Movie> getMovieList(PageInfo pageInfo,String title) {
 		int offset = (pageInfo.getCurrentPage() - 1) * pageInfo.getListLimit();
 		RowBounds rowBounds = new RowBounds(offset, pageInfo.getListLimit());
 		
-		return mapper.selectMovieList(rowBounds);
+		return mapper.selectMovieList(rowBounds, title);
 	}
 
 	@Override

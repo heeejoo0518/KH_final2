@@ -48,7 +48,7 @@
 				</select> 
 		<!-- search{s} -->
 				<input type="text"class="form-control form-control-sm" name="keyword" id="keyword" placeholder="검색을 원하시는 컨텐츠의 제목을 입력하세요">
-				<button class="btn btn-sm btn-primary" name="btnSearch" id="btnSearch"><i class="ion-search"></i></button>
+				<button class="btn btn-sm btn-primary" name="btnSearch" id="btnSearch" onclick="search();"><i class="ion-search"></i></button>
 			</div>
 	
 		</div>
@@ -72,7 +72,7 @@
 				<div class="col-md-8 col-sm-12 col-xs-12">
 					<div class="topbar-filter">
 						<p>
-							총 <span>100</span> 개의 검색 결과
+							총 <span>${listCnt}</span>개의 검색 결과
 						</p>
 						
 						<label>정렬기준:</label> 
@@ -160,5 +160,12 @@
 	<script src="${ path }/js/plugins.js"></script>
 	<script src="${ path }/js/plugins2.js"></script>
 	<script src="${ path }/js/custom.js"></script>
+	<script>
+		function search(){
+			var text = $('#keyword').val();
+			window.location = '${path}/movie/list?movieTitle='+text;
+		}
+	</script>
+	
 </body>
 </html>

@@ -13,11 +13,11 @@ import com.kh.moyoung.review.model.vo.Review;
 @Mapper
 public interface MovieMapper {
 	
-	int selectMovieCount();
+	int selectMovieCount(@Param("title")String title);//
 	
 	int insertMovie(Movie movie);
 	
-	List<Movie> selectMovieList(RowBounds rowBounds);
+	List<Movie> selectMovieList(RowBounds rowBounds, @Param("title")String title);//
 	
 	Movie selectMovieByNo(@Param("movieNo") int movieNo);
 

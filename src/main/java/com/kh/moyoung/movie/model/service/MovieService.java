@@ -10,9 +10,9 @@ public interface MovieService {
 
 	int save(Movie movie);
 
-	int getMovieCount();
+	int getMovieCount(String title);
 
-	List<Movie> getMovieList(PageInfo pageInfo);
+	List<Movie> getMovieList(PageInfo pageInfo, String title);
 
 	Movie findByNo(int movieNo);
 

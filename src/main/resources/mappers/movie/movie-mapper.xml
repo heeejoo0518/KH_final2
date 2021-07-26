@@ -55,8 +55,11 @@
 	</resultMap>
 
 	<!-- movie 리스트 목록 -->
-	<select id="selectMovieList" resultMap="movieListResultMap">
+	<select id="selectMovieList" parameterType="Map" resultMap="movieListResultMap">
 		<include refid="selectMovieSql"/>
+		<if test="title != null and title != ''">
+			WHERE TITLE_KOR LIKE '%${title}%'
+		</if> 
 		ORDER BY MOVIE_ID DESC
 	</select>
 	
@@ -70,9 +73,11 @@
 		ORDER BY VOTE DESC
 	</select>
 		
-	<select id="selectMovieCount" resultType="_int">
-		SELECT COUNT(*)
-		FROM MOVIE
+	<select id="selectMovieCount" parameterType="Map" resultType="_int">
+		SELECT COUNT(*) FROM MOVIE
+		<if test="title != null and title != ''">
+			WHERE TITLE_KOR LIKE '%${title}%'
+		</if>
 	</select>
 	
 	<resultMap type="Movie" extends="movieListResultMap" id="movieDetailResultMap">

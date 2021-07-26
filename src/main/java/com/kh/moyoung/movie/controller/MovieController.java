@@ -33,6 +33,7 @@ public class MovieController {
 	public ModelAndView list(ModelAndView model,
 			@RequestParam(value = "page", required = false, defaultValue = "1") int page,
 			@RequestParam(value="sort", required = false, defaultValue = "a")String sort,
+			@RequestParam(value="movieTitle", required=false, defaultValue = "")String title,
 			@ModelAttribute Movie movie,
 			HttpServletRequest request){
 		log.info("영화 목록 페이지 요청");
@@ -43,13 +44,15 @@ public class MovieController {
 			System.out.println("a if문");
 			
 			List<Movie> list = null;
-			PageInfo pageInfo = new PageInfo(page, 10, service.getMovieCount(), 10);
+			int cnt = service.getMovieCount(title);
+			PageInfo pageInfo = new PageInfo(page, 10, cnt, 10);
 			
-			list=service.getMovieList(pageInfo);
+			list=service.getMovieList(pageInfo, title);
 			
 			System.out.println(list);
 			System.out.println("sort: "+sort);
 			
+			model.addObject("listCnt", cnt);
 			model.addObject("list",list);
 			model.addObject("pageInfo", pageInfo);
 			model.setViewName("movie/movieList");
@@ -58,7 +61,7 @@ public class MovieController {
 			System.out.println("b if문");
 			
 			List<Movie> list = null;
-			PageInfo pageInfo = new PageInfo(page, 10, service.getMovieCount(), 10);
+			PageInfo pageInfo = new PageInfo(page, 10, service.getMovieCount(title), 10);
 			
 			list=service.selectMovieRecent(pageInfo);
 			
@@ -73,7 +76,7 @@ public class MovieController {
 			System.out.println("c if문");
 			
 			List<Review> list = null;
-			PageInfo pageInfo = new PageInfo(page, 10, service.getMovieCount(), 10);
+			PageInfo pageInfo = new PageInfo(page, 10, service.getMovieCount(title), 10);
 			
 			list=service.selectMovieVote(pageInfo);
 			
