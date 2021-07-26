@@ -2,6 +2,18 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp"%>
 <link rel="stylesheet" href="${ path }/resources/css/main.css" />
+
+<style>
+img#ott-img {
+width:558px;
+height:171px;
+-webkit-box-reflect: below -2vw -webkit-gradient(linear, left top, left bottom, from(transparent), 
+color-stop(0.45, transparent), to(rgba(255, 255, 255, 0.25)));}
+#pt-1{margin-bottom:0px; padding-bottom:0px; text-align:center;}
+#pt-2{color: #abb7c4;	font-size:13pt; margin-top:20px; margin-bottom:40px; text-align:center;}
+input#pt-button {float:right;}
+
+</style>
 			<!-- 배너 -->
 			<!--
 				비디오 백그라운드 사용시 data-video속성을 다음과 같이 설정해야함 (ex. images/banner).  .mp4 와 .webm 파일 둘 다 있어야함
@@ -274,52 +286,34 @@
 			<!-- Three -->
 				<section class="wrapper ">
 					<div class="inner">
+				
 						<header class="align-center">
-							<h2>파티를 모집중입니다.</h2>
-							<p>원하는 사이트의 파티원을 구하는 파티들을 찾아보세요</p>
+							
 						</header>
-
 						<!-- 3 Column Video Section -->
-							<div class="flex flex-3">
-								<div class="video col">
-									<div class="image fit">
-										<img src="images/pic09.jpg" alt="" />
-										<div class="arrow">
-											<div class="icon fa-play"></div>
-										</div>
-									</div>
-									<p class="caption">
-										Cras eget lacus sed mauris scelerisque tincidunt
-									</p>
-									<a href="generic.html" class="link"><span>Click Me</span></a>
-								</div>
-								<div class="video col">
-									<div class="image fit">
-										<img src="images/pic10.jpg" alt="" />
-										<div class="arrow">
-											<div class="icon fa-play"></div>
-										</div>
-									</div>
-									<p class="caption">
-										Vivamus vulputate lacus non massa auctor lobortis
-									</p>
-									<a href="generic.html" class="link"><span>Click Me</span></a>
-								</div>
-								<div class="video col">
-									<div class="image fit">
-										<img src="images/pic11.jpg" alt="" />
-										<div class="arrow">
-											<div class="icon fa-play"></div>
-										</div>
-									</div>
-									<p class="caption">
-										Nam eu nisi non ante sodales interdum a vitae neque
-									</p>
-									<a href="generic.html" class="link"><span>Click Me</span></a>
-								</div>
+						
+						<div class="row">
+												
+							<div class="col-sm-4">
+								<img id="ott-img" src="${path }/resources/images/ott_logo.png"  alt="ottimg"/>
 							</div>
-					</div>
-				</section>
+							
+							<div class="col-sm-2">
+							</div>
+							
+							<div class="col-sm-4">
+								<h2 id="pt-1">파티를 모집중입니다</h2>
+								<p id="pt-2">원하는 OTT를 함께 볼 사람을 간편하게 찾아보세요</p>
+								
+								<input type="button" id="pt-button" class="btn btn-lg btn-dark" onClick="location.href='${path}/party/party'" value="파티 구하러가기"/>
+							</div>
+							
+						</div>					
+			</div>
+</section>
+
+
 
 			</div>
+			
 <%@ include file="/WEB-INF/views/common/footer.jsp"%>
