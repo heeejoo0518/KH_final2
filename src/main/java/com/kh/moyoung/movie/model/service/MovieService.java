@@ -11,8 +11,12 @@ public interface MovieService {
 	int save(Movie movie);
 
 	int getMovieCount(String title);
+	
+	int getMovieCount();
 
 	List<Movie> getMovieList(PageInfo pageInfo, String title);
+	
+	List<Movie> getMovieList(PageInfo pageInfo);
 
 	Movie findByNo(int movieNo);
 
