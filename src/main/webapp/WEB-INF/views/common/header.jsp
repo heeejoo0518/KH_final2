@@ -39,15 +39,15 @@
 			<li><c:if test="${ signinMember != null }">
 					<a href="${ path }/mypage">마이페이지</a>
 				</c:if></li>
-			
-			
+
+
 			<li><c:if test="${ signinMember == null }">
 					<a href="${ path }/signin">로그인</a>
 				</c:if> <c:if test="${ signinMember != null }">
 					<a href="${ path }/signout">로그아웃</a>
 				</c:if></li>
-			
-			<li class="row" style="margin-left: 10px;"><input type="text" 
+
+			<li class="row" style="margin-left: 10px;"><input type="text"
 			class="form-control form-control-sm col-md-10" name="keyword"
 				id="keyword" placeholder="원하시는 컨텐츠의 제목을 입력하세요">
 				<button class="btn btn-sm btn-primary col-md-2" name="btnSearch" id="btnSearch" onclick="location.href='${path}/movie/list'">
@@ -123,13 +123,34 @@
 								e.preventDefault();
 							});
 						});
-				// scrolly
-				if ($(".scrolly").length) {
-					var $height = $('#header').height();
-					$('.scrolly').scrolly({
-						offset : $height
-					});
-				}
+				// More
+					$banner.find('.more')
+						.addClass('scrolly');
+			}
+		// 탭
+			$('.flex-tabs').each( function() {
+				var t 		= jQuery(this),
+					tab 	= t.find('.tab-list li a'),
+					tabs 	= t.find('.tab');
+				tab.click(function(e) {
+					var x = jQuery(this),
+						y = x.data('tab');
+					// 액티브 활성
+						tab.removeClass('active');
+						x.addClass('active');
+					// show/hide
+						tabs.removeClass('active');
+						t.find('.' + y).addClass('active');
+					e.preventDefault();
+				});
 			});
-		})(jQuery);
-	</script>
+		// scrolly
+			if ( $( ".scrolly" ).length ) {
+				var $height = $('#header').height();
+				$('.scrolly').scrolly({
+					offset: $height
+				});
+			}
+	});
+})(jQuery);
+</script>
