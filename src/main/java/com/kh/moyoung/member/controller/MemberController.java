@@ -306,7 +306,7 @@ public class MemberController {
 
 		GoogleIdTokenVerifier verifier = new GoogleIdTokenVerifier.Builder(transport, jsonFactory)
 				.setAudience(Collections
-						.singletonList("955108501404-e26jfs97pn99soeeco8qoun7am449dt4.apps.googleusercontent.com"))
+						.singletonList("인증코드 넣어야할 곳"))
 				.build();
 
 		log.info("id_token : {}", id_token);
@@ -348,7 +348,7 @@ public class MemberController {
 
 		GoogleIdTokenVerifier verifier = new GoogleIdTokenVerifier.Builder(transport, jsonFactory)
 				.setAudience(Collections
-						.singletonList("955108501404-e26jfs97pn99soeeco8qoun7am449dt4.apps.googleusercontent.com"))
+						.singletonList("인증코드 넣어야할 곳"))
 				.build();
 
 		log.info("id_token : {}", id_token);
