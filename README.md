@@ -47,7 +47,7 @@
    - 회원가입/로그인 : 일반&구글로그인
    - 아이디찾기/비밀번호찾기 : 이메일 이용
 
-   [![이미지 텍스트](https://i9.ytimg.com/vi/sOZuJkkDMmc/mqdefault.jpg?sqp=CLiiiogG&rs=AOn4CLDepIhvSRXwuBA9jjUR6t10YEJBGg)](https://youtu.be/sOZuJkkDMmc)
+   [![회원기능 시연영상](https://i9.ytimg.com/vi/sOZuJkkDMmc/mqdefault.jpg?sqp=CLiiiogG&rs=AOn4CLDepIhvSRXwuBA9jjUR6t10YEJBGg)](https://youtu.be/sOZuJkkDMmc)
 
 
 
@@ -58,7 +58,7 @@
    - 영화 상세 :  OTT 분류, 영화 정보, 리뷰 정보. 
    - 리뷰 : 리뷰 작성,수정,삭제. 스포일러 체크와 별점 등록 가능. 정렬(최신순/별점순/등록순)
 
-   [![이미지 텍스트](https://i9.ytimg.com/vi_webp/z9gq4oyPlg4/mqdefault.webp?sqp=CLypiogG&rs=AOn4CLB3I4cSa5vaomnpmBmrkVRqfZBXQQ)](https://youtu.be/z9gq4oyPlg4)
+   [![영화,리뷰 시연영상](https://i9.ytimg.com/vi_webp/z9gq4oyPlg4/mqdefault.webp?sqp=CLypiogG&rs=AOn4CLB3I4cSa5vaomnpmBmrkVRqfZBXQQ)](https://youtu.be/z9gq4oyPlg4)
 
    
 
@@ -66,7 +66,7 @@
 
    - 파티 구하기 글 작성 및 삭제. 오픈카톡 채팅방으로 연결 가능
 
-   [![이미지 텍스트](https://i9.ytimg.com/vi_webp/E-_50AIfiO0/mqdefault.webp?sqp=CLiiiogG&rs=AOn4CLCheFrNOfoP1N5WK_UWxbeiNh0jwQ)](https://youtu.be/E-_50AIfiO0)
+   [![파티구하기 시연영상](https://i9.ytimg.com/vi_webp/E-_50AIfiO0/mqdefault.webp?sqp=CLiiiogG&rs=AOn4CLCheFrNOfoP1N5WK_UWxbeiNh0jwQ)](https://youtu.be/E-_50AIfiO0)
 
 
 
@@ -75,7 +75,7 @@
    - 비밀번호 재확인 후 정보 수정(sns로그인의 경우 닉네임, 생일만 수정 가능)
    - 작성한 리뷰, 찜한 영화 조회
 
-   [![이미지 텍스트](https://i9.ytimg.com/vi/5sB13O32q-U/mqdefault.jpg?sqp=CLiiiogG&rs=AOn4CLDpkkcVsPZEMgQzMYouDiTxKNkyZQ)](https://youtu.be/5sB13O32q-U)
+   [![마이페이지 시연영상](https://i9.ytimg.com/vi/5sB13O32q-U/mqdefault.jpg?sqp=CLiiiogG&rs=AOn4CLDpkkcVsPZEMgQzMYouDiTxKNkyZQ)](https://youtu.be/5sB13O32q-U)
 
    
 
@@ -83,4 +83,4 @@
 
    - 공지사항 작성,수정, 삭제, 조회
 
-   [![이미지 텍스트](https://i9.ytimg.com/vi/ycaOLReSJpU/mqdefault.jpg?sqp=CLiiiogG&rs=AOn4CLBKkaw11CSSkJ-Kj5-chpq_uqHWrw)](https://youtu.be/ycaOLReSJpU)
+   [![공지사항 ](https://i9.ytimg.com/vi/ycaOLReSJpU/mqdefault.jpg?sqp=CLiiiogG&rs=AOn4CLBKkaw11CSSkJ-Kj5-chpq_uqHWrw)](https://youtu.be/ycaOLReSJpU)
